@@ -33,7 +33,7 @@ Because of the default password is **raspberry** change it to something special 
 Simply go to menu in the upper left and click raspberry config (elaborate later a better way and add the console way).
 ## Network
 Because we want to get online or into a home network, we simlply just click the upper left WLAN symbol (near the Bluetooth symbol) and click the right network (plus enter the hopefully not default credentials - if you connected a LAN cable you can skip this).
-This was fast. Now we have a small but cool computer that can do everything that your current computer can :) (everything but Being fast in Gaming, Web, Video ... ;)
+This was fast. Now we have a small but cool computer that can do everything that your current computer can :) (everything but Being fast in Gaming, Web, Video ... ;) (Note: It can even play 1080p and can be used for normal browsing)
 
 # 5. Connect it
 ## Remote desktop connection

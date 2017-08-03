@@ -1,5 +1,6 @@
 # RaspiForBeginners
-In this repository I'ill wanted to document (now also with other cool people :raised_hands:) everything I do with my *new* Raspberry Pi 3 just for fun and education.
+
+In this repository I'll wanted to document (now also with other cool people :raised_hands:) everything I do with my *new* Raspberry Pi 3 just for fun and education.
 
 You can use this repository as a beginners tutorial for your own Raspberry Pi or probably learn something new and cool about it (or help us to make this tutorial/repository better :).
 
@@ -231,7 +232,95 @@ Also because we set as automatic start of the Pi a GUI start we now always login
 
 ...
 
-# 6. Program on it
+# 6. Welcome to the console :)
+
+## Introduction
+
+The CLI (command line interface) is in contrast to the GUI (graphical user interface) solely text based.
+
+This brings the advantage of printing out with very few commands small things like "Hello world!" to controlling and monitoring with some other commands a big server. 
+
+In addition, support is simpler due to the uniqueness of the commands.
+
+If this is all Greek to you ("oder du verstehst bisher nur Banhof") just keep reading - it's really simple:
+
+## Start the console
+
+If you booted in the CLI environment without starting the GUI (see 4.) you obviously are already in the console. And if you booted into the desktop GUI environment you can click the terminal icon on the top bar to start the console.
+
+But there is a third way (if you booted with a GUI):
+You can press `Ctrl` + `Alt` + `t` to start the console everywhere without even touching the mouse.
+
+If you now also want to go full screen just press `Alt` + `Space` and then `x`.
+
+And if you want to close the terminal again just press `Ctrl` + `Shift` + `q`.
+
+## Shortcuts
+
+Typing is is easy for you and with the arrow keys you already know how to get back and forth in the current command. So what can you possibly do better or faster you ask?... The answer is... a lot:
+
+---
+
+* `Ctrl` + `a` brings you in no-time to the begin of your current command
+* `Ctrl` + `e` brings you in no-time to the end of your current command
+* `Ctrl` + `x` + `x` moves your cursor between the begin and the end of your current command
+
+---
+
+* `Ctrl` + `k` *kills* or better deletes everything of the current command from the begin to the current cursor position
+* `Ctrl` + `w` *kills* everything of the current command from the current cursor position to the end
+* `Ctrl` + `u` *kills* everything of the current command after the position where your cursor is
+* But all those shortcuts don't really kill or delete the text parts - they rather save them to a clipboard so that you can paste with the shortcut `Ctrl` + `y` these parts in your current command at your current cursor position
+
+---
+
+...
+
+---
+
+- `Ctrl` + `p` replaces your current command with your *previous* entered command (in entered history)
+- `Ctrl` + `n` replaces your current command with your *next* entered command (in entered history)
+
+---
+
+- `Ctrl` + `c` stops/aborts the current running program in the console/terminal
+- `Ctrl` + `d` stops every currently running program (closes the console in this case)
+
+
+- `Ctrl` + `l` cleans the whole terminal
+
+------
+
+Also there is the holy grail the `Tab` key. It completes commands, filenames, etcetera...
+If you press the `Tab` key again it will autocomplete to the next logical command, filename, etcetera...
+
+## Commands
+
+Here some simple but commands you should now or are helpful to know:
+
+---
+
+`echo` + ... or "..." → output: ...
+
+```
+pi@raspberrypi:~ $ echo hello
+hello
+pi@raspberrypi:~ $ echo hello world!
+hello world!
+pi@raspberrypi:~ $ echo "hello world!"
+hello world!
+pi@raspberrypi:~ $ ▮
+```
+
+...
+
+*Source of many commands and many that we didn't told about: [skorks](https://www.skorks.com/2009/09/bash-shortcuts-for-maximum-productivity/)*
+
+# 7. Program on it
+
+## Python
+
+...
 
 ## Python
 
@@ -245,7 +334,7 @@ Also because we set as automatic start of the Pi a GUI start we now always login
 
 ...
 
-# 7. Set up a local webserver
+# 8. Set up a local webserver
 
 ## Normal HTML server
 
@@ -263,7 +352,7 @@ Also because we set as automatic start of the Pi a GUI start we now always login
 
 ...
 
-# 8. Automated jobs server (cron jobs)
+# 9. Automated jobs server (cron jobs)
 
 ...
 
@@ -271,11 +360,11 @@ Also because we set as automatic start of the Pi a GUI start we now always login
 
 ...
 
-# 9. Speech recognition interaction
+# 10. Speech recognition interaction
 
 ...
 
-# 10. Work with the GPIO pins
+# 11. Work with the GPIO pins
 
 ...
 

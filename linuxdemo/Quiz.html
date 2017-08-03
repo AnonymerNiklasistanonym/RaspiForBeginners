@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Linux GFS</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/quiz-1.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+    <script src="js/quiz/jquery.js"></script>
+    <script src="js/quiz/quiz-1.js" type="text/javascript"> </script>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">Linux GFS Demo</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><a href="index.html">Übersicht <span class="sr-only">(current)</span></a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="Quiz.html">Quiz</a></li>
+            <li><a href="Kommandozeile.html">Kommandozeile</a></li>
+            <li><a href="Bedienung.html">Bedienung</a></li>
+            <li><a href="Tastenkombinationen.html">Tastenkombinationen</a></li>
+            <li><a href="HilfezurSelbsthilfe.html">Hilfe zur Selbsthilfe</a></li>
+            <li><a href="Navigation.html">Navigation</a></li>
+            <li><a href="Rechtesystem.html">Rechtesystem</a></li>
+            <li><a href="Texteditor.html">Texteditor</a></li>
+            <li><a href="WeiterleitungundPipes.html">Weiterleitung und Pipes</a></li>
+            <li><a href="ProgrammeinBashschreiben.html">Programme in Bash schreiben</a></li>
+            <li><a href="BefehlezumAusprobieren.html">Befehle zum Ausprobieren
+</a></li>
+            <li><a href="WeitereRessourcen.html">Weitere Ressourcen</a></li>
+            <li><a href="WeitereAufgaben.html">Weitere Aufgaben</a></li>
+          </ul>
+
+        </div>
+        <!--Inhalt-->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Quiz</h1>
+
+          <div class="row placeholders qz">
+ 
+           <p class="question ">1. Warum wurde C als Programmiersprache für Unix gewählt?</p>        
+
+<ul class="answers">            
+<input type="radio" name="q1" value="a" id="q1a"><label for="q1a">portiebar auf andere Hardwareplatformen, ..</label><br/>          
+<input type="radio" name="q1" value="b" id="q1b"><label for="q1b">Der Buchstabe ist toll..</label><br/>            
+<input type="radio" name="q1" value="c" id="q1c"><label for="q1c">Andere Sprachen hatten Lizenzprobleme</label><br/>            
+<input type="radio" name="q1" value="d" id="q1d"><label for="q1d">die Computer waren zu langsam</label><br/>       
+</ul>        
+
+
+<p class="question">2. Welche Preise wurden Ken Thompson und Dennis Ritchie verliehen?</p>        
+
+<ul class="answers">            
+<input type="radio" name="q2" value="a" id="q2a"><label for="q2a">goldene Palme, goldene Himbeere</label><br/>           
+<input type="radio" name="q2" value="b" id="q2b"><label for="q2b">Turing Award, National Medal of Technologie</label><br/>            
+<input type="radio" name="q2" value="c" id="q2c"><label for="q2c">National Award, Hawking Award</label><br/>           
+<input type="radio" name="q2" value="d" id="q2d"><label for="q2d">Nobel Preis</label><br/>       
+</ul>        
+
+<p class="question">3. Unter welcher Lizenz befindet sich der Linux Kernel?</p>        
+
+<ul class="answers">            
+<input type="radio" name="q3" value="a" id="q3a"><label for="q3a">GPL</label><br/>            
+<input type="radio" name="q3" value="b" id="q3b"><label for="q3b">BSD</label><br/>            
+<input type="radio" name="q3" value="c" id="q3c"><label for="q3c">MIT</label><br/>           
+<input type="radio" name="q3" value="d" id="q3d"><label for="q3d">Apache Lizenz</label><br/>       
+</ul>        
+
+<p class="question">4. Was ist eine Distribution?</p>        
+
+<ul class="answers">           
+<input type="radio" name="q4" value="a" id="q4a"><label for="q4a">Ein Computer</label><br/>            
+<input type="radio" name="q4" value="b" id="q4b"><label for="q4b">Ein Bestandteil vom Linux Kernel</label><br/>            
+<input type="radio" name="q4" value="c" id="q4c"><label for="q4c">eine Softwarefirma</label><br/>            
+<input type="radio" name="q4" value="d" id="q4d"><label for="q4d">eine Sammlung von Programmen (z.B der Linux Kernel, ..)</label><br/>        
+</ul>        
+
+<p class="question">5. Wo findet Linux keine Verwendung?</p>        
+
+<ul class="answers">            
+<input type="radio" name="q5" value="a" id="q5a"><label for="q5a">auf Smartphones</label><br/>            
+<input type="radio" name="q5" value="b" id="q5b"><label for="q5b">auf Servern</label><br/>            
+<input type="radio" name="q5" value="c" id="q5c"><label for="q5c">auf Supercomputer</label><br/>           
+<input type="radio" name="q5" value="d" id="q5d"><label for="q5d">auf Bäumen</label><br/>        
+</ul>        
+
+<br/>
+<div id="results">            
+Antworten      
+</div>                
+
+<div id="category1">            
+<p>              
+<strong>Frage 1:</strong> Die richtige Antwort ist<strong>Antwort 1</strong>.</p>        
+</div>        
+
+<div id="category2">            
+<p>              
+<strong>Frage 2:</strong> Die richtige Antwort ist <strong>Antwort 2</strong>.</p>        
+</div>        
+
+<div id="category3">            
+<p>                
+<strong>Frage 3:</strong> Die richtige Antwort ist <strong>Antwort 1</strong>.</p>        
+</div>        
+
+<div id="category4">            
+<p>               
+<strong>Frage 4:</strong> Die richtige Antwort ist <strong>Antwort 4</strong>.</p>        
+</div>        
+
+<div id="category5">            
+<p>                
+<strong>Frage 5:</strong> Die richtige Antwort ist <strong>Antwort 1</strong>.</p>        
+</div> 
+
+<div id="category11">            
+<p>                
+Alle Fragen wurden richtig beantwortet!</p>        
+</div>  
+
+          
+        
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

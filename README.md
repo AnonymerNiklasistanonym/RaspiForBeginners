@@ -184,6 +184,8 @@ Now you have a small but cool computer that can do everything that your current 
 
 # 5. Connect it
 ## Remote desktop connection
+### XRDP (Works fine with Windows)
+
 I wanted to access the device everywhere from my Windows Desktop and my Windows Laptop so I though a remote desktop connection would be a perfect start (I have also only one monitor so.... yeah).
 
 This means that you can mirror the whole Raspberry Pi GUI on your Windows Device (or also LINUX) and using it while the Raspberry only needs to be connected to the power and the same network like your Computer (LAN or WLAN - also the router needs to be allowing this and not isolate every device on the network).
@@ -213,6 +215,74 @@ Now we can start on any Windows computer (over the program search) a *remote des
 
 Viola, there you have your Raspberry Pi desktop on your Windows computer.
 
+### Method for Android or Linux Distributions
+
+...
+
 
 
 Also because we set as automatic start of the Pi a GUI start we now always login to the GUI of the Pi when we log ourselves in over a remote desktop connection without needing the raspberry connect to any cables but the power chord (and eventually your network cable if you do not have WLAN).
+
+## SSH connection (for Android, Linux, Windows)
+
+...
+
+## Pi live monitoring app (for Android)
+
+...
+
+# 6. Program on it
+
+## Python
+
+...
+
+## Java
+
+...
+
+## C
+
+...
+
+# 7. Set up a local webserver
+
+## Normal HTML server
+
+...
+
+## PHP server
+
+...
+
+## SQL server
+
+...
+
+## SFTP server
+
+...
+
+# 8. Automated jobs server (cron jobs)
+
+...
+
+## Example with an email bot
+
+...
+
+# 9. Speech recognition interaction
+
+...
+
+# 10. Work with the GPIO pins
+
+...
+
+## Example with a LED
+
+...
+
+## Example with an LCD display
+
+...

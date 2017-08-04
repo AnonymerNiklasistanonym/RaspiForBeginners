@@ -214,7 +214,7 @@ Now we can start on any Windows computer (over the program search) a *remote des
 * Than a strange window should open itself that asks for a username and password 
 * You type in as your username **pi** and as password your **your secure password** 
 
-Viola, there you have your Raspberry Pi desktop on your Windows computer.
+Voilà, there you have your Raspberry Pi desktop on your Windows computer.
 
 ### Method for Android or Linux Distributions
 
@@ -454,7 +454,7 @@ Three things:
 3. If you come from a WINDOWS computer you probably wondered why there was no error prompt after I created first the folder `cool folder` and then `Cool folder` without any kind of error prompt. That is because of LINUX. The file system is in contrast to WINDOWS - if you put it simply - not case sensitive. You can create files and folders with the same name as long as there is a difference in large or lower case. On WINDOWS computers you can't do this. Every file in a directory there can only have a unique name.
 4. Wait a second, I want also to create files :disappointed:...
 
-- `touch` creates a file with the name you write after it :happy:
+- `touch` creates a file with the name you write after it :smiley:
 
 ```
 pi@raspberrypi:~ $ touch cool_file
@@ -530,7 +530,102 @@ pi@raspberrypi:~Desktop/another_cool_directory $ ▮
 
 Two things to go: Deleting files and viewing/editing them:
 
-...
+Of course you could install programs that can things so much better (like for example Vim).
+
+For now we use the `nano` terminal editor, because it is already installed.
+
+* `nano` is a simple text editor
+
+```
+pi@raspberrypi:~ $ nano
+```
+
+And in the terminal a new CLI opens where you can write text like in a normal text editor.
+
+When you are finished just use the shortcut `Ctrl` + `x`. Now (if you wrote something) the editor asks if it should save the things you wrote. If you press `y` you now just need to type in a name for your file.
+
+The cool thing is you can not only doo much more with `nano` and creating files, you can also really simple edit existing files:
+
+```
+pi@raspberrypi:~ $ nano existing_file
+```
+
+This will open the existing file named existing_file and you can edit the content of it. Saving is the same just quit `nano` with `Ctrl` + `x` and press `y` now just don't change the name of the file and you edited successfully a file.
+
+* `cat` enables you to quickly view the content of a text file directly in the editor
+
+For example did I just edit the existing_file in my home directory like in the command before and wrote `Hello world!` . When you now input `cat existing_file` you will see the content directly in the console:
+
+```
+pi@raspberrypi:~ $ cat exisiting_file
+Hello world!
+pi@raspberrypi:~ $ ▮
+```
+
+---
+
+But how can you delete all these very unimportant files you created in the last 10 minutes?
+
+* `rm` like *remove*
+
+Doesn't sound so difficult, doesn't it? Let's clean my desktop:
+
+```
+pi@raspberrypi:~/Desktop $ ls
+another_cool_directory exisiting_file hi tut tut.txt
+pi@raspberrypi:~/Desktop $ rm hi
+pi@raspberrypi:~/Desktop $ rm tut.txt
+pi@raspberrypi:~/Desktop $ ls
+another_cool_directory exisiting_file tut
+pi@raspberrypi:~/Desktop $ ▮
+```
+
+But if we try to remove a directory there is an error prompt... let's learn a new command:
+
+- `rmdir` like *remove directory*
+
+```
+pi@raspberrypi:~/Desktop $ ls
+another_cool_directory exisiting_file tut
+pi@raspberrypi:~/Desktop $ rm another_cool_directory
+rm: cannot remove 'another_cool_directory': Is a directory
+pi@raspberrypi:~/Desktop $ rmdir another_cool_directory
+rmdir: cannot remove 'another_cool_directory': Directory is not empty
+pi@raspberrypi:~/Desktop $ ▮
+```
+
+Okay. It seems like you only can delete empty directories. But of course we have a command for deleting also a not empty directory:
+
+```
+pi@raspberrypi:~/Desktop $ rm -rf another_cool_directory
+pi@raspberrypi:~/Desktop $ ls
+exisiting_file tut
+pi@raspberrypi:~/Desktop $ mkdir new_empty_directory
+pi@raspberrypi:~/Desktop $ ls
+exisiting_file new_empty_directory tut
+pi@raspberrypi:~/Desktop $ rmdir new_empty_directory
+pi@raspberrypi:~/Desktop $ ls
+exisiting_file tut
+pi@raspberrypi:~/Desktop $ ▮
+```
+
+Damn. You're really fast. Some cool and helpful things before we go on with next steps: 
+
+---
+
+Another really important thing is the command
+
+* `man` like *manual*
+
+Type this command and after it the command you want to know more about (bee it what does it, what are the command options, etcetera...).
+
+For example I want to know more about the command `ls`:
+
+```
+pi@raspberrypi:~ $ man ls
+```
+
+Then in the console/terminal a manual which you can scroll through opens that contains all the information about the command `ls`. With pressing `q` you can leave the manual and are right back in the console/terminal. This works with every command.
 
 ---
 
@@ -549,7 +644,7 @@ pi@raspberrypi:~ $ history
 pi@raspberrypi:~ $ ▮
 ```
 
-(with the shortcut `Ctrl` + `r` you can search this history)
+(with the shortcut `Ctrl` + `r` you can search this history and when you think it's long enough type in `history -c` to clear it)
 
 - `!!` runs the last executed command
 
@@ -567,7 +662,6 @@ pi@raspberrypi:~ $ ▮
 If you want to learn more shortcuts and commands (and believe us, there are so many) just search on the web. There are many sites (like our sources) that list cool commands and in the comments you will find more and more. The learning curve is very steep.
 
 *Source of many shortcuts and many that we didn't told about: [skorks](https://www.skorks.com/2009/09/bash-shortcuts-for-maximum-productivity/)*
-
 *Source of many commands and many that we didn't told about: [tecmint](https://www.tecmint.com/useful-linux-commands-for-newbies/)*
 
 # 7. Program on it
@@ -585,6 +679,10 @@ If you want to learn more shortcuts and commands (and believe us, there are so m
 ...
 
 ## C
+
+...
+
+## How to install programs respectively packages? 
 
 ...
 

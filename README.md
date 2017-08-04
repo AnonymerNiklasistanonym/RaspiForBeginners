@@ -6,7 +6,9 @@ You can use this repository as a beginners tutorial for your own Raspberry Pi or
 
 Have fun with your Raspberry Pi 3 :smiley:
 
+
 # 1. Get the hardware
+
 **But first what do we need to have fun with our Raspberry Pi 3?**
 
 * Obviously order a new Raspberry Pi 3 (I bought one from [Amazon for 36€](https://www.amazon.de/Raspberry-Pi-Prozessor-Quad-Core-cortex-a53/dp/B01CD5VC92/ref=sr_1_4?s=computers&ie=UTF8&qid=1501606913&sr=1-4&keywords=raspberry+pi+3))
@@ -22,6 +24,7 @@ Have fun with your Raspberry Pi 3 :smiley:
 * Mouse (USB)
 * A computer (I have a Windows 10 Desktop - other desktop OSs' should be fine too)
 
+
 # 2. Setup an OS
 Your Raspberry Pi is in front of you and you want to play with it... but therefore you need an operating system.
 To install one you have many possibilities regarding the OS or rather LINUX distribution ([See here the official guide](https://www.raspberrypi.org/learning/software-guide/quickstart/)).
@@ -30,12 +33,13 @@ To install one you have many possibilities regarding the OS or rather LINUX dist
 
 1. Therefore you need to download the current Raspbian distribution ("Jessie with desktop" did we download) directly from [raspberry.org](https://www.raspberrypi.org/downloads/raspbian/).
 2. Then you extracted the ZIP file to get the image of the LINUX distribution.
-3. Because you can't just put an `.img` file on the Micro SD card you need to install a program like the open source program [etcher](https://etcher.io/). 
+3. Because you can't just put an `.img` file on the Micro SD card you need to install a program like the open source program [etcher](https://etcher.io/).
    Simply install it, open it, choose the `.img` file, choose the correct drive and press flash.
 4. Great, now you only need to safely eject the card and put it into your Raspberry Pi. :thumbsup:
 
+
 # 3. First start
-​Now we are ready to go and can finally start the Pi. :muscle: 
+​Now we are ready to go and can finally start the Pi. :muscle:
 
 Because we (or better I) am not the best with the console I want to start in the graphical user interface of the OS. Therefore you need to follow these steps:
 
@@ -43,6 +47,7 @@ Because we (or better I) am not the best with the console I want to start in the
 2. If you want to use the system probably connect a mouse and keyboard via USB.
 3. Now you can plugin the power supply or USB charger and connect it with the Micro USB port on the Raspberry to start it.
 4. Enjoy the fresh desktop of Raspbian because you get automatically logged in and so straight to the desktop.
+
 
 # 4. Security and network and more
 ## Security
@@ -59,7 +64,7 @@ To change the fault password there are two ways:
 + Click the raspberry icon at the top left
 + Click `Preferences`
 + Click `Raspberry Pi Configuration`
-+ In the new window you are now in the tab `System` 
++ In the new window you are now in the tab `System`
 + There you click the top button `Change Password...`
 + Now you input the current password **raspberry** and below two times a new, *secure* and *long* password (like **IwouldLike666RaspberryPies:D**)
 
@@ -124,10 +129,10 @@ pi@raspberrypi:~ $ sudo raspi-config▮
 
 After you pressed enter you will find yourself in the middle of the **Raspberry Pi Software Configuration Tool (raspi-config is the console name)**.
 
-You now pilot the red selection with the arrow keys to 
+You now pilot the red selection with the arrow keys to
 `3 Boot Options		Configure options for startup`.
 
-Then you press enter and select 
+Then you press enter and select
 `B1 Desktop / CLI		Choose whether to boot into a des...`.
 
 Then after you pressed enter you can choose what you want to boot in every time:
@@ -156,7 +161,7 @@ Probably some of you have noticed that the desktop isn't full screen on some mon
 - Click the raspberry icon at the top left
 - Click `Preferences`
 - Click `Raspberry Pi Configuration`
-- In the new window you are now in the tab `System` 
+- In the new window you are now in the tab `System`
 - There you click the button `Set Resolution...` and select your desired resolution
 - Than you also disable Underscan and after one fast reboot you are fully prepared *"Es krachen zu lassen!"* (German idiom - literally translated to *"To let it crash!"* - right translated to *"To party hard!"*)
 
@@ -175,16 +180,17 @@ Same thing if you want to change the resolution:
 - Then select `A5 Resolution`
 - Then select `Your desired resolution`
 
-
-
 WOW. This was fast!
-Now you have a small but cool computer that can do everything that your current computer can :) 
+Now you have a small but cool computer that can do everything that your current computer can :)
 
-(everything but being fast in Gaming, Web, Video ... ;) 
+(everything but being fast in Gaming, Web, Video ... ;)
 (Note: It can even play 1080p and can be used for normal browsing)
 
+
 # 5. Connect it
+
 ## Remote desktop connection
+
 ### XRDP (Works fine with Windows)
 
 I wanted to access the device everywhere from my Windows Desktop and my Windows Laptop so I though a remote desktop connection would be a perfect start (I have also only one monitor so.... yeah).
@@ -202,7 +208,7 @@ I had some problems while establishing the connection with the tutorial from [Ad
 * XRDP will automatically run after the installation.
 
 One thing before we can start:
-You need to know the IP address of your Raspberry Pi on your home network. 
+You need to know the IP address of your Raspberry Pi on your home network.
 
 If you do not know the address we can use our mighty console by using the command `hostname -I`.
 If you press enter you will see the IP address and mac address of your Raspberry Pi like `192.168.0.23 33ac:6589:a374:...`
@@ -211,16 +217,14 @@ just copy everything before the blank and you have the IP address or rather hous
 Now we can start on any Windows computer (over the program search) a *remote desktop connection*.
 
 * You input in the opened window the IP address of your Raspberry Pi and click `connect`
-* Than a strange window should open itself that asks for a username and password 
-* You type in as your username **pi** and as password your **your secure password** 
+* Than a strange window should open itself that asks for a username and password
+* You type in as your username **pi** and as password your **your secure password**
 
 Voilà, there you have your Raspberry Pi desktop on your Windows computer.
 
 ### Method for Android or Linux Distributions
 
 ...
-
-
 
 Also because we set as automatic start of the Pi a GUI start we now always login to the GUI of the Pi when we log ourselves in over a remote desktop connection without needing the raspberry connect to any cables but the power chord (and eventually your network cable if you do not have WLAN).
 
@@ -232,13 +236,14 @@ Also because we set as automatic start of the Pi a GUI start we now always login
 
 ...
 
+
 # 6. Welcome to the console :)
 
 ## Introduction
 
 The CLI (command line interface) is in contrast to the GUI (graphical user interface) solely text based.
 
-This brings the advantage of printing out with very few commands small things like "Hello world!" to controlling and monitoring with some other commands a big server. 
+This brings the advantage of printing out with very few commands small things like "Hello world!" to controlling and monitoring with some other commands a big server.
 
 In addition, support is simpler due to the uniqueness of the commands.
 
@@ -268,7 +273,7 @@ Typing is is easy for you and with the arrow keys you already know how to get ba
 ---
 
 - `Ctrl` + `b` move backward one character (same as `←`)
-- `Ctrl` + `f` move forward one character (same as `→`) 
+- `Ctrl` + `f` move forward one character (same as `→`)
 
 ---
 
@@ -291,8 +296,6 @@ Typing is is easy for you and with the arrow keys you already know how to get ba
 
 - `Ctrl` + `c` stops/aborts the current running program in the console/terminal
 - `Ctrl` + `d` stops every currently running program (closes the console in this case)
-
-
 - `Ctrl` + `l` cleans the whole terminal
 
 ------
@@ -300,15 +303,17 @@ Typing is is easy for you and with the arrow keys you already know how to get ba
 Also there is the holy grail the `Tab` key. It completes commands, filenames, etcetera...
 If you press the `Tab` key again it will autocomplete to the next logical command, filename, etcetera...
 
----
-
 ## Commands
 
 Here some simple but commands you should now or are helpful to know:
 
+### Text output command ("Hello world")
+
 ---
 
-* `echo` + ... or "..." → output: ...
+#### `echo`
+
+`echo` + ... or "..." → output: ...
 
 ```tiki wiki
 pi@raspberrypi:~ $ echo hello
@@ -334,9 +339,13 @@ wow again a new line... now we want to end by typing a  and pressing enter
 pi@raspberrypi:~ $ ▮
 ```
 
+### File system commands
+
 ---
 
-- `ls` stands for *List directory contents* and lists the current content of the folder you are in.
+#### `ls`
+
+stands for *List directory contents* and lists the current content of the folder you are in.
 
 Wait a second - we are in a folder?
 
@@ -375,13 +384,10 @@ pi@raspberrypi:~ $ ▮
 Explanation: ([used source](https://linuxconfig.org/understanding-of-ls-command-with-a-long-listing-format-output-with-permission-bits))
 
 * `d` stands for directory - `l` for a link - `c` for a character file
-
 * `rwxr-xr-x` are the permissions applied to this *file* also called octets
 
   * the firs octet defines the permission for the file owner `rwx`
-
   * the second octet defines the permissions defined for the group `r-x`
-
   * the third and last part defines the permissions for everyone else `r-x`
 
     * The permissions are the following
@@ -391,15 +397,10 @@ Explanation: ([used source](https://linuxconfig.org/understanding-of-ls-command-
        | read | write | execute |
 
 * `2` number of linked hard-links (links to that file/directory)
-
 * `pi` the owner of the file/directory
-
 * `pi` the group which this file/directory belongs to
-
 * `4096` size of the file/directory
-
 * `Aug  1 14:59` modification/creation date and time
-
 * `Desktop` the file/directory name
 
 `-a` → shows not only the *normal* files, but also the *hidden* ones that start with a `.`
@@ -429,54 +430,15 @@ pi@raspberrypi:~ $ ▮
 
 ---
 
-Next we probably want to create files (that means folders and files):
-
-- `mkdir` stands for *Make directory* and creates a directory with the name you write after it
-
-```
-pi@raspberrypi:~ $ mkdir cool_folder
-pi@raspberrypi:~ $ ls
-cool_folder Desktop Documents Downloads Music Pictures Public python_games Templates Videos
-pi@raspberrypi:~ $ mkdir cool_folder
-mkdir: cannot create directory 'cool folder': File exists
-pi@raspberrypi:~ $ mkdir Cool_folder
-pi@raspberrypi:~ $ ls
-cool_folder Desktop   Downloads Pictures python_games Videos
-Cool_folder Documents Music     Public   Templates
-pi@raspberrypi:~ $ ▮
-```
-
-Three things:
-
-1. Creating a directory/folder is simple and you did it :raised_hands:
-2. If the directory already exists you get an error prompt
-   (`mkdir: cannot create directory 'cool folder': File exists`) 
-3. If you come from a WINDOWS computer you probably wondered why there was no error prompt after I created first the folder `cool folder` and then `Cool folder` without any kind of error prompt. That is because of LINUX. The file system is in contrast to WINDOWS - if you put it simply - not case sensitive. You can create files and folders with the same name as long as there is a difference in large or lower case. On WINDOWS computers you can't do this. Every file in a directory there can only have a unique name.
-4. Wait a second, I want also to create files :disappointed:...
-
-- `touch` creates a file with the name you write after it :smiley:
-
-```
-pi@raspberrypi:~ $ touch cool_file
-pi@raspberrypi:~ $ ls
-cool_file   Cool_folder Documents Music    Public       Templates
-cool_folder Desktop     Downloads Pictures python_games Videos
-pi@raspberrypi:~ $ touch Cool_file
-pi@raspberrypi:~ $ ls
-cool_file cool_folder Desktop   Downloads Pictures python_games Videos
-Cool_file Cool_folder Documents Music     Public   Templates
-pi@raspberrypi:~ $ ▮
-```
-
-**But attention:** If a file (this means a folder or a file) already is named `cool_file` and you enter `touch cool_file`. There will be no error prompt and there also won't be created anything. In such a case `touch` updates the timestamp of the file that is named `cool_file`.
-
-Okay. So now we can create files and if we make paths like `touch Desktop/hi` we can also create them in other folders but... we want also that the directory where our console/terminal is in can be changed... That's possible, right?
+Okay. So now we can find files in our current directory but can we probably also go into other directories?
 
 Not a problem my friend:
 
 ---
 
-* `cd` stands for *Change directory* and will do the magic
+#### `cd`
+
+stands for *Change directory* and will do the magic
 
 You just type in `cd` and after that your path - the directory you wanna go. In this case we want straight to the documents folder:
 
@@ -507,7 +469,62 @@ pi@raspberrypi:~/Desktop $ cs ..
 pi@raspberrypi:~ $ ▮
 ```
 
-And here an example for a longer path than `Desktop`:
+### Create/Edit/Delete/View files
+
+Next we probably want to create files (that means folders and files):
+
+------
+
+#### `mkdir`
+
+stands for *Make directory* and creates a directory with the name you write after it
+
+```
+pi@raspberrypi:~ $ mkdir cool_folder
+pi@raspberrypi:~ $ ls
+cool_folder Desktop Documents Downloads Music Pictures Public python_games Templates Videos
+pi@raspberrypi:~ $ mkdir cool_folder
+mkdir: cannot create directory 'cool folder': File exists
+pi@raspberrypi:~ $ mkdir Cool_folder
+pi@raspberrypi:~ $ ls
+cool_folder Desktop   Downloads Pictures python_games Videos
+Cool_folder Documents Music     Public   Templates
+pi@raspberrypi:~ $ ▮
+```
+
+Three things:
+
+1. Creating a directory/folder is simple and you did it :raised_hands:
+2. If the directory already exists you get an error prompt
+   (`mkdir: cannot create directory 'cool folder': File exists`)
+3. If you come from a WINDOWS computer you probably wondered why there was no error prompt after I created first the folder `cool folder` and then `Cool folder` without any kind of error prompt. That is because of LINUX. The file system is in contrast to WINDOWS - if you put it simply - not case sensitive. You can create files and folders with the same name as long as there is a difference in large or lower case. On WINDOWS computers you can't do this. Every file in a directory there can only have a unique name.
+4. Wait a second, I want also to create files :disappointed:...
+
+------
+
+#### `touch`
+
+creates a file with the name you write after it :smiley:
+
+```
+pi@raspberrypi:~ $ touch cool_file
+pi@raspberrypi:~ $ ls
+cool_file   Cool_folder Documents Music    Public       Templates
+cool_folder Desktop     Downloads Pictures python_games Videos
+pi@raspberrypi:~ $ touch Cool_file
+pi@raspberrypi:~ $ ls
+cool_file cool_folder Desktop   Downloads Pictures python_games Videos
+Cool_file Cool_folder Documents Music     Public   Templates
+pi@raspberrypi:~ $ ▮
+```
+
+---
+
+**But attention:** If a file (this means a folder or a file) already is named `cool_file` and you enter `touch cool_file`. There will be no error prompt and there also won't be created anything. In such a case `touch` updates the timestamp of the file that is named `cool_file`.
+
+---
+
+After we now know how to create directories and files here an additional example for a longer path while using the command `cd`:
 
 ```
 pi@raspberrypi:~ $ mkdir Desktop/another_cool_directory
@@ -518,6 +535,7 @@ hi
 pi@raspberrypi:~Desktop/another_cool_directory $ ▮
 ```
 
+Another additional tip:
 If you - although the path is already in the console - want the whole path of the directory your currently at just enter `pwd`:
 
 ```
@@ -528,23 +546,25 @@ pi@raspberrypi:~Desktop/another_cool_directory $ ▮
 
 ---
 
-Two things to go: Deleting files and viewing/editing them:
+Two things to go: Deleting files and viewing/editing them
 
-Of course you could install programs that can things so much better (like for example Vim).
+Of course you could install programs that can do these things so much better (for example an advanced text editor like Vim), but for now we'll use the `nano` terminal editor, because it is already installed.
 
-For now we use the `nano` terminal editor, because it is already installed.
+---
 
-* `nano` is a simple text editor
+#### `nano`
+
+is a simple text editor
 
 ```
 pi@raspberrypi:~ $ nano
 ```
 
-And in the terminal a new CLI opens where you can write text like in a normal text editor.
+If you enter this command in the terminal will start a new CLI where you can write text like in a normal text editor.. just you are still in the terminal.
 
 When you are finished just use the shortcut `Ctrl` + `x`. Now (if you wrote something) the editor asks if it should save the things you wrote. If you press `y` you now just need to type in a name for your file.
 
-The cool thing is you can not only doo much more with `nano` and creating files, you can also really simple edit existing files:
+The cool thing is you can not only do much more with `nano` and creating files, you can also really simple edit existing files:
 
 ```
 pi@raspberrypi:~ $ nano existing_file
@@ -552,7 +572,11 @@ pi@raspberrypi:~ $ nano existing_file
 
 This will open the existing file named existing_file and you can edit the content of it. Saving is the same just quit `nano` with `Ctrl` + `x` and press `y` now just don't change the name of the file and you edited successfully a file.
 
-* `cat` enables you to quickly view the content of a text file directly in the editor
+---
+
+#### `cat`
+
+enables you to quickly view the content of a text file directly in the editor
 
 For example did I just edit the existing_file in my home directory like in the command before and wrote `Hello world!` . When you now input `cat existing_file` you will see the content directly in the console:
 
@@ -562,11 +586,13 @@ Hello world!
 pi@raspberrypi:~ $ ▮
 ```
 
----
-
 But how can you delete all these very unimportant files you created in the last 10 minutes?
 
-* `rm` like *remove*
+---
+
+#### `rm`
+
+like *remove*
 
 Doesn't sound so difficult, doesn't it? Let's clean my desktop:
 
@@ -582,7 +608,11 @@ pi@raspberrypi:~/Desktop $ ▮
 
 But if we try to remove a directory there is an error prompt... let's learn a new command:
 
-- `rmdir` like *remove directory*
+---
+
+#### `rmdir`
+
+like *remove directory*
 
 ```
 pi@raspberrypi:~/Desktop $ ls
@@ -609,15 +639,19 @@ exisiting_file tut
 pi@raspberrypi:~/Desktop $ ▮
 ```
 
-Damn. You're really fast. Some cool and helpful things before we go on with next steps: 
+Damn. You're really fast. Some cool and helpful things before we go on with next steps:
 
----
+### Find out more about commands
 
-Another really important thing is the command
+Another essential command is
 
-* `man` like *manual*
+------
 
-Type this command and after it the command you want to know more about (bee it what does it, what are the command options, etcetera...).
+#### `man`
+
+like *manual*
+
+Type this command and after it the command you want to know more about (be it what does it, what are the command options, etcetera...).
 
 For example I want to know more about the command `ls`:
 
@@ -627,9 +661,13 @@ pi@raspberrypi:~ $ man ls
 
 Then in the console/terminal a manual which you can scroll through opens that contains all the information about the command `ls`. With pressing `q` you can leave the manual and are right back in the console/terminal. This works with every command.
 
+### Command history tricks
+
 ---
 
-* `history` shows all the executed commands (very long! - my example is small)
+#### `history`
+
+shows all the executed commands (very long! - my example is small)
 
 ```
 pi@raspberrypi:~ $ history
@@ -646,7 +684,11 @@ pi@raspberrypi:~ $ ▮
 
 (with the shortcut `Ctrl` + `r` you can search this history and when you think it's long enough type in `history -c` to clear it)
 
-- `!!` runs the last executed command
+---
+
+#### `!!`
+
+runs the last executed command
 
 ```
 pi@raspberrypi:~ $ echo hello world!
@@ -657,24 +699,32 @@ hello world!
 pi@raspberrypi:~ $ ▮
 ```
 
-
+### Learn more commands and shortcuts
 
 If you want to learn more shortcuts and commands (and believe us, there are so many) just search on the web. There are many sites (like our sources) that list cool commands and in the comments you will find more and more. The learning curve is very steep.
+
+---
 
 *Source of many shortcuts and many that we didn't told about: [skorks](https://www.skorks.com/2009/09/bash-shortcuts-for-maximum-productivity/)*
 *Source of many commands and many that we didn't told about: [tecmint](https://www.tecmint.com/useful-linux-commands-for-newbies/)*
 
-# 7. Program on it
 
-## Python
+# 7. Install additional software/programs
+
+...
+
+
+# 8. Program on it
+
+## How to execute scripts
+
+...
+
+## Batch
 
 ...
 
 ## Python
-
-...
-
-## Java
 
 ...
 
@@ -682,11 +732,12 @@ If you want to learn more shortcuts and commands (and believe us, there are so m
 
 ...
 
-## How to install programs respectively packages? 
+## How to install programs respectively packages?
 
 ...
 
-# 8. Set up a local webserver
+
+# 9. Set up a local webserver
 
 ## Normal HTML server
 
@@ -704,19 +755,18 @@ If you want to learn more shortcuts and commands (and believe us, there are so m
 
 ...
 
-# 9. Automated jobs server (cron jobs)
+
+# 10. Automated jobs server (cron jobs)
 
 ...
 
-## Example with an email bot
+
+# 11. Speech recognition interaction
 
 ...
 
-# 10. Speech recognition interaction
 
-...
-
-# 11. Work with the GPIO pins
+# 12. Work with the GPIO pins
 
 ...
 

@@ -423,13 +423,135 @@ total 144
 drwxr-xr-x 25 pi   pi   4096 Aug  4 14:46 .
 drwxr-xr-x  3 root root 4096 Jul  5 12:41 ..
 -rw-------  1 pi   pi   2162 Aug  4 01:26 .bashhistory
-[too much not unimportants code - I stop here]
+[too much unimportants code - I stop here]
 pi@raspberrypi:~ $ ▮
 ```
 
 ---
 
-* `!!` runs the last executed command
+Next we probably want to create files (that means folders and files):
+
+- `mkdir` stands for *Make directory* and creates a directory with the name you write after it
+
+```
+pi@raspberrypi:~ $ mkdir cool_folder
+pi@raspberrypi:~ $ ls
+cool_folder Desktop Documents Downloads Music Pictures Public python_games Templates Videos
+pi@raspberrypi:~ $ mkdir cool_folder
+mkdir: cannot create directory 'cool folder': File exists
+pi@raspberrypi:~ $ mkdir Cool_folder
+pi@raspberrypi:~ $ ls
+cool_folder Desktop   Downloads Pictures python_games Videos
+Cool_folder Documents Music     Public   Templates
+pi@raspberrypi:~ $ ▮
+```
+
+Three things:
+
+1. Creating a directory/folder is simple and you did it :raised_hands:
+2. If the directory already exists you get an error prompt
+   (`mkdir: cannot create directory 'cool folder': File exists`) 
+3. If you come from a WINDOWS computer you probably wondered why there was no error prompt after I created first the folder `cool folder` and then `Cool folder` without any kind of error prompt. That is because of LINUX. The file system is in contrast to WINDOWS - if you put it simply - not case sensitive. You can create files and folders with the same name as long as there is a difference in large or lower case. On WINDOWS computers you can't do this. Every file in a directory there can only have a unique name.
+4. Wait a second, I want also to create files :disappointed:...
+
+- `touch` creates a file with the name you write after it :happy:
+
+```
+pi@raspberrypi:~ $ touch cool_file
+pi@raspberrypi:~ $ ls
+cool_file   Cool_folder Documents Music    Public       Templates
+cool_folder Desktop     Downloads Pictures python_games Videos
+pi@raspberrypi:~ $ touch Cool_file
+pi@raspberrypi:~ $ ls
+cool_file cool_folder Desktop   Downloads Pictures python_games Videos
+Cool_file Cool_folder Documents Music     Public   Templates
+pi@raspberrypi:~ $ ▮
+```
+
+**But attention:** If a file (this means a folder or a file) already is named `cool_file` and you enter `touch cool_file`. There will be no error prompt and there also won't be created anything. In such a case `touch` updates the timestamp of the file that is named `cool_file`.
+
+Okay. So now we can create files and if we make paths like `touch Desktop/hi` we can also create them in other folders but... we want also that the directory where our console/terminal is in can be changed... That's possible, right?
+
+Not a problem my friend:
+
+---
+
+* `cd` stands for *Change directory* and will do the magic
+
+You just type in `cd` and after that your path - the directory you wanna go. In this case we want straight to the documents folder:
+
+```
+pi@raspberrypi:~ $ cd Desktop
+pi@raspberrypi:~/Desktop $ ▮
+```
+
+WOW. Did you just see that?
+Wait a second, one more tip:
+
+```
+pi@raspberrypi:~/Desktop $ cd ~
+pi@raspberrypi:~ $ ▮
+```
+
+The thing after `username@hostname:` is the path where your console/terminal currently *is*. :open_mouth:
+
+The odd `~` makes hopefully for you so much sense now, because it stands for your home directory. If you changed your directory so much, that you lost yourself just enter `cd ~` and you are back home.
+
+But there are more tricks:
+
+With `cd ..` you go one folder upwards
+
+```
+pi@raspberrypi:~ $ cd Desktop
+pi@raspberrypi:~/Desktop $ cs ..
+pi@raspberrypi:~ $ ▮
+```
+
+And here an example for a longer path than `Desktop`:
+
+```
+pi@raspberrypi:~ $ mkdir Desktop/another_cool_directory
+pi@raspberrypi:~ $ touch Desktop/another_cool_directory/hi
+pi@raspberrypi:~ $ cd Desktop/another_cool_directory/
+pi@raspberrypi:~Desktop/another_cool_directory $ ls
+hi
+pi@raspberrypi:~Desktop/another_cool_directory $ ▮
+```
+
+If you - although the path is already in the console - want the whole path of the directory your currently at just enter `pwd`:
+
+```
+pi@raspberrypi:~Desktop/another_cool_directory $ pwd
+/home/pi/Desktop/another_cool_directory
+pi@raspberrypi:~Desktop/another_cool_directory $ ▮
+```
+
+---
+
+Two things to go: Deleting files and viewing/editing them:
+
+...
+
+---
+
+* `history` shows all the executed commands (very long! - my example is small)
+
+```
+pi@raspberrypi:~ $ history
+   1  echo hi
+   2  echo hello world
+   3  echo hello "world"
+   4  ls
+   5  ls -l
+   6  ls -a
+   7  ls -la
+   8  history
+pi@raspberrypi:~ $ ▮
+```
+
+(with the shortcut `Ctrl` + `r` you can search this history)
+
+- `!!` runs the last executed command
 
 ```
 pi@raspberrypi:~ $ echo hello world!
@@ -442,9 +564,11 @@ pi@raspberrypi:~ $ ▮
 
 
 
+If you want to learn more shortcuts and commands (and believe us, there are so many) just search on the web. There are many sites (like our sources) that list cool commands and in the comments you will find more and more. The learning curve is very steep.
+
 *Source of many shortcuts and many that we didn't told about: [skorks](https://www.skorks.com/2009/09/bash-shortcuts-for-maximum-productivity/)*
 
-Source of many commands and many that we didn't told about: [tecmint](https://www.tecmint.com/useful-linux-commands-for-newbies/)
+*Source of many commands and many that we didn't told about: [tecmint](https://www.tecmint.com/useful-linux-commands-for-newbies/)*
 
 # 7. Program on it
 

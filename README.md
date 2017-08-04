@@ -138,10 +138,10 @@ Then you press enter and select
 Then after you pressed enter you can choose what you want to boot in every time:
 
 ```
-B1 Console				(boot OS in console only without GUI)
-B2 Console Autologin		(boot OS in console and automatically be logged in)
-B3 Desktop				(boot OS with a GUI)
-B4 Desktop Autologin		(boot OS with a GUI and automatically be logged in)
+B1 Console              (boot OS in console only without GUI)
+B2 Console Autologin    (boot OS in console and automatically be logged in)
+B3 Desktop              (boot OS with a GUI)
+B4 Desktop Autologin    (boot OS with a GUI and automatically be logged in)
 ```
 
 We choose to always start with a GUI and without automatically be logged in.
@@ -711,8 +711,89 @@ If you want to learn more shortcuts and commands (and believe us, there are so m
 
 # 7. Install additional software/programs
 
-...
+Installing programs is on LINUX or rather on Raspbian quite different if you come from OSX or WINDOWS.
 
+Therefore here a quick and dirty explanation of operating systems and especially LINUX:
+
+## The operating system
+
+### The kernel
+
+The kernel is the core computer program. It has the full control over everything of the system and is the first thing that gets started on a computer start-up.
+
+It handles all connected peripherals, input, output and thus controlling on what other programs having access to.
+
+Systems like WINDOWS and LINUX have an underlying kernel.
+
+Nevertheless there are big differences between especially these two besides that LINUX is an open source developed and public viewable kernel and the WINDOWS kernel is a cooperation secret.
+
+### LINUX distributions and WINDOWS
+
+#### What are LINUX distributions?
+
+Probably you know them better under the names Arch Linux, Debian, Fedora, Gentoo, Manjaro, Mint, Ubuntu, Raspbian, etcetera.
+
+These so named *distributions* don't have specific kernels. They all have the same kernel, the LINUX kernel. \*
+
+But only the kernel won't bring you far. Every system is only so useful as the programs that are installed on it. Like.. what would WINDOWS be if you wouldn't have a GUI.
+
+And because there are so many possible GUI's and file managers, file editors and network programs and even more programs that some people created distributions. They all consist of the LINUX kernel and many chosen programs/packages.
+
+You can think of WINDOWS like the only distribution of the WINDOWS kernel.
+
+The cool thing about this on LINUX distributions is that you can theoretically install every LINUX program on every LINUX distribution, this means also every GUI and so on.
+
+\* there are ways to strip a kernel down in size but they are nevertheless all based on one LINUX kernel
+
+## How to install these... packages?!
+
+It's quite simple how to install packages onto your Raspberry Pi running Raspbian:
+
+Just type into the console `sudo apt-get install <name of the software>` and enter to install the software.
+
+Why does this work?
+Every distribution has it's own repository where they all saved these packages that work well with their systems. By typing this you can download it and get the newest for your distribution available package of the software you want.
+
+### Example: Lets install Firefox
+
+Normally on WINDOWS you go to the Mozilla Firefox website go to the download page. Download the executable and run it. Then you wait till it's finished installing.
+
+How's that on our Raspbian?
+
+Funny thing I just found out: Firefox isn't listed in the console under it's real name (because it still supports flash which requires an *x86* processor but the raspberry pi has an 64 bit *ARM* processor) but under the name **Iceweasel**. So let's cut to the chase:
+
+```
+pi@raspberrypi:~ $ sudo apt-get install iceweasel
+.... text
+pi@raspberrypi:~ $ ▮
+```
+
+Okay.... did we install it now or what did we do?
+
+If it only was easy to start Firefox now... Let's try something:
+
+```
+pi@raspberrypi:~ $ firefox
+pi@raspberrypi:~ $ ▮
+```
+
+Probably Firefox just launched and now you know it's installed.
+
+## What can I do when a new version of my installed software gets released?
+
+That is also quite cool. Remember when I wrote that every distribution has it's own repository with all the  latest packages of every program you install over the package manager `apt`?
+
+That's very handy because there is an command that compares all the versions and the kernel on your Raspberry Pi with the ones in the repository and updates the things that aren't latest on your Pi.
+
+The command for this is:
+
+```
+pi@raspberrypi:~ $ sudo apt-get update
+.... text
+pi@raspberrypi:~ $ ▮
+```
+
+When the command terminates all your system software (kernel and apt-get packages) should be the latest of your current distribution.
 
 # 8. Program on it
 

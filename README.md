@@ -261,9 +261,19 @@ Typing is is easy for you and with the arrow keys you already know how to get ba
 
 ---
 
-* `Ctrl` + `a` brings you in no-time to the begin of your current command
-* `Ctrl` + `e` brings you in no-time to the end of your current command
+* `Ctrl` + `a` brings you in no-time to **the begin** of your current command
+* `Ctrl` + `e` brings you in no-time to **the end** of your current command
 * `Ctrl` + `x` + `x` moves your cursor between the begin and the end of your current command
+
+---
+
+- `Ctrl` + `b` move backward one character (same as `←`)
+- `Ctrl` + `f` move forward one character (same as `→`) 
+
+---
+
+* `Alt` + `b` move backward one word (or go to the start of the currently cursor pointed word)
+* `Alt` + `f` move forward one word (or go to the end of the currently cursor pointed word)
 
 ---
 
@@ -271,10 +281,6 @@ Typing is is easy for you and with the arrow keys you already know how to get ba
 * `Ctrl` + `w` *kills* everything of the current command from the current cursor position to the end
 * `Ctrl` + `u` *kills* everything of the current command after the position where your cursor is
 * But all those shortcuts don't really kill or delete the text parts - they rather save them to a clipboard so that you can paste with the shortcut `Ctrl` + `y` these parts in your current command at your current cursor position
-
----
-
-...
 
 ---
 
@@ -294,27 +300,151 @@ Typing is is easy for you and with the arrow keys you already know how to get ba
 Also there is the holy grail the `Tab` key. It completes commands, filenames, etcetera...
 If you press the `Tab` key again it will autocomplete to the next logical command, filename, etcetera...
 
+---
+
 ## Commands
 
 Here some simple but commands you should now or are helpful to know:
 
 ---
 
-`echo` + ... or "..." → output: ...
+* `echo` + ... or "..." → output: ...
 
-```
+```tiki wiki
 pi@raspberrypi:~ $ echo hello
 hello
 pi@raspberrypi:~ $ echo hello world!
 hello world!
 pi@raspberrypi:~ $ echo "hello world!"
 hello world!
+pi@raspberrypi:~ $ echo hello "world!" "what is happening?"
+hello world! what is happening?hello "world!" "what is happening?"
 pi@raspberrypi:~ $ ▮
 ```
 
-...
+You can even print a multiline text. Just let a simple `"` open and then enter line for line new text. If you are ready close it with typing a simple `"`. In between them you can just type enter and a new line will come up:
 
-*Source of many commands and many that we didn't told about: [skorks](https://www.skorks.com/2009/09/bash-shortcuts-for-maximum-productivity/)*
+```
+pi@raspberrypi:~ $ echo hello "world! now press enter
+> hello world! in a new line :o and now \"enter again\"
+> wow again a new line... now we want to end by typing a " and pressing enter
+hello world! now press enter
+hello world! in a new line :o and now "enter again"
+wow again a new line... now we want to end by typing a  and pressing enter
+pi@raspberrypi:~ $ ▮
+```
+
+---
+
+- `ls` stands for *List directory contents* and lists the current content of the folder you are in.
+
+Wait a second - we are in a folder?
+
+That's right. The console is always in a specific directory which enables many possibilities you will later learn about. With this command you can list the contents of the current directory your console *is*.
+
+Folders are in the case of the default Pi terminal blue and files white.
+
+```
+pi@raspberrypi:~ $ ls
+Desktop Documents Downloads Music Pictures Public python_games Templates Videos
+pi@raspberrypi:~ $ ▮
+```
+
+But there are more things like only commands on LINUX:
+There are also command options.
+
+In the case of a directory listener you probably also want to know the size, date, and more:
+
+`-l` → long listing - get a list with size and date of creation and ...
+
+```
+pi@raspberrypi:~ $ ls -l
+total 36
+drwxr-xr-x 2 pi pi 4096 Aug  1 14:59 Desktop
+drwxr-xr-x 2 pi pi 4096 Aug  1 18:25 Documents
+drwxr-xr-x 2 pi pi 4096 Aug  1 14:59 Downloads
+drwxr-xr-x 2 pi pi 4096 Aug  1 14:59 Music
+drwxr-xr-x 2 pi pi 4096 Aug  1 14:59 Pictures
+drwxr-xr-x 2 pi pi 4096 Aug  1 14:59 Public
+drwxr-xr-x 2 pi pi 4096 Jul  5 13:29 python_games
+drwxr-xr-x 2 pi pi 4096 Aug  1 14:59 Templates
+drwxr-xr-x 2 pi pi 4096 Aug  1 14:59 Videos
+pi@raspberrypi:~ $ ▮
+```
+
+Explanation: ([used source](https://linuxconfig.org/understanding-of-ls-command-with-a-long-listing-format-output-with-permission-bits))
+
+* `d` stands for directory - `l` for a link - `c` for a character file
+
+* `rwxr-xr-x` are the permissions applied to this *file* also called octets
+
+  * the firs octet defines the permission for the file owner `rwx`
+
+  * the second octet defines the permissions defined for the group `r-x`
+
+  * the third and last part defines the permissions for everyone else `r-x`
+
+    * The permissions are the following
+
+       | `r`  | `w`   | `x`     |
+       | ---- | ----- | ------- |
+       | read | write | execute |
+
+* `2` number of linked hard-links (links to that file/directory)
+
+* `pi` the owner of the file/directory
+
+* `pi` the group which this file/directory belongs to
+
+* `4096` size of the file/directory
+
+* `Aug  1 14:59` modification/creation date and time
+
+* `Desktop` the file/directory name
+
+`-a` → shows not only the *normal* files, but also the *hidden* ones that start with a `.`
+(because in LINUX everything (file,folder,device,command) is a file, a file that starts with `a` is a hidden file)
+
+```
+pi@raspberrypi:~ $ ls -a
+.             .cache  Documents       .idlerc    .pki         .themes     .WolframEngine
+..            .config Downloads       .local     .profile     .thumbnails .Xauthority
+.bash_history .dbus   .gconf          .minecraft Public       Videos      .xsession-errors
+.bash_logout  Desktop .gstreamer-0.10 Music      python_games .vnc        .xsession-errors.old
+.bashrc       .dmrc   .gtkrc-2.0      Pictures   Templates    .Wofram
+pi@raspberrypi:~ $ ▮
+```
+
+the cool thing with the command options are that you can just combine them in one simple command like:
+
+```
+pi@raspberrypi:~ $ ls -la
+total 144
+drwxr-xr-x 25 pi   pi   4096 Aug  4 14:46 .
+drwxr-xr-x  3 root root 4096 Jul  5 12:41 ..
+-rw-------  1 pi   pi   2162 Aug  4 01:26 .bashhistory
+[too much not unimportants code - I stop here]
+pi@raspberrypi:~ $ ▮
+```
+
+---
+
+* `!!` runs the last executed command
+
+```
+pi@raspberrypi:~ $ echo hello world!
+hello world!
+pi@raspberrypi:~ $ !!
+echo hello world!
+hello world!
+pi@raspberrypi:~ $ ▮
+```
+
+
+
+*Source of many shortcuts and many that we didn't told about: [skorks](https://www.skorks.com/2009/09/bash-shortcuts-for-maximum-productivity/)*
+
+Source of many commands and many that we didn't told about: [tecmint](https://www.tecmint.com/useful-linux-commands-for-newbies/)
 
 # 7. Program on it
 

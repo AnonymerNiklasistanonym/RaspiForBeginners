@@ -729,9 +729,7 @@ Nevertheless there are big differences between especially these two besides that
 
 ### LINUX distributions and WINDOWS
 
-#### What are LINUX distributions?
-
-Probably you know them better under the names Arch Linux, Debian, Fedora, Gentoo, Manjaro, Mint, Ubuntu, Raspbian, etcetera.
+Probably you know LINUX distributions better under the names Arch Linux, Debian, Fedora, Gentoo, Manjaro, Mint, Ubuntu, Raspbian, etcetera.
 
 These so named *distributions* don't have specific kernels. They all have the same kernel, the LINUX kernel. \*
 
@@ -797,36 +795,161 @@ When the command terminates all your system software (kernel and apt-get package
 
 # 8. Program on it
 
-## How to execute scripts
-
-...
-
 ## Batch
 
-...
+First let's create a bash script file:
+
+```
+pi@raspberrypi:~ $ nano
+```
+
+Then we just write a simple bash script in `nano`:
+
+```
+#!/bin/bash
+# A example Bash script file comment
+echo WOW You just executed a Bash script :o
+```
+
+Then we save this by clicking `Ctrl` + `x` and `y` and entering the name `bash_test_script.sh` .
+
+Now we can execute it:
+
+```
+pi@raspberrypi:~ $ bash bash_test_script.sh
+WOW You just executed a Bash script :o
+pi@raspberrypi:~ $ ▮
+```
 
 ## Python
 
-...
+First let's create a python script file:
 
-## C
+```
+pi@raspberrypi:~ $ nano
+```
 
-...
+Then we just write a simple python script in `nano`:
 
-## How to install programs respectively packages?
+```python
+print("WOW You just executed a Python script :o")
+```
 
-...
+Then we save this by clicking `Ctrl` + `x` and `y` and entering the name `python_test_script.py` .
+
+Now we can execute it:
+
+```
+pi@raspberrypi:~ $ python_test_script.py
+WOW You just executed a Python script :o
+pi@raspberrypi:~ $ ▮
+```
+
+---
+
+But when we speak about python we have even more possibilities on the Pi.
+
+If you enter `python` in the console you enter a live python editor where you can program live:
+
+```
+pi@raspberrypi:~ $ python
+Python 2.7.9 (default, Sep 17 2016, 20:26:04)
+[GCC 4.9.2] on linux2
+Type "help", "copyright", "credits" or "license" for more inforamtion.
+>>> ▮
+```
+
+Now we can do fun stuff in the terminal (everything we want to do):
+
+```
+>>> 2 + 40
+42
+>>> a = 2 + 6 * 7
+>>> b = -2
+>>> a + b
+42
+>>> ▮
+```
+
+With typing `Ctrl` + `d` you can exit the python console in the terminal again.
+
+---
+
+You even have one more option - to program on the preinstalled python 3 console IDE.
+
+To start it you can search and click the IDE icon **or**...
+
+...we use the glorious mighty console:
+
+````
+pi@raspberrypi:~ $ idle3
+````
+
+Of course you can also open with this command directly any preexisting file like the one we just created:
+
+```
+pi@raspberrypi:~ $ idle3 python_test_script.py
+```
 
 
 # 9. Set up a local webserver
 
-## Normal HTML server
+## A *normal* webserver (Apache)
 
-...
+First we install Apache:
+
+```
+pi@raspberrypi:~ $ sudo apt-get install apache2 -y
+```
+
+By default there will be an instant *normal* web server created (on your local network).
+
+You can get it anywhere on your local network by typing in your current IP address (`hostname -I`) or local also under `localhost` into the browser search bar.
+
+If you probably also want to change the content of your local server just got to the directory `/var/www/html/` and edit for example the file `index.html` which will be displayed if someone enters the IP address of your Pi.
+
+[source](https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md)
+
+For example:
+
+```
+pi@raspberrypi:~ $ sudo rm /var/www/html/index.html
+pi@raspberrypi:~ $ sudo touch /var/www/html/index.html
+pi@raspberrypi:~ $ sudo nano /var/www/html/index.html
+```
+
+Then edit in `nano` the file `index.html` to the content `Hello world!<br>This is HTML`.
+
+After saving this you should instantly by searching for the IP address of the Pi see these words on the website.
 
 ## PHP server
 
+When we want to use PHP there isn't much more we need to do.
+
+Let's start by installing PHP5 and the Apache PHP5 module via the package manager:
+
+```
+pi@raspberrypi:~ $ sudo apt-get install php5
+pi@raspberrypi:~ $ sudo apt-get install libapache2-mod-php5 -y
+```
+
+Because we used the Apache module the same directory as before will be used. But now also `.php` files can be shared via local network.
+
+[source](https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md)
+
+For example:
+
+```
+pi@raspberrypi:~ $ sudo rm /var/www/html/index.html
+pi@raspberrypi:~ $ sudo touch /var/www/html/index.php
+pi@raspberrypi:~ $ sudo nano /var/www/html/index.php
+```
+
+Then edit in `nano` the file to the content `<?php echo "hello world"; echo date('Y-m-d H:i:s'); ?>`.
+
 ...
+
+Didn't work - I probably need to set up the Pi again.
 
 ## SQL server
 

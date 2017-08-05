@@ -228,13 +228,35 @@ Voilà, there you have your Raspberry Pi desktop on your Windows computer.
 
 Also because we set as automatic start of the Pi a GUI start we now always login to the GUI of the Pi when we log ourselves in over a remote desktop connection without needing the raspberry connect to any cables but the power chord (and eventually your network cable if you do not have WLAN).
 
-## SSH connection (for Android, Linux, Windows)
+## SSH connection (SFTP with Windows)
 
-...
+Because of the Secure Shell protocol you can do even more cool things.
 
-## Pi live monitoring app (for Android)
+One of them is to remotely control the whole file system of your Raspberry Pi from for example your WINDOWS computer over a program named FileZilla.
 
-...
+What do you need to do that you can do this?
+
+First you need to activate SSH on your Raspberry Pi.
+
+* over the GUI: `Preferences` >> `Raspberry Pi Configuration`
+* or the CLI: `sudo raspi-config` >> `5 Interfacing Options` >> `P2 SSH` >> `Enable`
+
+Now you can switch to your WINDOWS computer and download/install FileZilla from [filezilla-project.org](https://filezilla-project.org/).
+
+When you installed it launch it. 
+
+* Then click in the upper left `File` >> `Site manager`
+* Now create a new site with clicking the button `New Site`
+* On the right click the tab `General`
+* Now enter in the `Host:` text field the IP address of your Pi (`hostname -I`).
+* Choose as `protocol` the Secure File Transfer Protocol (`SFTP`)
+* The `Logon Type:` is `Normal`
+* Now enter your Pi username (`pi`)
+* and your **long, secure & unique password**
+
+And you are ready to go. Just click `Connect` at the bottom left and you can see in the main window of FileZilla in the right file hierarchy the file system of your pi. Also you can copy, move, edit files from there.
+
+[source](https://www.raspberrypi.org/documentation/remote-access/ssh/sftp.md)
 
 
 # 6. Welcome to the console :)
@@ -771,11 +793,27 @@ Okay.... did we install it now or what did we do?
 If it only was easy to start Firefox now... Let's try something:
 
 ```
-pi@raspberrypi:~ $ firefox
+pi@raspberrypi:~ $ iceweasel
 pi@raspberrypi:~ $ ▮
 ```
 
 Probably Firefox just launched and now you know it's installed.
+
+### Example: Lets install cowsay
+
+To install this very important package just type in:
+
+```
+pi@raspberrypi:~ $ sudo apt-get install cowsay
+```
+
+After the installation you can now use this command:
+
+```
+pi@raspberrypi:~ $ cowsay Hi, I\'m a cow.
+```
+
+​And enjoy the result. :haha: :cow:
 
 ## What can I do when a new version of my installed software gets released?
 

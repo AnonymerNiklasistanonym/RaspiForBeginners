@@ -222,11 +222,32 @@ Now we can start on any Windows computer (over the program search) a *remote des
 
 Voilà, there you have your Raspberry Pi desktop on your Windows computer.
 
-### Method for Android or Linux Distributions
+### XRDP method for Android
 
-...
+You can even remotely control your Pi via your ANDROID device:
 
-Also because we set as automatic start of the Pi a GUI start we now always login to the GUI of the Pi when we log ourselves in over a remote desktop connection without needing the raspberry connect to any cables but the power chord (and eventually your network cable if you do not have WLAN).
+It's a bit messy, but here are the things you need to do:
+
+1. Install a virtual keyboard, because the android app can't handle essential inputs like `-`.
+   * `sudo apt-get update` - update the repositories
+   * `sudo apt-get upgrade` - upgrade the whole system (optional)
+   * `sudo apt-get install matchbox-keyboard` - install the virtual  matchbox-keyboard keyboard
+   * `sudo reboot` - a reboot isn't really necessary but just do it quickly
+2. You can now start it over the terminal with the command `matchbox-keyboard`
+3. Download and install the android app [RDP Remote Desktop aFreeRDP](https://play.google.com/store/apps/details?id=com.freerdp.afreerdp&hl=en) 
+4. Set everything up
+   * start the app and click the plus symbol in the top bar (*add*)
+   * now enter under `Label` how you want to name the connection
+   * for `Host` the IP address of the Pi
+   * for `Credentials` click it and enter your username and password
+   * now go to times back (press two times the back button) and save your changes
+5. Enjoy your ANDROID remote control
+   * click the new created connection and go straight to the desktop of your Pi on your ANDROID device
+   * if you know want to execute commands just type in `match` + `Tab` and `enter` and you can input symbol's like `-` over the virtual console
+
+
+
+Also because we set as automatic start of the Pi a GUI-start we now always login to the GUI of the Pi when we log ourselves in over a remote desktop connection without needing the raspberry connect to any cables but the power chord (and eventually your network cable if you do not have WLAN).
 
 ## SSH connection (SFTP with Windows)
 
@@ -959,6 +980,21 @@ pi@raspberrypi:~ $ sudo nano /var/www/html/index.html
 Then edit in `nano` the file `index.html` to the content `Hello world!<br>This is HTML`.
 
 After saving this you should instantly by searching for the IP address of the Pi see these words on the website.
+
+### Enable SFTP in html directory (`chmod`)
+
+If you use SFTP you probably noticed that FileZilla blocks uploads. With the following commands...
+
+```
+pi@raspberrypi:~ $ cd /var/www/
+pi@raspberrypi:~/var/www $ chmod a+w html
+pi@raspberrypi:~/var/www $ chmod a+w html/index.html
+pi@raspberrypi:~/var/www $ ▮
+```
+
+...you give everyone writing rights in this folder and now everything should work with FileZilla.
+
+If you want to know more about `chmod `look here: [source](http://www.dummies.com/computers/raspberry-pi/working-with-file-permissions-on-your-raspberry-pi/)
 
 ## PHP server
 

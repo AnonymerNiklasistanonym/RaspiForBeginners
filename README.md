@@ -481,26 +481,26 @@ Not a problem my friend:
 
 #### `cd`
 
-stands for *Change directory* and will do the magic
+stands for *change directory* and will do the magic
 
 You just type in `cd` and after that your path - the directory you wanna go. In this case we want straight to the documents folder:
 
 ```
-pi@raspberrypi:~ $ cd Desktop
-pi@raspberrypi:~/Desktop $ ▮
+pi@raspberrypi:~ $ cd Documents
+pi@raspberrypi:~/Documents $ ▮
 ```
 
 WOW. Did you just see that?
 Wait a second, one more tip:
 
 ```
-pi@raspberrypi:~/Desktop $ cd ~
+pi@raspberrypi:~/Documents $ cd ~
 pi@raspberrypi:~ $ ▮
 ```
 
 The thing after `username@hostname:` is the path where your console/terminal currently *is*. :open_mouth:
 
-The odd `~` makes hopefully for you so much sense now, because it stands for your home directory. If you changed your directory so much, that you lost yourself just enter `cd ~` and you are back home.
+The odd `~` is the sign for your home directory. If you changed your directory so much, that you lost yourself just enter `cd ~` and you are back home.
 
 But there are more tricks:
 
@@ -790,7 +790,11 @@ The cool thing about this on LINUX distributions is that you can theoretically i
 
 It's quite simple how to install packages onto your Raspberry Pi running Raspbian:
 
-Just type into the console `sudo apt-get install <name of the software>` and enter to install the software.
+Just type into the console `apt-get install` and enter to install the software:
+
+```
+pi@raspberrypi:~ $ sudo apt-get install <name of the software>
+```
 
 Why does this work?
 Every distribution has it's own repository where they all saved these packages that work well with their systems. By typing this you can download it and get the newest for your distribution available package of the software you want.
@@ -834,7 +838,7 @@ After the installation you can now use this command:
 pi@raspberrypi:~ $ cowsay Hi, I\'m a cow.
 ```
 
-​And enjoy the result. :haha: :cow:
+​And enjoy the result. :smiley: :cow:
 
 ## What can I do when a new version of my installed software gets released?
 
@@ -842,15 +846,21 @@ That is also quite cool. Remember when I wrote that every distribution has it's 
 
 That's very handy because there is an command that compares all the versions and the kernel on your Raspberry Pi with the ones in the repository and updates the things that aren't latest on your Pi.
 
-The command for this is:
+You therefore need to know two commands:
 
-```
-pi@raspberrypi:~ $ sudo apt-get update
-.... text
-pi@raspberrypi:~ $ ▮
-```
+1. Update/Compare the local repositories with the latest repositories online
 
-When the command terminates all your system software (kernel and apt-get packages) should be the latest of your current distribution.
+   ```
+   pi@raspberrypi:~ $ sudo apt-get update
+   ```
+
+2. Download the new packages (if there are any new ones)
+
+   ```
+   pi@raspberrypi:~ $ sudo apt-get upgrade
+   ```
+
+When the command terminates all of your system software (kernel and over packages) should be the latest of your current distribution.
 
 # 8. Program on it
 
@@ -994,7 +1004,7 @@ pi@raspberrypi:~/var/www $ ▮
 
 ...you give everyone writing rights in this folder and now everything should work with FileZilla.
 
-If you want to know more about `chmod `look here: [source](http://www.dummies.com/computers/raspberry-pi/working-with-file-permissions-on-your-raspberry-pi/)
+If you want to know more about `chmod ` look here: [source](http://www.dummies.com/computers/raspberry-pi/working-with-file-permissions-on-your-raspberry-pi/)
 
 ## PHP server
 
@@ -1023,18 +1033,26 @@ Then edit in `nano` the file to the content `<?php echo "hello world"; echo date
 
 ...
 
-Didn't work - I probably need to set up the Pi again.
+***Didn't work - I probably need to set up the Pi again.***
+
+...
 
 ## SQL server
 
 ...
 
-## SFTP server
+***Didn't work - I probably need to set up the Pi again.***
 
 ...
 
+## SFTP server
 
-# 10. Automated jobs server (cron jobs)
+... native windows implementation
+
+
+# 10. Automated tasks scheduler (`cron `)
+
+https://www.raspberrypi.org/documentation/linux/usage/cron.md
 
 ...
 

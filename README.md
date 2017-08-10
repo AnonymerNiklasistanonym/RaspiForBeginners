@@ -6,6 +6,15 @@ You can use this repository as a beginners tutorial for your own Raspberry Pi or
 
 Have fun with your Raspberry Pi 3 :smiley:
 
+# 0. Other cool things
+
+Outside of the tutorial in this document you can find these things also on this repository:
+
+* A funny and short introduction into Linux and Bash (only in German for now) from [denniskeller](https://github.com/denniskeller)
+  → find it in the directory `linuxdemo` (download it and click `index.html`)
+* Some scripts in different languages if you want to get in touch with some programming languages
+* Other things - if you have something cool just contribute it :D
+  (or let me link your repository/website)
 
 # 1. Get the hardware
 
@@ -960,6 +969,120 @@ Of course you can also open with this command directly any preexisting file like
 pi@raspberrypi:~ $ idle3 python_test_script.py
 ```
 
+## C
+
+First let's create a C script file:
+
+```
+pi@raspberrypi:~ $ nano
+```
+
+Then we just write a simple C script in `nano`:
+
+```c
+#include<stdio.h>
+
+main()
+{
+    printf("Hello world!\n");
+}
+```
+
+Then we save this by clicking `Ctrl` + `x` and `y` and entering the name `c_test_script.c` .
+
+But now there is a problem. C isn't a script language.
+It needs to be compiled before it can be executed.
+
+So let's compile it to a executable file: ([very interesting stack overflow answer to this problem](https://raspberrypi.stackexchange.com/a/5600))
+
+```
+pi@raspberrypi:~ $ gcc -Wall c_test_script.c -o executable_c_file
+c_test_script.c:3:1: warning return type deafaults to ´int´ [Wreturn-type]
+main()
+ ^
+c_test_script.c: In function ´main´:
+c_test_script.c:6:1: warning: control reaches end of non-void function [Wreturn-type]
+ }
+ ^
+pi@raspberrypi:~ $ ▮
+```
+
+We see all this (for now) not important comments/logs because through `-Wall` we enabled compiler warnings. This is really helpful for debugging a c program. `GCC` is the compiler that takes the code and converts it into an executable file. `-o` is needed to tell `GCC` to compile.
+
+Now we can execute it:
+
+```
+pi@raspberrypi:~ $ ./executable_c_file
+Hello world!
+pi@raspberrypi:~ $ ▮
+```
+
+## Java
+
+First let's create a Java file:
+
+```
+pi@raspberrypi:~ $ nano
+```
+
+Then we just write a simple Java script in `nano`:
+
+```java
+/**
+ * Hello World program
+ */
+public class java_test_script {
+
+	/**
+	 * Main method
+	 */
+	public static void main(String[] args) {
+		// A wild comment
+		System.out.println("Hello world!");
+	}
+
+}
+```
+
+Then we save this by clicking `Ctrl` + `x` and `y` and entering the name `java_test_script.java` .
+
+Now we have the same *problem* like C.
+We first need to compile our code before we can execute it:
+
+```
+pi@raspberrypi:~ $ javac java_test_script.java
+pi@raspberrypi:~ $ ▮
+```
+
+This creates a executable file with the same name that we can now execute:
+
+```
+pi@raspberrypi:~ $ java java_test_script
+Hello world!
+pi@raspberrypi:~ $ ▮
+```
+
+---
+
+If you are more interested to learn Java I can't recommend you more Eclipse.
+A great IDE to develop Java in and export it:
+
+```
+pi@raspberrypi:~ $ sudo apt-get update && sudo apt-get upgrade
+pi@raspberrypi:~ $ sudo apt-get install eclipse
+```
+
+Then wait some minutes, eat something healthy, do some sport and then finally
+
+```
+pi@raspberrypi:~ $ eclipse
+```
+
+Oh wait, wait again some minutes ... and then... you are in the eclipse IDE :smiley:
+
+Now you can develop really cool Java code in a GUI that checks every action you take so the compile process will never print errors if you follow eclipse ;)
+
+**Edit:** Probably you will notice very soon that it's very slow (at least the startup time - when it's running it's okay) - but you can use it on your WINDOWS PC or LINUX PC without these very long start times.
 
 # 9. Set up a local webserver
 
@@ -1086,7 +1209,7 @@ You can even add more things and do even more cool things with Kodi but this is 
 
 DISCLAIMER:
 To get this working  you first need a fast home network connection (at my place over old telephone lines and two routers and then over 5Ghz Wi-Fi to the Amazon Fire TV Stick I have around 80mbps). And because even the Pi has it's limits you need to accept that it cannot deliver many files to many users at the same time and also not big files to one person at a time.
-For me music, video and picture streaming was no problem, but a 4K video file of the Blender demo video "Tears of Steel" @6,27 GB could not be streamed because a low connection (which was a mix of the *bad* home network bandwidth and the rather *slow* Pi). As long as you be in my range of hardware 1080p videos shouldn't be a problem for you and music/picture streaming should work great too.
+For me music, video and picture streaming was no problem, but a 4K video file of the Blender demo video "Tears of Steel" @6,27 GB could not be streamed (which was the case because of a mix of the *bad* home network bandwidth - but the main reason was I think the rather *slow* Pi). As long as you are in my range of hardware 1080p videos shouldn't be a problem for you and music/picture streaming should work great too.
 
 
 # 10. Automated tasks scheduler (`cron `)
@@ -1231,3 +1354,20 @@ That in mind I think you saw that the cron scheduler is really simple and mighty
 ## Example with an LCD display
 
 ...
+
+# Bonus: Manage users/groups
+
+This will be later elaborated:
+
+```
+sudo adduser <username>
+sudo addgroup <groupname>
+sudo adduser <username> <groupname>
+sudo passwd <username>
+sudo usermod -a -G <groupname> <username>
+a = append
+G = Group
+Get users of a group with:
+grep <groupname> /etc/group
+```
+

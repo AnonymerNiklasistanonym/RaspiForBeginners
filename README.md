@@ -1093,7 +1093,126 @@ For me music, video and picture streaming was no problem, but a 4K video file of
 
 https://www.raspberrypi.org/documentation/linux/usage/cron.md
 
-...
+Cron jobs are a really cool thing that you can use as LINUX user.
+
+Over the cron scheduler you can program to run script at a time you want every week/year/minute/hour/etcetera. And it's so easy to use on Raspbian because there is even a GUI version of it preinstalled.
+
+## Create a script for a `cron` job
+
+You can at this point create whatever you want. Because this is a demo tutorial I will not setup a connection to a Mail API or something other, but the possibilities are endless.
+
+We will just make a simple python script that creates a log entry every time the script runs - a simple demo of the mighty cron scheduler:
+
+```python
+import os
+import datetime
+
+# this get's us the path of the PI's home directory
+# this is important, because every cron job script will be
+# run from the home directory - even when it's not there
+PATH_HOME_DIR = os.path.expanduser('~')
+
+# Directory where we want to create the log
+PATH_FILE_DIR = os.path.join(PATH_HOME_DIR, 'Documents/CronDemoLog')
+
+# Path of the log file
+PATH_FILE = os.path.join(PATH_FILE_DIR, 'log.txt')
+
+# Check if the directory exists, if not create it
+if not os.path.exists(PATH_FILE_DIR):
+    os.makedirs(PATH_FILE_DIR)
+
+# get the current time
+date_time = datetime.datetime.now()
+
+date = date_time.date()  # gives date
+time = date_time.time()  # gives time
+
+date_string = str(date.year) + "-" + str(date.month) + "-" + str(date.day)
+time_string = str(time.hour) + ":" + str(time.minute) + ":" + str(time.second)
+
+# create a file and add the current time or if it exists just add the current time
+file = open(PATH_FILE, "a+")
+file.write("The script was executed at " + time_string + " on " + date_string)
+file.write("\n") # write newline
+file.close()
+
+# read file to the console (https://stackoverflow.com/a/43625375/7827128)
+with open(PATH_FILE) as file:
+     my_list = file.readlines()
+my_list = [x.strip() for x in my_list]
+for rows in my_list:
+    print(rows)
+```
+
+Every this python script runs it will add an entry of the current time to the text file `home/USERNAME/Documents/Documents/CronDemoLog/log.txt`.
+
+With this you can check if the cron scheduler works or not.
+
+So let's copy it somewhere on the Pi (it copied it to `home/USERNAME/script.py`) and run it with the console:
+
+```
+pi@raspberrypi:~ $ python script.py
+This script was executed at 14:7:0 on 2017-8-10
+pi@raspberrypi:~ $ ▮
+```
+
+Your output should get one line more every time you enter this command:
+
+```
+pi@raspberrypi:~ $ python script.py
+This script was executed at 14:7:0 on 2017-8-10
+This script was executed at 14:8:8 on 2017-8-10
+pi@raspberrypi:~ $ ▮
+```
+
+You can also always read the file by using `cat`:
+
+```
+pi@raspberrypi:~ $ cat Documents/CronDemoLog/log.txt
+This script was executed at 14:7:0 on 2017-8-10
+This script was executed at 14:8:8 on 2017-8-10
+pi@raspberrypi:~ $ ▮
+```
+
+## Create a `cron` job
+
+Now we are ready to create our first `cron` job. Therefore we start the GUI with the command:
+
+```
+pi@raspberrypi:~ $ gnome-schedule 
+```
+
+If this doesn't work install the GUI with this command:
+
+```
+pi@raspberrypi:~ $ sudo apt-get update && sudo apt-get install gnome-schedule  
+```
+
+* Now that we opened the GUI click `New` at the top left
+* and in the popup window `A task that launches recurrently`
+* then enter a description and as command enter the command you used to run the script before (`python script.py`)
+* If you do not want to check if it works every hour go to `Advanced` and
+* click `Edit` at the same height as `Minute`
+* then click `Every minute` and confirm everything
+
+Now wait some minutes and drink some water or tea or eat some fruits and vegetables . It's healthy :)
+
+When you come back just run the same `cat` command you run before (`cat Documents/CronDemoLog/log.txt`) to see if it worked. It should look like this:
+
+```
+pi@raspberrypi:~ $ cat Documents/CronDemoLog/log.txt
+This script was executed at 14:7:0 on 2017-8-10
+This script was executed at 14:8:8 on 2017-8-10
+This script was executed at 14:19:1 on 2017-8-10
+This script was executed at 14:20:1 on 2017-8-10
+This script was executed at 14:21:1 on 2017-8-10
+pi@raspberrypi:~ $ ▮
+```
+
+That in mind I think you saw that the cron scheduler is really simple and mighty. You can run any script you want at specific times and dates. This gives you a whole lot of opportunities.
+
+:raised_hands:
 
 
 # 11. Speech recognition interaction

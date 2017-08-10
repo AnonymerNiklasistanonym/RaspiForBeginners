@@ -1047,7 +1047,46 @@ Then edit in `nano` the file to the content `<?php echo "hello world"; echo date
 
 ## SFTP server
 
-... native windows implementation
+Now something that is mostly only interesting for you at home but really great:
+
+You can use your Raspberry Pi as a home network media center or also as an drive on Windows. All thanks to SFTP.
+
+Secure File Transfer Protocol is not only way more secure (because it works over SSH), way more performant and more advanced than FTP ([read this article for more detailed information](https://southrivertech.com/whats-difference-ftp-sftp-ftps/)), it's also really simple to work with when you want to setup a home network media center.
+
+### Windows Drive
+
+Sadly WINDOWS itself doesn't natively SFTP - only FTP - but there is a really fast and simple workaround for that:
+
+1. Download [Swish](http://www.swish-sftp.org/) and install it on your WINDOWS computer.
+2. Because nothing changed.. what the hell did you do?
+3. Go to "This Pc" in WINDOWS Explorer and see that there is a new Drive named Swish.
+4. Click `Add SFTP Connection` and enter again your IP Address, Username, enter as path `/home/YOURUSERNAME` and give it a name/label
+5. Now double click on the created connection icon and enter your password (for your YOUSERNAME)
+
+Now you can delete files, add them, rename them and more natively over your WINDOWS Explorer.
+
+### Home network media center distribution (with Kodi as receiver)
+
+But like we now want everywhere in the home network access to pictures, music and videos on our Raspberry Pi.
+
+Nothing simpler than that thanks to Kodi. Kodi is an Open Source Media Center application that we will use because it is fast, Open Source, supports seamless SFTP and exists for [Android](https://play.google.com/store/apps/details?id=org.xbmc.kodi&hl=en), [Windows (App store)](https://www.microsoft.com/de-de/store/p/kodi/9nblggh4t892), Linux distributions, [etcetera](https://kodi.tv/download).
+
+1. Install it on the device of your choice and start Kodi. (I did install it on my Android phone (6.0) and on my Amazon Fire TV stick). 
+2. Then, because you probably don't have any sources at the begin you will get asked `Enter file section`. 
+3. Now you click `Add videos` or `Add Music` or something else depending on where you clicked.
+   (If nowhere you can read this, but you read `Files` click this)
+4. A popup window will open itself and ask if you want to add any sources (for example `Add video source`.
+5. Click browse to get into another popup window. There you want to click the list entry `Add network location`.
+6. Because you want to connect to the Pi with the fast, secure and reliable SFTP protocol we change the protocol to `Secure Shell (SSH / SFTP)`
+7. Now do the same thing you did so far every SFTP Setup and enter your Pi's IP address (@`Server address`, you username (@`Username`), your password (@`Password`) and click `OK`.
+8. You will now get back to the list where you can browse through connected sources (`Browse for new share`) and can now simply click the `sftp://YOURIPADDRESS:22` and browse to your folder that you want to add to this category (`home/YOURUSERNAME/Music` for example) and confirm the location.
+9. Now Kodi will need some time to search through all your files, but when it's ready you can stream music, video, image, and more files seamless from your Pi to Kodi on every supported OS that is connected to your home network.
+
+You can even add more things and do even more cool things with Kodi but this is not a Kodi tutorial - just how you can use this Open Source software to get a simple and secure, but also great home network media center.
+
+DISCLAIMER:
+To get this working  you first need a fast home network connection (at my place over old telephone lines and two routers and then over 5Ghz Wi-Fi to the Amazon Fire TV Stick I have around 80mbps). And because even the Pi has it's limits you need to accept that it cannot deliver many files to many users at the same time and also not big files to one person at a time.
+For me music, video and picture streaming was no problem, but a 4K video file of the Blender demo video "Tears of Steel" @6,27 GB could not be streamed because a low connection (which was a mix of the *bad* home network bandwidth and the rather *slow* Pi). As long as you be in my range of hardware 1080p videos shouldn't be a problem for you and music/picture streaming should work great too.
 
 
 # 10. Automated tasks scheduler (`cron `)

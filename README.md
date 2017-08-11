@@ -873,7 +873,7 @@ When the command terminates all of your system software (kernel and over package
 
 # 8. Program on it
 
-## Batch
+## Bash
 
 First let's create a bash script file:
 

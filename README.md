@@ -759,6 +759,7 @@ If you want to learn more shortcuts and commands (and believe us, there are so m
 
 *Source of many shortcuts and many that we didn't told about: [skorks](https://www.skorks.com/2009/09/bash-shortcuts-for-maximum-productivity/)*
 *Source of many commands and many that we didn't told about: [tecmint](https://www.tecmint.com/useful-linux-commands-for-newbies/)*
+*Even more commands: [raspberrypi.org](https://www.raspberrypi.org/documentation/linux/usage/commands.md)*
 
 
 # 7. Install additional software/programs
@@ -1268,11 +1269,11 @@ for rows in my_list:
     print(rows)
 ```
 
-Every this python script runs it will add an entry of the current time to the text file `home/USERNAME/Documents/Documents/CronDemoLog/log.txt`.
+Every time this python script runs it will add an entry of the current time to the text file `home/USERNAME/Documents/Documents/CronDemoLog/log.txt`.
 
 With this you can check if the cron scheduler works or not.
 
-So let's copy it somewhere on the Pi (it copied it to `home/USERNAME/script.py`) and run it with the console:
+So let's copy it somewhere on the Pi (I copied it to `home/USERNAME/script.py`) and run it with the console:
 
 ```
 pi@raspberrypi:~ $ python script.py
@@ -1357,17 +1358,221 @@ That in mind I think you saw that the cron scheduler is really simple and mighty
 
 # Bonus: Manage users/groups
 
-This will be later elaborated:
+If you want to add a new user, remove a user or great groups for user this is also fairly simple:
+
+## Add a new user
+
+To add a new user you really just need one command and to be the root user (`sudo`-rights):
 
 ```
-sudo adduser <username>
-sudo addgroup <groupname>
-sudo adduser <username> <groupname>
-sudo passwd <username>
-sudo usermod -a -G <groupname> <username>
-a = append
-G = Group
-Get users of a group with:
-grep <groupname> /etc/group
+pi@raspberrypi:~ $ sudo adduser newusername
 ```
 
+*Important note: The new user name can not contain caps like `newUserName`.*
+
+```
+pi@raspberrypi:~ $ sudo adduser newusername
+Adding user `newusername' ...
+Adding new group `newusername' (1003) ...
+Adding new user `newusername' (1002) with group `newusername' ...
+Crating home directory `/home/newusername' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password: ▮
+```
+
+Now enter two times a new password for the new account:
+
+```
+Retype new UNIX password: ▮
+```
+
+And now you can add specific information about the user or just press ENTER for the default value:
+
+```
+passwd: password updated successfully
+Changing the user information for the newusernam
+Enter the new value, or press ENTER for the default
+        Full Name []: New User Name▮
+```
+
+```
+        Room Number []: ▮
+```
+
+```
+        Work Phone []: ▮
+```
+
+```
+        Home Phone []: ▮
+```
+
+If you are ready and everything is correct confirm by pressing `y` or deny by pressing `n` (and ENTER):
+
+```
+Is the information correct? [Y/n] ▮
+```
+
+## Change the password of a user as sudo user
+
+Probably you are not like me and forget the password of the new user after like ten seconds but hey, here you go:
+
+```
+pi@raspberrypi:~ $ sudo passwd newusername
+Enter new UNIX password: ▮
+```
+
+```
+Retype new UNIX password: ▮
+```
+
+```
+passwd: password updated successfully
+pi@raspberrypi:~ $ ▮
+```
+
+## Change permissions of users to files
+
+With Linux groups you can simple manage many user at once.
+
+For example you can set permissions for some folders for every guest account at the same time.
+
+This works because of in Linux every user has a unique user ID (UID) and a group ID (GID).
+
+Source: [yolinux](http://www.yolinux.com/TUTORIALS/LinuxTutorialManagingGroups.html)
+
+Therefore, if you remember 6. > Commands > File system > `ls`,  the file system looks like this:
+
+```
+pi@raspberrypi:~ $ ls -l
+total 36
+drwxr-xr-x 2 pi pi 4096 Aug  1 14:59 Desktop
+drwxr-xr-x 2 pi pi 4096 Aug  1 18:25 Documents
+...
+```
+
+In which the first `pi` is the owner and the second one is the `group` where this file belongs to (remember that files stand in this case for directories `d` and *normal* files `-`, ...).
+
+More important are the three octets (`rwx`, `r-x`, `r-x`) at the begin of each file in this view:
+
+* The first octet are the permissions of the file owner > the first `pi`
+* The second octet are the permissions of the group where the file belongs to > the second `pi`
+* The last octet are the permissions for everyone else
+
+You can with this very easy manage permissions to files for many users.
+
+**How easy is it in real life?**
+
+```
+pi@raspberrypi:~ $ mkdir Documents/Example
+pi@raspberrypi:~ $ cd Documents/Example
+pi@raspberrypi:~/Documents/ExampleDir $ touch example_file
+pi@raspberrypi:~/Documents/ExampleDir $ ls -l
+total 0
+-rw-r--r-- 1 pi pi 0 Aug 12 14:03 example_file
+pi@raspberrypi:~/Documents/ExampleDir $ ▮
+```
+
+Now we can use the command `chmod` with `u` (user) or `g` (group) or `o` (other) (or a combination of them) `+` or `-` and a combination of `r`, `w` and `x` (only one of every character).
+
+For example I as an owner want to have the right to `r` - read, `w` write and `x` execute this file (I know this doesn't make so much sense - if it was a directory this would have more sense).
+
+To get the rights one command is all I need:
+
+```
+pi@raspberrypi:~/Documents/ExampleDir $ chmod u+x example_file
+pi@raspberrypi:~/Documents/ExampleDir $ ls -l
+total 0
+-rwxr--r-- 1 pi pi 0 Aug 12 14:03 example_file
+pi@raspberrypi:~/Documents/ExampleDir $ ▮
+```
+
+And because this is a secret file nobody should be able to read it besides me:
+
+```
+pi@raspberrypi:~/Documents/ExampleDir $ chmod go-r example_file
+pi@raspberrypi:~/Documents/ExampleDir $ ls -l
+total 0
+-rwx------ 1 pi pi 0 Aug 12 14:03 example_file
+pi@raspberrypi:~/Documents/ExampleDir $ ▮
+```
+
+Now I recognized that my file isn't that secret and that even others should be able to read and edit it:
+
+```
+pi@raspberrypi:~/Documents/ExampleDir $ chmod go+rw example_file
+pi@raspberrypi:~/Documents/ExampleDir $ ls -l
+total 0
+-rwxrw-rw- 1 pi pi 0 Aug 12 14:03 example_file
+pi@raspberrypi:~/Documents/ExampleDir $ ▮
+```
+
+See - very simple, even over the console.
+
+## Add groups and add user to groups
+
+Now we just need to know how we can add users to groups and heck even create them in the first place
+
+### Add a group
+
+Create a user group:
+
+```
+pi@raspberrypi:~ $ sudo addgroup <groupname>
+```
+
+Yay. That was it. Ready. Go on.
+
+### Add user to a group
+
+To add an user to a group isn't such difficult as you think once you read the manual page of `usermod`:
+
+Just add the command options `-a` for append and `-G` for group and you're set:
+
+```
+pi@raspberrypi:~ $ sudo usermod -a -G <groupname> <username>
+```
+
+Will the user remain in his old group or will he be removed from it
+
+### View all the users in a group
+
+Wit the following command you will get a list off all the users in a group:
+
+```
+pi@raspberrypi:~ $ sudo grep <groupname> /etc/group
+```
+
+## Remove user and groups
+
+Ok, now I have 20 users and 5 groups, but I think I can delete some of them:
+
+### Remove a user
+
+(Source: [cyberciti](https://www.cyberciti.biz/faq/linux-remove-user-command/))
+
+Very simple: `userdel` + `-r` +  `<username>`
+
+This will not only remove the user but also delete it's local home directory (`-r`).
+
+#### Lock the account before you finally delete it
+
+If you don't want to delete the account, only lock them (for some time or as a test if the account is still be used) use these commands.
+
+```
+pi@raspberrypi:~ $ sudo passwd -l <username>
+```
+
+Instead of instantly locking the account you can set a specific time when the account will be locked: 
+
+```
+pi@raspberrypi:~ $ sudo usermod --expiredate 1 <username>
+```
+
+(Number in this format: `YYYY-MM-DD`)
+
+If an account is locked the user will get a message at login that the account expired and he should search for the admin.
+
+### Remove a group
+
+Probably this is no surprise but the command to remove groups is `delgroup`:

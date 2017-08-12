@@ -36,12 +36,12 @@ Outside of the tutorial in this document you can find these things also on this 
 
 # 2. Setup an OS
 Your Raspberry Pi is in front of you and you want to play with it... but therefore you need an operating system.
-To install one you have many possibilities regarding the OS or rather LINUX distribution ([See here the official guide](https://www.raspberrypi.org/learning/software-guide/quickstart/)).
+To install one you have many possibilities regarding the OS or rather Linux distribution ([See here the official guide](https://www.raspberrypi.org/learning/software-guide/quickstart/)).
 
 **We installed Raspbian onto the Raspberry Pi:**
 
 1. Therefore you need to download the current Raspbian distribution ("Jessie with desktop" did we download) directly from [raspberry.org](https://www.raspberrypi.org/downloads/raspbian/).
-2. Then you extracted the ZIP file to get the image of the LINUX distribution.
+2. Then you extracted the ZIP file to get the image of the Linux distribution.
 3. Because you can't just put an `.img` file on the Micro SD card you need to install a program like the open source program [etcher](https://etcher.io/).
    Simply install it, open it, choose the `.img` file, choose the correct drive and press flash.
 4. Great, now you only need to safely eject the card and put it into your Raspberry Pi. :thumbsup:
@@ -90,7 +90,7 @@ pi@raspberrypi:~ $ ▮
 
 This means you are the user **pi** and logged in at the computer with the name **raspberrypi**.
 
-- now you can interact/talk with the OS/LINUX distribution through typing in commands with your keyboard and pressing enter if your command stands there completely
+- now you can interact/talk with the OS/Linux distribution through typing in commands with your keyboard and pressing enter if your command stands there completely
 - the first command we gonna use is the command `passwd` and press enter:
 
 ```
@@ -130,7 +130,7 @@ Normally every time you start the Pi you get logged in immediately without typin
 Because of that we want to change this so that every time you start the Pi you need to type in your credentials (through this way the possibility to forget your password is also minimized).
 
 To change this we stay in the console or open it if it's closed and type in `sudo raspi-config`
-*(`sudo` is an abbreviation of “**super user do**” and allows LINUX users to execute administrative programs that not every user should be able to run. Only the **root user** should be able to run them - for example not the guest user should be able to change these kind of things.)*
+*(`sudo` is an abbreviation of “**super user do**” and allows Linux users to execute administrative programs that not every user should be able to run. Only the **root user** should be able to run them - for example not the guest user should be able to change these kind of things.)*
 
 ```
 pi@raspberrypi:~ $ sudo raspi-config▮
@@ -204,7 +204,7 @@ Now you have a small but cool computer that can do everything that your current 
 
 I wanted to access the device everywhere from my Windows Desktop and my Windows Laptop so I though a remote desktop connection would be a perfect start (I have also only one monitor so.... yeah).
 
-This means that you can mirror the whole Raspberry Pi GUI on your Windows Device (or also LINUX) and using it while the Raspberry only needs to be connected to the power and the same network like your Computer (LAN or WLAN - also the router needs to be allowing this and not isolate every device on the network).
+This means that you can mirror the whole Raspberry Pi GUI on your Windows Device (or also Linux) and using it while the Raspberry only needs to be connected to the power and the same network like your Computer (LAN or WLAN - also the router needs to be allowing this and not isolate every device on the network).
 
 I had some problems while establishing the connection with the tutorial from [Adam Riley on his blog](http://www.raspberrypiblog.com/2012/10/how-to-setup-remote-desktop-from.html), but thanks to this [stack exchange thread and Shreyas Murali](https://raspberrypi.stackexchange.com/questions/56413/error-problem-connecting-to-raspberry-pi-3-with-xrdp/56415#56415) I could establish a remote desktop connection in... less than one minute:
 
@@ -262,7 +262,7 @@ Also because we set as automatic start of the Pi a GUI-start we now always login
 
 Because of the Secure Shell protocol you can do even more cool things.
 
-One of them is to remotely control the whole file system of your Raspberry Pi from for example your WINDOWS computer over a program named FileZilla.
+One of them is to remotely control the whole file system of your Raspberry Pi from for example your Windows computer over a program named FileZilla.
 
 What do you need to do that you can do this?
 
@@ -271,7 +271,7 @@ First you need to activate SSH on your Raspberry Pi.
 * over the GUI: `Preferences` >> `Raspberry Pi Configuration`
 * or the CLI: `sudo raspi-config` >> `5 Interfacing Options` >> `P2 SSH` >> `Enable`
 
-Now you can switch to your WINDOWS computer and download/install FileZilla from [filezilla-project.org](https://filezilla-project.org/).
+Now you can switch to your Windows computer and download/install FileZilla from [filezilla-project.org](https://filezilla-project.org/).
 
 When you installed it launch it. 
 
@@ -411,7 +411,7 @@ Desktop Documents Downloads Music Pictures Public python_games Templates Videos
 pi@raspberrypi:~ $ ▮
 ```
 
-But there are more things like only commands on LINUX:
+But there are more things like only commands on Linux:
 There are also command options.
 
 In the case of a directory listener you probably also want to know the size, date, and more:
@@ -433,7 +433,7 @@ drwxr-xr-x 2 pi pi 4096 Aug  1 14:59 Videos
 pi@raspberrypi:~ $ ▮
 ```
 
-Explanation: ([used source](https://linuxconfig.org/understanding-of-ls-command-with-a-long-listing-format-output-with-permission-bits))
+Explanation: ([used source](https://Linuxconfig.org/understanding-of-ls-command-with-a-long-listing-format-output-with-permission-bits))
 
 * `d` stands for directory - `l` for a link - `c` for a character file
 * `rwxr-xr-x` are the permissions applied to this *file* also called octets
@@ -456,7 +456,7 @@ Explanation: ([used source](https://linuxconfig.org/understanding-of-ls-command-
 * `Desktop` the file/directory name
 
 `-a` → shows not only the *normal* files, but also the *hidden* ones that start with a `.`
-(because in LINUX everything (file,folder,device,command) is a file, a file that starts with `a` is a hidden file)
+(because in Linux everything (file,folder,device,command) is a file, a file that starts with `a` is a hidden file)
 
 ```
 pi@raspberrypi:~ $ ls -a
@@ -549,7 +549,7 @@ Three things:
 1. Creating a directory/folder is simple and you did it :raised_hands:
 2. If the directory already exists you get an error prompt
    (`mkdir: cannot create directory 'cool folder': File exists`)
-3. If you come from a WINDOWS computer you probably wondered why there was no error prompt after I created first the folder `cool folder` and then `Cool folder` without any kind of error prompt. That is because of LINUX. The file system is in contrast to WINDOWS - if you put it simply - not case sensitive. You can create files and folders with the same name as long as there is a difference in large or lower case. On WINDOWS computers you can't do this. Every file in a directory there can only have a unique name.
+3. If you come from a Windows computer you probably wondered why there was no error prompt after I created first the folder `cool folder` and then `Cool folder` without any kind of error prompt. That is because of Linux. The file system is in contrast to Windows - if you put it simply - not case sensitive. You can create files and folders with the same name as long as there is a difference in large or lower case. On Windows computers you can't do this. Every file in a directory there can only have a unique name.
 4. Wait a second, I want also to create files :disappointed:...
 
 ------
@@ -758,15 +758,15 @@ If you want to learn more shortcuts and commands (and believe us, there are so m
 ---
 
 *Source of many shortcuts and many that we didn't told about: [skorks](https://www.skorks.com/2009/09/bash-shortcuts-for-maximum-productivity/)*
-*Source of many commands and many that we didn't told about: [tecmint](https://www.tecmint.com/useful-linux-commands-for-newbies/)*
-*Even more commands: [raspberrypi.org](https://www.raspberrypi.org/documentation/linux/usage/commands.md)*
+*Source of many commands and many that we didn't told about: [tecmint](https://www.tecmint.com/useful-Linux-commands-for-newbies/)*
+*Even more commands: [raspberrypi.org](https://www.raspberrypi.org/documentation/Linux/usage/commands.md)*
 
 
 # 7. Install additional software/programs
 
-Installing programs is on LINUX or rather on Raspbian quite different if you come from OSX or WINDOWS.
+Installing programs is on Linux or rather on Raspbian quite different if you come from OSX or Windows.
 
-Therefore here a quick and dirty explanation of operating systems and especially LINUX:
+Therefore here a quick and dirty explanation of operating systems and especially Linux:
 
 ## The operating system
 
@@ -776,25 +776,25 @@ The kernel is the core computer program. It has the full control over everything
 
 It handles all connected peripherals, input, output and thus controlling on what other programs having access to.
 
-Systems like WINDOWS and LINUX have an underlying kernel.
+Systems like Windows and Linux have an underlying kernel.
 
-Nevertheless there are big differences between especially these two besides that LINUX is an open source developed and public viewable kernel and the WINDOWS kernel is a cooperation secret.
+Nevertheless there are big differences between especially these two besides that Linux is an open source developed and public viewable kernel and the Windows kernel is a cooperation secret.
 
-### LINUX distributions and WINDOWS
+### Linux distributions and Windows
 
-Probably you know LINUX distributions better under the names Arch Linux, Debian, Fedora, Gentoo, Manjaro, Mint, Ubuntu, Raspbian, etcetera.
+Probably you know Linux distributions better under the names Arch Linux, Debian, Fedora, Gentoo, Manjaro, Mint, Ubuntu, Raspbian, etcetera.
 
-These so named *distributions* don't have specific kernels. They all have the same kernel, the LINUX kernel. \*
+These so named *distributions* don't have specific kernels. They all have the same kernel, the Linux kernel. \*
 
-But only the kernel won't bring you far. Every system is only so useful as the programs that are installed on it. Like.. what would WINDOWS be if you wouldn't have a GUI.
+But only the kernel won't bring you far. Every system is only so useful as the programs that are installed on it. Like.. what would Windows be if you wouldn't have a GUI.
 
-And because there are so many possible GUI's and file managers, file editors and network programs and even more programs that some people created distributions. They all consist of the LINUX kernel and many chosen programs/packages.
+And because there are so many possible GUI's and file managers, file editors and network programs and even more programs that some people created distributions. They all consist of the Linux kernel and many chosen programs/packages.
 
-You can think of WINDOWS like the only distribution of the WINDOWS kernel.
+You can think of Windows like the only distribution of the Windows kernel.
 
-The cool thing about this on LINUX distributions is that you can theoretically install every LINUX program on every LINUX distribution, this means also every GUI and so on.
+The cool thing about this on Linux distributions is that you can theoretically install every Linux program on every Linux distribution, this means also every GUI and so on.
 
-\* there are ways to strip a kernel down in size but they are nevertheless all based on one LINUX kernel
+\* there are ways to strip a kernel down in size but they are nevertheless all based on one Linux kernel
 
 ## How to install these... packages?!
 
@@ -811,7 +811,7 @@ Every distribution has it's own repository where they all saved these packages t
 
 ### Example: Lets install Firefox
 
-Normally on WINDOWS you go to the Mozilla Firefox website go to the download page. Download the executable and run it. Then you wait till it's finished installing.
+Normally on Windows you go to the Mozilla Firefox website go to the download page. Download the executable and run it. Then you wait till it's finished installing.
 
 How's that on our Raspbian?
 
@@ -1083,7 +1083,7 @@ Oh wait, wait again some minutes ... and then... you are in the eclipse IDE :smi
 
 Now you can develop really cool Java code in a GUI that checks every action you take so the compile process will never print errors if you follow eclipse ;)
 
-**Edit:** Probably you will notice very soon that it's very slow (at least the startup time - when it's running it's okay) - but you can use it on your WINDOWS PC or LINUX PC without these very long start times.
+**Edit:** Probably you will notice very soon that it's very slow (at least the startup time - when it's running it's okay) - but you can use it on your Windows PC or Linux PC without these very long start times.
 
 # 9. Set up a local webserver
 
@@ -1179,15 +1179,15 @@ Secure File Transfer Protocol is not only way more secure (because it works over
 
 ### Windows Drive
 
-Sadly WINDOWS itself doesn't natively SFTP - only FTP - but there is a really fast and simple workaround for that:
+Sadly Windows itself doesn't natively SFTP - only FTP - but there is a really fast and simple workaround for that:
 
-1. Download [Swish](http://www.swish-sftp.org/) and install it on your WINDOWS computer.
+1. Download [Swish](http://www.swish-sftp.org/) and install it on your Windows computer.
 2. Because nothing changed.. what the hell did you do?
-3. Go to "This Pc" in WINDOWS Explorer and see that there is a new Drive named Swish.
+3. Go to "This Pc" in Windows Explorer and see that there is a new Drive named Swish.
 4. Click `Add SFTP Connection` and enter again your IP Address, Username, enter as path `/home/YOURUSERNAME` and give it a name/label
 5. Now double click on the created connection icon and enter your password (for your YOUSERNAME)
 
-Now you can delete files, add them, rename them and more natively over your WINDOWS Explorer.
+Now you can delete files, add them, rename them and more natively over your Windows Explorer.
 
 ### Home network media center distribution (with Kodi as receiver)
 
@@ -1217,7 +1217,7 @@ For me music, video and picture streaming was no problem, but a 4K video file of
 
 https://www.raspberrypi.org/documentation/linux/usage/cron.md
 
-Cron jobs are a really cool thing that you can use as LINUX user.
+Cron jobs are a really cool thing that you can use as Linux user.
 
 Over the cron scheduler you can program to run script at a time you want every week/year/minute/hour/etcetera. And it's so easy to use on Raspbian because there is even a GUI version of it preinstalled.
 
@@ -1518,10 +1518,19 @@ Now we just need to know how we can add users to groups and heck even create the
 Create a user group:
 
 ```
-pi@raspberrypi:~ $ sudo addgroup <groupname>
+sudo addgroup <groupname>
 ```
 
 Yay. That was it. Ready. Go on.
+
+Example:
+
+```
+pi@raspberrypi:~ $ sudo addgroup newgroup
+Adding group `newgroup' (GID 1004) ...
+Done.
+pi@raspberrypi:~ $ ▮
+```
 
 ### Add user to a group
 
@@ -1530,18 +1539,47 @@ To add an user to a group isn't such difficult as you think once you read the ma
 Just add the command options `-a` for append and `-G` for group and you're set:
 
 ```
-pi@raspberrypi:~ $ sudo usermod -a -G <groupname> <username>
+sudo usermod -a -G <groupname> <username>
 ```
 
-Will the user remain in his old group or will he be removed from it
+Example:
+
+```
+pi@raspberrypi:~ $ sudo usermod -a -G newgroup newusername
+pi@raspberrypi:~ $ ▮
+```
 
 ### View all the users in a group
 
 Wit the following command you will get a list off all the users in a group:
 
 ```
-pi@raspberrypi:~ $ sudo grep <groupname> /etc/group
+pi@raspberrypi:~ $ grep <groupname> /etc/group
 ```
+
+That means for our example:
+
+```
+pi@raspberrypi:~ $ grep newgroup /etc/group
+newgroup:x:1004:newusername
+pi@raspberrypi:~ $ ▮
+```
+
+---
+
+Too view all groups on your system you can also use the command `getnet group`
+
+With the command `grep` (**g**lobally search a **r**egular **e**xpression and **p**rint - [wikipedia](https://en.wikipedia.org/wiki/Grep)) you can search this list and output only the lines where the following string is contained.
+
+Through this you can use also the command `getent group | grep <groupname>` to get all users of a group:
+
+```
+pi@raspberrypi:~ $ getent group | grep newgroup
+newgroup:x:1004:newusername
+pi@raspberrypi:~ $ ▮
+```
+
+---
 
 ## Remove user and groups
 
@@ -1554,6 +1592,16 @@ Ok, now I have 20 users and 5 groups, but I think I can delete some of them:
 Very simple: `userdel` + `-r` +  `<username>`
 
 This will not only remove the user but also delete it's local home directory (`-r`).
+
+So let's delete our user `newusername`:
+
+```
+pi@raspberrypi:~ $ sudo userdel -r newusername
+userdel: newusername mail spool (/var/mail/newusername) not found
+pi@raspberrypi:~ $ grep newgroup /etc/group
+newgroup:x:1004:
+pi@raspberrypi:~ $ ▮
+```
 
 #### Lock the account before you finally delete it
 
@@ -1576,3 +1624,16 @@ If an account is locked the user will get a message at login that the account ex
 ### Remove a group
 
 Probably this is no surprise but the command to remove groups is `delgroup`:
+
+So now we have an empty example group.
+Let's remove it too:
+
+```
+pi@raspberrypi:~ $ sudo groupdel -r newgroup
+Removing group `newgroup' ...
+Done.
+pi@raspberrypi:~ $ grep newgroup /etc/group
+pi@raspberrypi:~ $ ▮
+```
+
+So you now can also manage users on any Linux system via command line. Nice.

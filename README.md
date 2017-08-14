@@ -35,6 +35,7 @@ Outside of the tutorial in this document you can find these things also on this 
 
 
 # 2. Setup an OS
+
 Your Raspberry Pi is in front of you and you want to play with it... but therefore you need an operating system.
 To install one you have many possibilities regarding the OS or rather Linux distribution ([See here the official guide](https://www.raspberrypi.org/learning/software-guide/quickstart/)).
 
@@ -258,7 +259,82 @@ It's a bit messy, but here are the things you need to do:
 
 Also because we set as automatic start of the Pi a GUI-start we now always login to the GUI of the Pi when we log ourselves in over a remote desktop connection without needing the raspberry connect to any cables but the power chord (and eventually your network cable if you do not have WLAN).
 
-## SSH connection (SFTP with Windows)
+## SSH (terminal) connection
+
+But what if we don't want a GUI. A simple CLI is enough isn't it?
+
+Because of this here are some services, that let you connect to your Pi  so that you can interact with it via command line:
+
+### JuiceSSH (Android)
+
+First a mobile SSH client for Android devices:
+
+1. Install the app via Play Store: [JuiceSSH](https://play.google.com/store/apps/details?id=com.sonelli.juicessh&hl=en)
+2. Open it and click the first entry in the list: `Connections`
+3. Click the plus at the bottom right (`+`) and 
+   * Add a name for the connection under `Nickname:`
+   * Enter your Pi's IP address under `Address:`
+   * Click on the button right to `Identity:` (is named `New`)
+     * Add now a nickname for yourself (`Nickname:`)
+     * And your username (`Username:`)
+     * And if you want add also your password under `Password:`
+     * Now confirm the new identity by clicking the checkmark at the top right
+   * Confirm again by clicking the checkmark at the top right
+4. Now click the new entry in the list that was a second ago empty
+5. Wait 2 seconds and ... *Woosh* ... You can now do everything with your Pi that you could do when you were controlling it over the GUI terminal
+
+This is really amazing because you now am able to execute scripts or basically do everything you want as long at it has no GUI !!!!
+
+:muscle:
+
+But this is not the only way to do this. There are many clients that can do this for many OS's. For example here a SSH CLI client for Windows:
+
+### PuTTY
+
+Also a very small but cool service for your Windows computer.
+
+1. Install it over at [their website](http://www.putty.org/) (first link)
+
+2. Open it and enter directly the IP address of your Pi
+   (you are already in this but the input field is located under `Session > Host Name (or IP address)`)
+
+3. If you not always want to retype the IP address enter in the input filed `Saved Sessions` a name for the connection and click `Save` after you are ready
+
+4. Now click `Open` at the bottom of the window
+
+5. Type in the terminal that opened itself your username:
+
+   ```
+   Login as: ▯
+   ```
+
+6. Input ENTER and now input the password of your account:
+
+   ```
+   Login as: pi
+   pi@192.168.0.42's password: ▯
+   ```
+
+7. When you are ready press again ENTER and you are ready to rumble!
+
+   ```
+   Login as: pi
+   pi@192.168.0.42's password: ▯
+
+   Text
+
+   More Text
+   Last login: Tue Aug 15 00:24:18 2017 fro 192.168.0.21
+   pi@raspberrypi:~ $ ▯
+   ```
+
+Tipp: You can enter full screen mode by clicking `Ctrl` + `Right mouse key` and exiting it like this any time (looks way more professional :stuck_out_tongue_winking_eye:) 
+
+## File manager connection (SFTP over SSH)
+
+The following services can you enable access to the file system of your Pi over the Secure Shell protocol:
+
+### Filezilla (works on Windows)
 
 Because of the Secure Shell protocol you can do even more cool things.
 
@@ -268,26 +344,54 @@ What do you need to do that you can do this?
 
 First you need to activate SSH on your Raspberry Pi.
 
-* over the GUI: `Preferences` >> `Raspberry Pi Configuration`
-* or the CLI: `sudo raspi-config` >> `5 Interfacing Options` >> `P2 SSH` >> `Enable`
+- over the GUI: `Preferences` >> `Raspberry Pi Configuration`
+- or the CLI: `sudo raspi-config` >> `5 Interfacing Options` >> `P2 SSH` >> `Enable`
 
 Now you can switch to your Windows computer and download/install FileZilla from [filezilla-project.org](https://filezilla-project.org/).
 
 When you installed it launch it. 
 
-* Then click in the upper left `File` >> `Site manager`
-* Now create a new site with clicking the button `New Site`
-* On the right click the tab `General`
-* Now enter in the `Host:` text field the IP address of your Pi (`hostname -I`).
-* Choose as `protocol` the Secure File Transfer Protocol (`SFTP`)
-* The `Logon Type:` is `Normal`
-* Now enter your Pi username (`pi`)
-* and your **long, secure & unique password**
+- Then click in the upper left `File` >> `Site manager`
+- Now create a new site with clicking the button `New Site`
+- On the right click the tab `General`
+- Now enter in the `Host:` text field the IP address of your Pi (`hostname -I`).
+- Choose as `protocol` the Secure File Transfer Protocol (`SFTP`)
+- The `Logon Type:` is `Normal`
+- Now enter your Pi username (`pi`)
+- and your **long, secure & unique password**
 
 And you are ready to go. Just click `Connect` at the bottom left and you can see in the main window of FileZilla in the right file hierarchy the file system of your pi. Also you can copy, move, edit files from there.
 
 [source](https://www.raspberrypi.org/documentation/remote-access/ssh/sftp.md)
 
+### Swish (works on Windows)
+
+If you want something more "native" under Windows you can use Swish, an native Windows SFTP client.
+
+* Just download the client [here](http://www.swish-sftp.org/) and install it on your Windows computer. Nothing changed?
+* Go to "my Device" in the Windows Explorer (there where you can see all your hard drives) and a new drive is there with the name "Swish"
+* Now double click it and click at the top in the banner "Add SFTP Connection"
+* Now input your desired name for the connection under `Lable:`
+* Add under `Host:` your IP address and under `User:` your username and you are ready to create the connection
+* Tipp: If you every time want to be directly in the home directory or in a specific directory enter your desired path under `Path:`
+* Now after you created the connection double click the new icon and enter your password for the inputted user: Your file system of the pi natively in the Windows Explorer :raised_hands:
+
+### Solid Explorer File Manager Beta (Android - Not free)
+
+Because I used this feature way to often I want to add this although I think I paid something for the app (if you have working alternatives message me and I will add them :).
+
+There are obviously countless SFTP Alternatives but here it is really simple:
+
+*  Start the app, click the plus (`+`) at the bottom right
+* Click `New cloud connection`
+* Choose `SFTP` and click `Next` at the bottom right
+* Enter the IP address of your Pi under `Remote host name` and enter optional a specific path
+* Enter a name for the connection under `Display name`
+* Because I don't want to get into complicated things (I for myself couldn't do it) we only use the username and password for now (If you know how to do it more securely over a private key message me or add it yourself :)
+* Click `Next` and add your username and password
+* Click `Next` and again `Next` and check everything, then again `Next`
+* And then finally click the big, fat `Connect` button
+* If you now open the hamburger menu you can directly get into the file system of your Pi on any Android device :smiley:
 
 # 6. Welcome to the console :)
 

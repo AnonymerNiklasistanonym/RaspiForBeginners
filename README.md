@@ -783,7 +783,7 @@ pi@raspberrypi:~/Desktop $ ▮
 Okay. It seems like you only can delete empty directories. But of course we have a command for deleting also a not empty directory:
 
 ```
-pi@raspberrypi:~/Desktop $ rm -rf another_cool_directory
+pi@raspberrypi:~/Desktop $ rm -r another_cool_directory
 pi@raspberrypi:~/Desktop $ ls
 exisiting_file tut
 pi@raspberrypi:~/Desktop $ mkdir new_empty_directory

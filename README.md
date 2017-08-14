@@ -265,7 +265,7 @@ But what if we don't want a GUI. A simple CLI is enough isn't it?
 
 Because of this here are some services, that let you connect to your Pi  so that you can interact with it via command line:
 
-### JuiceSSH (Android)
+### JuiceSSH (Android - not Open Source - see next for Open Source)
 
 First a mobile SSH client for Android devices:
 
@@ -283,9 +283,40 @@ First a mobile SSH client for Android devices:
 4. Now click the new entry in the list that was a second ago empty
 5. Wait 2 seconds and ... *Woosh* ... You can now do everything with your Pi that you could do when you were controlling it over the GUI terminal
 
-This is really amazing because you now am able to execute scripts or basically do everything you want as long at it has no GUI !!!!
+This is really amazing because you now am able to execute scripts or basically do everything you want as long at it has no GUI!!!!
 
 :muscle:
+
+### ConnectBot (Android Open Source)
+
+Here a even simpler and Open Source solution that can do the same:
+
+1. Install the app via Play Store: [ConnectBot](https://play.google.com/store/apps/details?id=org.connectbot)
+
+2. Open it and click the plus at the bottom right (`+`)
+
+3. Click and expand the input filed `username@hostname:port`
+
+   - Now input your username in the filed `username`
+   - And input the IP address of your Pi
+   - Enter a nickname in the field `Nickname`
+   - Now conform your input by clicking the `+` at the top right
+
+4. Click now the new entry in the list
+
+5. A terminal will open itself and then a popup that asks if yo really want to connect - confirm
+
+6. Then the terminal will say
+
+   ````
+   Attemting 'password' authentification
+   ````
+
+   and an input filed will popup right above your keyboard which will say `Password:`
+
+7. Input the password for your username and click ENTER
+
+8. Again wait roughly one or two seconds and *Wooooosh* you have full CLI control over your Pi over your Android device :launch: 
 
 But this is not the only way to do this. There are many clients that can do this for many OS's. For example here a SSH CLI client for Windows:
 
@@ -383,15 +414,15 @@ Because I used this feature way to often I want to add this although I think I p
 There are obviously countless SFTP Alternatives but here it is really simple:
 
 *  Start the app, click the plus (`+`) at the bottom right
-* Click `New cloud connection`
-* Choose `SFTP` and click `Next` at the bottom right
-* Enter the IP address of your Pi under `Remote host name` and enter optional a specific path
-* Enter a name for the connection under `Display name`
-* Because I don't want to get into complicated things (I for myself couldn't do it) we only use the username and password for now (If you know how to do it more securely over a private key message me or add it yourself :)
-* Click `Next` and add your username and password
-* Click `Next` and again `Next` and check everything, then again `Next`
-* And then finally click the big, fat `Connect` button
-* If you now open the hamburger menu you can directly get into the file system of your Pi on any Android device :smiley:
+*  Click `New cloud connection`
+*  Choose `SFTP` and click `Next` at the bottom right
+*  Enter the IP address of your Pi under `Remote host name` and enter optional a specific path
+*  Enter a name for the connection under `Display name`
+*  Because I don't want to get into complicated things (I for myself couldn't do it) we only use the username and password for now (If you know how to do it more securely over a private key message me or add it yourself :)
+*  Click `Next` and add your username and password
+*  Click `Next` and again `Next` and check everything, then again `Next`
+*  And then finally click the big, fat `Connect` button
+*  If you now open the hamburger menu you can directly get into the file system of your Pi on any Android device :smiley:
 
 # 6. Welcome to the console :)
 

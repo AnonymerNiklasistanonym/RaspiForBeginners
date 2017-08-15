@@ -928,17 +928,17 @@ You can do this with every command that exists. It's just a simple playlist/queu
 
 ### Search CLI output
 
-If you for example have an directory with 42 files and you enter the `ls -l` command you probably are pretty sure which file you are searching (or know something of the filename or know the file type).
+If you for example have a directory with 42 files and you enter the `ls -l` command you probably are pretty sure which file you are searching (or know something of the filename or know the file type).
 
 To optimize the "long" search in such a case there is the command `grep`.
 
-It's like a really simple regular expression text search that only displays lines in the CLI or files that contain a keyword you write after it.
+It's like a really simple regular expression text search that only displays lines in the CLI or files that contain a keyword you write after it. Input `ls -l | grep 'keyword'`
 
-Here some examples:
+For a better understanding how `grep` works look at another example:
 
 #### Search a text file
 
-For example we here have a text file with all the passwords - but we only want the password of Alice, because she forgot her password again...
+You are in this example a system admin at a cyber security organization and Alice forgot her password and asks you to give it to her. Because you have a text file with all the passwords of everyone in the form you have now the job to say her her password as fast as  possible:
 
 File: `Documents/SecureFiles/nothingToSeeGoAway.txt`
 
@@ -957,25 +957,25 @@ Jim: HiDwight
 
 (Disclaimer: Never save passwords like this: THIS IS JUST A SIMPLE EXAMPLE FOR `grep`)
 
-We could now enter this:
+* You could now enter this:
 
-```
-pi@raspberrypi:~ $ cat Documents/SecureFiles/nothingToSeeGoAway.txt
-```
+  ```
+  pi@raspberrypi:~ $ cat Documents/SecureFiles/nothingToSeeGoAway.txt
+  ```
 
-And would get every line of the document. This would mean we would have to read every line...
+  and would get every line of the document. This would mean you would have to read every line...
 
-But if we instantly only want the lines that contain "Alice" we use `grep` like this:
+* But if you instantly only want the lines that contain "Alice" you obviously would use `grep` like this:
 
-```
-pi@raspberrypi:~ $ cat Documents/SecureFiles/nothingToSeeGoAway.txt | grep 'Alice'
-Bernd: WhyAliceAlwaysForgetsHerPassword?
-Alice: WhyDoIAlwaysForgetMyPassword????3897584
-pi@raspberrypi:~ $ ▮
-```
+  ```
+  pi@raspberrypi:~ $ cat Documents/SecureFiles/nothingToSeeGoAway.txt | grep 'Alice'
+  Bernd: WhyAliceAlwaysForgetsHerPassword?
+  Alice: WhyDoIAlwaysForgetMyPassword????3897584
+  pi@raspberrypi:~ $ ▮
+  ```
 
-You see: You now only got the lines which contain the text "Alice".
-Plus: Per default the terminal highlights it for you (if not use the option `--color`)
+  You see: You now only got the lines which contain the text "Alice".
+  Plus: Per default the terminal highlights it for you (if not use the option `--color`)
 
 There are also obviously many command options (read the `man grep` page therefore), but one cool option is the addition of `i`. The normal `grep` command searches case sensitive, with the command `grep -i` this isn't the case (BaDummTsss) and you now get every line that contains in some way `Alice`:
 

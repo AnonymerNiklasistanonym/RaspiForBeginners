@@ -896,6 +896,119 @@ If you want to learn more shortcuts and commands (and believe us, there are so m
 *Source of many commands and many that we didn't told about: [tecmint](https://www.tecmint.com/useful-Linux-commands-for-newbies/)*
 *Even more commands: [raspberrypi.org](https://www.raspberrypi.org/documentation/Linux/usage/commands.md)*
 
+## Commands advanced
+
+But there is even more that you can do with commands:
+
+### Queue commands
+
+If you don't get queue think of it like a command playlist. You could do for example this:
+
+```
+pi@raspberrypi:~ $ cd Documents
+pi@raspberrypi:~Documents $ mkdir Test
+pi@raspberrypi:~Documents $ cd Test
+pi@raspberrypi:~Documents/Test $ touch hi.txt
+pi@raspberrypi:~Documents/Test $ cd ~
+pi@raspberrypi:~ $ ▮
+```
+
+But this would require to input 4 commands and if you run programs you need to wait till one of the commands is ready and so on (like when you want to install many programs in a row).
+
+Thanks to `&&` this is not a problem. Just put `&&` between the commands and exactly the same will happen without inputting each command after another, but with queuing them (or adding them to a playlist).
+
+This will do the same as the last command line example:
+
+```
+pi@raspberrypi:~ $ cd Documents && mkdir Test && cd Test && touch hi.txt && cd ~
+pi@raspberrypi:~ $ ▮
+```
+
+You can do this with every command that exists. It's just a simple playlist/queue.
+
+### Search CLI output
+
+If you for example have an directory with 42 files and you enter the `ls -l` command you probably are pretty sure which file you are searching (or know something of the filename or know the file type).
+
+To optimize the "long" search in such a case there is the command `grep`.
+
+It's like a really simple regular expression text search that only displays lines in the CLI or files that contain a keyword you write after it.
+
+Here some examples:
+
+#### Search a text file
+
+For example we here have a text file with all the passwords - but we only want the password of Alice, because she forgot her password again...
+
+File: `Documents/SecureFiles/nothingToSeeGoAway.txt`
+
+```
+Password for:
+Jules: 123456
+ObiLan: IhaveTheHighGround
+Mona: securePassword
+Nick: areyoufreakingkiddingme
+Thomas: saveTheseDamnPasswordsAsHashesAdmins!!
+Bernd: WhyAliceAlwaysForgetsHerPassword?
+Alice: WhyDoIAlwaysForgetMyPassword????3897584
+Bob: aliceIsCool
+Jim: HiDwight
+```
+
+(Disclaimer: Never save passwords like this: THIS IS JUST A SIMPLE EXAMPLE FOR `grep`)
+
+We could now enter this:
+
+```
+pi@raspberrypi:~ $ cat Documents/SecureFiles/nothingToSeeGoAway.txt
+```
+
+And would get every line of the document. This would mean we would have to read every line...
+
+But if we instantly only want the lines that contain "Alice" we use `grep` like this:
+
+```
+pi@raspberrypi:~ $ cat Documents/SecureFiles/nothingToSeeGoAway.txt | grep 'Alice'
+Bernd: WhyAliceAlwaysForgetsHerPassword?
+Alice: WhyDoIAlwaysForgetMyPassword????3897584
+pi@raspberrypi:~ $ ▮
+```
+
+You see: You now only got the lines which contain the text "Alice".
+Plus: Per default the terminal highlights it for you (if not use the option `--color`)
+
+There are also obviously many command options (read the `man grep` page therefore), but one cool option is the addition of `i`. The normal `grep` command searches case sensitive, with the command `grep -i` this isn't the case (BaDummTsss) and you now get every line that contains in some way `Alice`:
+
+```
+pi@raspberrypi:~ $ cat Documents/SecureFiles/nothingToSeeGoAway.txt | grep 'Alice'
+Bernd: WhyAliceAlwaysForgetsHerPassword?
+Alice: WhyDoIAlwaysForgetMyPassword????3897584
+Bob: aliceIsCool
+pi@raspberrypi:~ $ ▮
+```
+
+#### But there is even more besides `cat file | grep 'word'`
+
+ ([Source of even more](https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/))
+
+* Search for a word directly in a text file:
+
+  ```
+  grep 'word' filename
+  ```
+
+* Search for a word directly in many text files:
+
+  ```
+  grep 'word' file1 file2 file3
+  ```
+
+* Search the current output in the terminal of a command for a word:
+
+  ```
+  commandThatCreatesATextOutput | grep 'word'
+  ```
+
 
 # 7. Install additional software/programs
 

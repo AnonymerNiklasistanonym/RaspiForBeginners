@@ -1938,3 +1938,171 @@ pi@raspberrypi:~ $ ▮
 ```
 
 So you now can also manage users on any Linux system via command line. Nice.
+
+# Bonus: Get free/used storage
+
+Probably you encountered the problem, that you don't know where storage is used and how much storage is used.
+
+## General storage overview
+
+```
+pi@raspberrypi:~ $ df
+```
+
+With this command you get the amount of available and used space on your Micro-SD card.
+
+With the parameter: `-BM` or `-BG`, ... you can even change the block size (Megabyte, Gigabyte, ...):
+
+```
+pi@raspberrypi:~ $ df -BG
+```
+
+## Current directory storage overview
+
+### All files on their own
+
+You hopefully know that you get the data about all the files over the command:
+
+```
+pi@raspberrypi:~ $ ls -al
+```
+
+### All files together
+
+To get the size of all files in your current directory use the command:
+
+```
+pi@raspberrypi:~ $ du -sh
+```
+
+or if you want to know the size of another directory use this:
+
+```
+pi@raspberrypi:~ $ du -sh Path/to/another/directory
+```
+
+# Bonus: Use Lazarus with IDE
+
+Lazarus is a great programming language that I used some time back in school. It's somewhat like Delphi but just search the internet if you are interested.
+
+## Install IDE
+
+Really easy. You just need this:
+
+```
+pi@raspberrypi:~ $ sudo apt-get update && sudo apt-get upgrade
+pi@raspberrypi:~ $ sudo apt-get install fpc
+pi@raspberrypi:~ $ sudo apt-get install lazarus
+```
+
+After that start it over the start menu or over the command `startlazarus`.
+
+# Bonus: Mount external drive (with the console)
+
+This isn't exactly that simple like you're used to...
+
+---
+
+Attention: If you use the GUI and just want to copy data you don't need this!
+
+Raspbian automatically detects new USB drives and mounts them if you follow the dialog.
+
+If not or you want to use the console follow this tutorial:
+
+---
+
+Let's put in our USB-Drive and check if it blinks.
+
+If it does blink:
+
+## Find out if it is "mounted"
+
+Therefore use this command:
+
+```
+pi@raspberrypi:~ $ dmesg | tail -n 20
+```
+
+`dmesg` will print the kernel ring buffer... and with `tail` we take us the last 10 lines of this buffer. Or better with `-n 20` we take the last twenty lines of the buffer:
+
+```
+...
+[984210.277928] usb 1-1.2: new high-speed USB device number 4 using dwc_otg
+[984210.408873] usb 1-1.2: New USB device found, idVendor=8644, idProduct=8003
+[984210.408887] usb 1-1.2: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[984210.408896] usb 1-1.2: Product: USB Flash Disk
+[984210.408903] usb 1-1.2: Manufacturer: General
+[984210.408911] usb 1-1.2: SerialNumber: 02303500000002D1
+[984210.409908] usb-storage 1-1.2:1.0: USB Mass Storage device detected
+[984210.410700] scsi host0: usb-storage 1-1.2:1.0
+[984211.478865] scsi 0:0:0:0: Direct-Access     General  USB Flash Disk   1.00 PQ: 0 ANSI: 2
+[984211.480459] sd 0:0:0:0: [sda] 3913728 512-byte logical blocks: (2.00 GB/1.87 GiB)
+[984211.480809] sd 0:0:0:0: [sda] Write Protect is off
+[984211.480823] sd 0:0:0:0: [sda] Mode Sense: 03 00 00 00
+[984211.481140] sd 0:0:0:0: [sda] No Caching mode page found
+[984211.481151] sd 0:0:0:0: [sda] Assuming drive cache: write through
+[984211.484964]  sda: sda1
+[984211.490303] sd 0:0:0:0: [sda] Attached SCSI removable disk
+[984211.506485] sd 0:0:0:0: Attached scsi generic sg0 type 0
+```
+
+So we see it's there but wen want to know the name of it.
+Let's try this command:
+
+```
+pi@raspberrypi:~ $ sudo fdisk -l
+...
+Device         Boot Start      End  Sectors  Size Id Type
+/dev/mmcblk0p1       8192    93596    85405 41.7M  c W95 FAT32 (LBA)
+/dev/mmcblk0p2      94208 62333951 62239744 29.7G 83 Linux
+
+Disk /dev/sda: 1.9 GiB, 2003828736 bytes, 3913728 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0xd8fca99d
+
+Device     Boot Start     End Sectors  Size Id Type
+/dev/sda1  *      128 3913727 3913600  1.9G  e W95 FAT16 (LBA)
+```
+
+Now I can see that my 2GB USB stick with the name `/dev/sda1` seems to be mounted, but how do I get access to it's file system?
+
+## Mount the external drive to the file system
+
+To get access we need to mount the drive to the file system.
+
+To do this we first decide where we wanna mount it.
+I thought I take the empty `media` directory:
+
+```
+pi@raspberrypi:~ $ cd ../../../meda
+pi@raspberrypi:/media $ ▮
+```
+
+There we create a directory - named however we want.
+I went with `usb`:
+
+```
+pi@raspberrypi:/media $ sudo mkdir usb
+pi@raspberrypi:/media $ ▮
+```
+
+Now the first step get's it part.
+We need to know the name of the USB device on the system.
+In my case (you can read the logs) this is `/dev/sda1`.
+
+Now all we have to do is:
+
+```
+pi@raspberrypi:/media $ sudo mount /dev/sda1 usb
+```
+
+And we mounted the drive with the name `/dev/sda1` in the directory `usb`.
+
+Just try it out and hit:
+
+```
+pi@raspberrypi:/media $ ls -la usb
+```

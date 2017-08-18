@@ -201,6 +201,21 @@ Now you have a small but cool computer that can do everything that your current 
 
 ## Remote desktop connection
 
+---
+
+### Update 18. August 2017
+
+I just reset my Raspberry Pi 3 and followed my instructions.
+But when I tried to login via `XRDP` suddenly a different window popped up.
+
+It worked fine as before but now it also supports the Microsoft Remote Desktop apps for [Windows 10](https://www.microsoft.com/en-us/store/p/microsoft-remote-desktop/9wzdncrfj3ps) and [Android](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android&hl=en)!
+
+That means you now can use your Windows 10 clipboard on the remote desktop and more cool features if you want to!
+
+(I don't know if you even need the instructions - try without and if it doesn't work follow them for Windows)
+
+---
+
 ### XRDP (Works fine with Windows)
 
 I wanted to access the device everywhere from my Windows Desktop and my Windows Laptop so I though a remote desktop connection would be a perfect start (I have also only one monitor so.... yeah).
@@ -256,7 +271,6 @@ It's a bit messy, but here are the things you need to do:
    * if you know want to execute commands just type in `match` + `Tab` and `enter` and you can input symbol's like `-` over the virtual console
 
 
-
 Also because we set as automatic start of the Pi a GUI-start we now always login to the GUI of the Pi when we log ourselves in over a remote desktop connection without needing the raspberry connect to any cables but the power chord (and eventually your network cable if you do not have WLAN).
 
 ## SSH (terminal) connection
@@ -265,31 +279,9 @@ But what if we don't want a GUI. A simple CLI is enough isn't it?
 
 Because of this here are some services, that let you connect to your Pi  so that you can interact with it via command line:
 
-### JuiceSSH (Android - not Open Source - see next for Open Source)
+### ConnectBot (Android, [Open Source](https://github.com/connectbot/connectbot))
 
-First a mobile SSH client for Android devices:
-
-1. Install the app via Play Store: [JuiceSSH](https://play.google.com/store/apps/details?id=com.sonelli.juicessh&hl=en)
-2. Open it and click the first entry in the list: `Connections`
-3. Click the plus at the bottom right (`+`) and 
-   * Add a name for the connection under `Nickname:`
-   * Enter your Pi's IP address under `Address:`
-   * Click on the button right to `Identity:` (is named `New`)
-     * Add now a nickname for yourself (`Nickname:`)
-     * And your username (`Username:`)
-     * And if you want add also your password under `Password:`
-     * Now confirm the new identity by clicking the checkmark at the top right
-   * Confirm again by clicking the checkmark at the top right
-4. Now click the new entry in the list that was a second ago empty
-5. Wait 2 seconds and ... *Woosh* ... You can now do everything with your Pi that you could do when you were controlling it over the GUI terminal
-
-This is really amazing because you now am able to execute scripts or basically do everything you want as long at it has no GUI!!!!
-
-:muscle:
-
-### ConnectBot (Android Open Source)
-
-Here a even simpler and Open Source solution that can do the same:
+Here a simple and Open Source solution with which you can control your Pi over the terminal on your Android device:
 
 1. Install the app via Play Store: [ConnectBot](https://play.google.com/store/apps/details?id=org.connectbot)
 
@@ -318,9 +310,9 @@ Here a even simpler and Open Source solution that can do the same:
 
 8. Again wait roughly one or two seconds and *Wooooosh* you have full CLI control over your Pi over your Android device :launch: 
 
-But this is not the only way to do this. There are many clients that can do this for many OS's. For example here a SSH CLI client for Windows:
+But this is not the only way to do this. There are many clients that can do this for many OS's. For example here you have another SSH CLI client for Windows:
 
-### PuTTY
+### PuTTY (Windows, Open Source)
 
 Also a very small but cool service for your Windows computer.
 
@@ -365,7 +357,7 @@ Tipp: You can enter full screen mode by clicking `Ctrl` + `Right mouse key` and 
 
 The following services can you enable access to the file system of your Pi over the Secure Shell protocol:
 
-### Filezilla (works on Windows)
+### Filezilla (Windows, Open Source)
 
 Because of the Secure Shell protocol you can do even more cool things.
 
@@ -395,7 +387,7 @@ And you are ready to go. Just click `Connect` at the bottom left and you can see
 
 [source](https://www.raspberrypi.org/documentation/remote-access/ssh/sftp.md)
 
-### Swish (works on Windows)
+### Swish (Windows)
 
 If you want something more "native" under Windows you can use Swish, an native Windows SFTP client.
 
@@ -407,7 +399,7 @@ If you want something more "native" under Windows you can use Swish, an native W
 * Tipp: If you every time want to be directly in the home directory or in a specific directory enter your desired path under `Path:`
 * Now after you created the connection double click the new icon and enter your password for the inputted user: Your file system of the pi natively in the Windows Explorer :raised_hands:
 
-### Solid Explorer File Manager Beta (Android - Not free)
+### Solid Explorer File Manager Beta (Android, Not free)
 
 Because I used this feature way to often I want to add this although I think I paid something for the app (if you have working alternatives message me and I will add them :).
 

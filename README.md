@@ -1333,6 +1333,59 @@ Now you can develop really cool Java code in a GUI that checks every action you 
 
 **Edit:** Probably you will notice very soon that it's very slow (at least the startup time - when it's running it's okay) - but you can use it on your Windows PC or Linux PC without these very long start times.
 
+## C# #
+
+First let's create a C# file:
+
+```
+pi@raspberrypi:~ $ nano
+```
+
+Then we just write a simple C# script in `nano`:
+
+```c#
+using System;
+
+// wild comment
+class HelloWorld
+{
+    static void Main(string[] args)
+    {
+      Console.WriteLine("Hello World!");
+    }
+}
+```
+
+Then we save this by clicking `Ctrl` + `x` and `y` and entering the name `cs_test_script.cs`.
+
+Now we have again the same *problem* like C - but without further preinstalled options.
+
+Because of that let's install one:
+
+```
+pi@raspberrypi:~ $ sudo apt-get update
+pi@raspberrypi:~ $ sudo apt-get install mono-complete▮
+```
+
+With `mono` you can compile and execute C# code.
+
+After installing the complete `.Net` framework let's first compile our test code:
+
+```
+pi@raspberrypi:~ $ gmcs cs_test_script.cs
+pi@raspberrypi:~ $ ▮
+```
+
+We have now created an executable named `cs_test_script.exe`, let's run it:
+
+```
+pi@raspberrypi:~ $ mono cs_test_script.exe
+Hello World!
+pi@raspberrypi:~ $ ▮
+```
+
+Tada, you just compiled and executed your probably first C# code!
+
 # 9. Set up a local webserver
 
 ## A *normal* webserver (Apache)

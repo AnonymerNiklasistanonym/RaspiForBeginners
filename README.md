@@ -1448,7 +1448,7 @@ But here one small example.
 
 1. Let's go back into the folder:
 
-   ```Shell
+   ```
    pi@raspberrypi:~ $ cd /var/www/html
    pi@raspberrypi:/var/www/html $ ▮
    ```
@@ -1456,20 +1456,20 @@ But here one small example.
 
 2. Then remove the `.html file`:
 
-   ```Shell
+   ```
    pi@raspberrypi:/var/www/html $ rm index.html
    pi@raspberrypi:/var/www/html $ ▮
    ```
 
 3. And create a new php file with the following content with `nano` (or another text editor):
 
-   ```Shell
-   $ nano index.php
+   ```
+   pi@raspberrypi:/var/www/html $ nano index.php
    ```
 
    Content:
 
-   ```html
+   ```HTML
    <!DOCTYPE html>
    <html>
    	<head>

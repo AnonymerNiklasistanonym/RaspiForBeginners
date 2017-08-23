@@ -1469,7 +1469,7 @@ But here one small example.
 
    Content:
 
-   ```php+HTML
+   ```php
    <!DOCTYPE html>
    <html>
    	<head>
@@ -1479,11 +1479,11 @@ But here one small example.
    		<h1>Heading</h1>
    		<p>
    			<?php
-               $currentDateTime = date('Y-m-d H:i:s');
-               echo "You've downloaded the webpage at ";
-               echo $currentDateTime;
-               echo ".";
-               ?>
+   				$currentDateTime = date('Y-m-d H:i:s');
+   				echo "You've downloaded the webpage at ";
+   				echo $currentDateTime;
+   				echo ".";
+   			?>
    		</p>
    	</body>
    </html>

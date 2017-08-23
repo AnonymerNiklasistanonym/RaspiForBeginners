@@ -1429,7 +1429,7 @@ When we want to use PHP there isn't much more we need to do.
 
 Let's start by installing PHP5 and the Apache PHP5 module via the package manager:
 
-```
+```basic
 pi@raspberrypi:~ $ sudo apt-get install php5 libapache2-mod-php5 -y
 ```
 
@@ -1448,7 +1448,7 @@ But here one small example.
 
 1. Let's go back into the folder:
 
-   ```
+   ```Shell
    pi@raspberrypi:~ $ cd /var/www/html
    pi@raspberrypi:/var/www/html $ ▮
    ```
@@ -1456,20 +1456,20 @@ But here one small example.
 
 2. Then remove the `.html file`:
 
-   ```
+   ```Shell
    pi@raspberrypi:/var/www/html $ rm index.html
    pi@raspberrypi:/var/www/html $ ▮
    ```
 
 3. And create a new php file with the following content with `nano` (or another text editor):
 
-   ```
+   ```Shell
    pi@raspberrypi:/var/www/html $ nano index.php
    ```
 
    Content:
 
-   ```php
+   ```HTML+PHP
    <!DOCTYPE html>
    <html>
    	<head>
@@ -1479,10 +1479,10 @@ But here one small example.
    		<h1>Heading</h1>
    		<p>
    			<?php
-   				$currentDateTime = date('Y-m-d H:i:s');
-   				echo "You've downloaded the webpage at ";
-   				echo $currentDateTime;
-   				echo ".";
+   			$currentDateTime = date('Y-m-d H:i:s');
+   			echo "You've downloaded the webpage at ";
+   			echo $currentDateTime;
+   			echo ".";
    			?>
    		</p>
    	</body>
@@ -1496,11 +1496,7 @@ But here one small example.
 
 ## SQL server
 
-...
-
-Add later
-
-...
+Couldn't setup MySQL. If somebody out there was more successful than me please make a pull request or say me in another way how you could do it.
 
 ## SFTP server
 

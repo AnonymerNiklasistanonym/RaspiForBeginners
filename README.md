@@ -1430,35 +1430,75 @@ When we want to use PHP there isn't much more we need to do.
 Let's start by installing PHP5 and the Apache PHP5 module via the package manager:
 
 ```
-pi@raspberrypi:~ $ sudo apt-get install php5
-pi@raspberrypi:~ $ sudo apt-get install libapache2-mod-php5 -y
+pi@raspberrypi:~ $ sudo apt-get install php5 libapache2-mod-php5 -y
 ```
 
-Because we used the Apache module the same directory as before will be used. But now also `.php` files can be shared via local network.
+Because we used Apache before when setting up and running the *normal webserver* the web files are in the same directory as before and the IP address will be the same.
 
-[source](https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md)
+If you now visit the website again there should be no change.
 
-For example:
+But you can now use the PHP server based preprocessor. What that means?
+It means that you can compute things on the server - change text, load files, handle some things and etcetera - and then send a `.html` file back to the user that opened the website over the IP address.
 
-```
-pi@raspberrypi:~ $ sudo rm /var/www/html/index.html
-pi@raspberrypi:~ $ sudo touch /var/www/html/index.php
-pi@raspberrypi:~ $ sudo nano /var/www/html/index.php
-```
+This is really cool because the user not only doesn't know that the web page was preprocessed (has no access to important files or other) and you can develop simple dynamic pages with logins that are different for every user and so on. Just search the web if you are interested in PHP.
 
-Then edit in `nano` the file to the content `<?php echo "hello world"; echo date('Y-m-d H:i:s'); ?>`.
+#### Small example
 
-...
+But here one small example.
 
-***Didn't work - I probably need to set up the Pi again.***
+1. Let's go back into the folder:
 
-...
+   ```
+   pi@raspberrypi:~ $ cd /var/www/html
+   pi@raspberrypi:/var/www/html $ ▮
+   ```
+
+
+2. Then remove the `.html file`:
+
+   ```
+   pi@raspberrypi:/var/www/html $ rm index.html
+   pi@raspberrypi:/var/www/html $ ▮
+   ```
+
+3. And create a new php file with the following content with `nano` (or another text editor):
+
+   ```
+   pi@raspberrypi:/var/www/html $ nano index.php
+   ```
+
+   Content:
+
+   ```php+HTML
+   <!DOCTYPE html>
+   <html>
+   	<head>
+   		<title>Title: <?php echo "hello world"; ?></title>
+   	</head>
+   	<body>
+   		<h1>Heading</h1>
+   		<p>
+   			<?php
+               $currentDateTime = date('Y-m-d H:i:s');
+               echo "You've downloaded the webpage at ";
+               echo $currentDateTime;
+               echo ".";
+               ?>
+   		</p>
+   	</body>
+   </html>
+   ```
+
+4. Now save the file and visit the webpage again (over the Pi's IP address):
+
+   You now should see (if you enter the IP address of the Pi in the browser) a webpage with the title "Title: hello world" and the webpage should have a heading named "Heading" and below it the current time when the webpage was loaded (like "You've downloaded the webpage at 2017-08-23 22:30:00.").
+
 
 ## SQL server
 
 ...
 
-***Didn't work - I probably need to set up the Pi again.***
+Add later
 
 ...
 

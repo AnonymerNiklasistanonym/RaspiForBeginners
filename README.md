@@ -1464,12 +1464,12 @@ But here one small example.
 3. And create a new php file with the following content with `nano` (or another text editor):
 
    ```Shell
-   pi@raspberrypi:/var/www/html $ nano index.php
+   $ nano index.php
    ```
 
    Content:
 
-   ```HTML+PHP
+   ```html
    <!DOCTYPE html>
    <html>
    	<head>

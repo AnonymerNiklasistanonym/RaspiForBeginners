@@ -1,20 +1,20 @@
 # RaspiForBeginners
 
-In this repository I'll wanted to document (now also with other cool people :raised_hands:) everything I do with my *new* Raspberry Pi 3 just for fun and education.
+In this repository I'll document (now also with other cool people :raised_hands:) everything I do with my *new* Raspberry Pi 3 just for fun and education.
 
-You can use this repository as a beginners tutorial for your own Raspberry Pi or probably learn something new and cool about it (or help us to make this tutorial/repository better :).
+You can use this repository as a beginners tutorial for your own Raspberry Pi [3] or probably learn something new and cool about it (or even help us to make this tutorial/repository better :).
 
-Have fun with your Raspberry Pi 3 :smiley:
+Have fun with your Raspberry Pi 3! :smiley:
 
 # 0. Other cool things
 
-Outside of the tutorial in this document you can find these things also on this repository:
+Outside of the tutorial you can find in this repository also:
 
 * A funny and short introduction into Linux and Bash (only in German for now) from [denniskeller](https://github.com/denniskeller)
-  → find it in the directory `linuxdemo` (download it and click `index.html`)
-* Some scripts in different languages if you want to get in touch with some programming languages
-* Other things - if you have something cool just contribute it :D
-  (or let me link your repository/website)
+  → find it in the [directory `linuxdemo`](linuxdemo) (download the repository and open`index.html`)
+* Some simple scripts in different languages if you want to get in touch with some programming languages
+* Other things if you have something cool and contribute it :D
+  (links to cool websites and repositories are also allowed)
 
 # 1. Get the hardware
 
@@ -39,33 +39,35 @@ Outside of the tutorial in this document you can find these things also on this 
 Your Raspberry Pi is in front of you and you want to play with it... but therefore you need an operating system.
 To install one you have many possibilities regarding the OS or rather Linux distribution ([See here the official guide](https://www.raspberrypi.org/learning/software-guide/quickstart/)).
 
-**We installed Raspbian onto the Raspberry Pi:**
+**Let's install the default Raspbian OS onto the Raspberry Pi:**
 
 1. Therefore you need to download the current Raspbian distribution ("Jessie with desktop" did we download) directly from [raspberry.org](https://www.raspberrypi.org/downloads/raspbian/).
-2. Then you extracted the ZIP file to get the image of the Linux distribution.
-3. Because you can't just put an `.img` file on the Micro SD card you need to install a program like the open source program [etcher](https://etcher.io/).
-   Simply install it, open it, choose the `.img` file, choose the correct drive and press flash.
-4. Great, now you only need to safely eject the card and put it into your Raspberry Pi. :thumbsup:
+2. Then extract the ``.zip` file to get the image of the Linux distribution.
+3. Because you can't just put an `.img` file on the Micro SD card you need to install a program that *burns it onto the Micro SD Card* like the open source program [etcher](https://etcher.io/).
+   Install it, open it, choose the `.img` file, choose the correct drive and press flash.
+4. Great, now you only need to safely eject the card and put it into your Raspberry Pi Micro SD Card slot. :thumbsup:
 
 
 # 3. First start
 ​Now we are ready to go and can finally start the Pi. :muscle:
 
-Because we (or better I) am not the best with the console I want to start in the graphical user interface of the OS. Therefore you need to follow these steps:
+Because you (or probably I) am not the best with the console let's start the Pi in the graphical user interface of the OS. Then it will behave the same like every other OS with a desktop.
+
+To start it in GUI mode you need to at least once the following steps:
 
 1. Connect the HDMI cable with your monitor.
-2. If you want to use the system probably connect a mouse and keyboard via USB.
-3. Now you can plugin the power supply or USB charger and connect it with the Micro USB port on the Raspberry to start it.
-4. Enjoy the fresh desktop of Raspbian because you get automatically logged in and so straight to the desktop.
+2. If you want to interact with the Pi probably connect a mouse and keyboard via USB.
+3. Now you can plugin the power supply or USB charger and connect it with the Micro USB port on the Raspberry to start it. (*Power not until after everything is connected!*)
+4. Enjoy the fresh desktop of Raspbian because you automatically are logged in and so get straight to the desktop.
 
 
 # 4. Security and network and more
 ## Security
 You get automatically logged in as the user **pi** with the default password **raspberry**.
 
-But because everyone knows that a default password isn't such a great idea you might wanna consider doing the following things:
+But because everyone knows that a default password isn't such a great idea you might wanna consider doing this:
 
-### Change the default password
+### Change the default password (*!!!*)
 
 To change the fault password there are two ways:
 
@@ -80,7 +82,7 @@ To change the fault password there are two ways:
 
 #### Console
 
-The console is the most powerful tool - it's so mighty that we will do every step also in the console. It's in the beginning a bit strange, but thanks to a steep learning curve you will also soon like to work with it. :wink:
+The console is the most powerful tool - it's so mighty that we will do (almost) every step also in the console. At first it's a bit strange, but thanks to a steep learning curve you will also soon like to work with it (seriously, it's totally worth it!). :wink:
 
 - Click the console icon at the top left (icon looks a bit like this: `>_`)
 - Tada, you opened the mightiest tool and should be seeing something like this:
@@ -126,11 +128,11 @@ Retype new UNIX password: ▮
 
 ### Deactivate the auto login at boot
 
-Normally every time you start the Pi you get logged in immediately without typing in your password which is .... cool I guess, but we (or at least me) want to be a bit more secure.
+Normally every time you start the Pi you get logged in immediately without typing in your password which is .... cool I guess, but we (or at least I) want to live a little bit more secure.
 
 Because of that we want to change this so that every time you start the Pi you need to type in your credentials (through this way the possibility to forget your password is also minimized).
 
-To change this we stay in the console or open it if it's closed and type in `sudo raspi-config`
+To change this we stay in the console or open it if it's closed and type in `sudo raspi-config`.
 *(`sudo` is an abbreviation of “**super user do**” and allows Linux users to execute administrative programs that not every user should be able to run. Only the **root user** should be able to run them - for example not the guest user should be able to change these kind of things.)*
 
 ```
@@ -212,7 +214,7 @@ It worked fine as before but now it also supports the Microsoft Remote Desktop a
 
 That means you now can use your Windows 10 clipboard on the remote desktop and more cool features if you want to!
 
-(I don't know if you even need the instructions - try without and if it doesn't work follow them for Windows)
+(I don't know if you even need the following instructions - try without them and if it doesn't work follow them)
 
 ---
 
@@ -312,7 +314,7 @@ Here a simple and Open Source solution with which you can control your Pi over t
 
 But this is not the only way to do this. There are many clients that can do this for many OS's. For example here you have another SSH CLI client for Windows:
 
-### PuTTY (Windows, Open Source)
+### PuTTY (Windows, [Open Source](https://www.chiark.greenend.org.uk/~sgtatham/putty/))
 
 Also a very small but cool service for your Windows computer.
 
@@ -357,7 +359,7 @@ Tipp: You can enter full screen mode by clicking `Ctrl` + `Right mouse key` and 
 
 The following services can you enable access to the file system of your Pi over the Secure Shell protocol:
 
-### Filezilla (Windows, Open Source)
+### Filezilla (Windows, [Open Source](https://filezilla-project.org/download.php?show_all=1))
 
 Because of the Secure Shell protocol you can do even more cool things.
 
@@ -387,7 +389,7 @@ And you are ready to go. Just click `Connect` at the bottom left and you can see
 
 [source](https://www.raspberrypi.org/documentation/remote-access/ssh/sftp.md)
 
-### Swish (Windows)
+### Swish (Windows, [Open Source](https://github.com/alamaison/swish))
 
 If you want something more "native" under Windows you can use Swish, an native Windows SFTP client.
 
@@ -399,7 +401,7 @@ If you want something more "native" under Windows you can use Swish, an native W
 * Tipp: If you every time want to be directly in the home directory or in a specific directory enter your desired path under `Path:`
 * Now after you created the connection double click the new icon and enter your password for the inputted user: Your file system of the pi natively in the Windows Explorer :raised_hands:
 
-### Solid Explorer File Manager Beta (Android, Not free)
+### Solid Explorer File Manager (Android, [Trial free](https://neatbytes.com/solidexplorer/))
 
 Because I used this feature way to often I want to add this although I think I paid something for the app (if you have working alternatives message me and I will add them :).
 
@@ -484,7 +486,7 @@ If you press the `Tab` key again it will autocomplete to the next logical comman
 
 ## Commands
 
-Here some simple but commands you should now or are helpful to know:
+Here are some simple commands you should know or are very helpful to know:
 
 ### Text output command ("Hello world")
 
@@ -617,7 +619,7 @@ Not a problem my friend:
 
 #### `cd`
 
-stands for *change directory* and will do the magic
+stands for *change directory* and will do the magic.
 
 You just type in `cd` and after that your path - the directory you wanna go. In this case we want straight to the documents folder:
 
@@ -656,7 +658,7 @@ Next we probably want to create files (that means folders and files):
 
 #### `mkdir`
 
-stands for *Make directory* and creates a directory with the name you write after it
+stands for *Make directory* and creates a directory with the name you write after it.
 
 ```
 pi@raspberrypi:~ $ mkdir cool_folder
@@ -683,7 +685,7 @@ Three things:
 
 #### `touch`
 
-creates a file with the name you write after it :smiley:
+creates a file with the name you write after it. :smiley:
 
 ```
 pi@raspberrypi:~ $ touch cool_file
@@ -733,7 +735,7 @@ Of course you could install programs that can do these things so much better (fo
 
 #### `nano`
 
-is a simple text editor
+is a simple text editor.
 
 ```
 pi@raspberrypi:~ $ nano
@@ -755,7 +757,7 @@ This will open the existing file named existing_file and you can edit the conten
 
 #### `cat`
 
-enables you to quickly view the content of a text file directly in the editor
+enables you to quickly view the content of a text file directly in the editor.
 
 For example did I just edit the existing_file in my home directory like in the command before and wrote `Hello world!` . When you now input `cat existing_file` you will see the content directly in the console:
 
@@ -771,7 +773,7 @@ But how can you delete all these very unimportant files you created in the last 
 
 #### `rm`
 
-like *remove*
+like *remove* [files].
 
 Doesn't sound so difficult, doesn't it? Let's clean my desktop:
 
@@ -791,7 +793,7 @@ But if we try to remove a directory there is an error prompt... let's learn a ne
 
 #### `rmdir`
 
-like *remove directory*
+like *remove directory*.
 
 ```
 pi@raspberrypi:~/Desktop $ ls
@@ -1114,7 +1116,11 @@ When the command terminates all of your system software (kernel and over package
 
 # 8. Program on it
 
-## Bash
+## Scripting Languages:
+
+Scripts in the following languages *just run* with one command.
+
+### Bash
 
 First let's create a bash script file:
 
@@ -1140,7 +1146,7 @@ WOW You just executed a Bash script :o
 pi@raspberrypi:~ $ ▮
 ```
 
-## Python
+### Python
 
 First let's create a python script file:
 
@@ -1210,7 +1216,19 @@ Of course you can also open with this command directly any preexisting file like
 pi@raspberrypi:~ $ idle3 python_test_script.py
 ```
 
-## C
+### PHP
+
+Soon
+
+### Ruby
+
+Soon
+
+## Compiled Languages:
+
+These languages need to be compiled before you can execute your written code.
+
+### C
 
 First let's create a C script file:
 
@@ -1258,7 +1276,7 @@ Hello world!
 pi@raspberrypi:~ $ ▮
 ```
 
-## Java
+### Java
 
 First let's create a Java file:
 
@@ -1325,7 +1343,7 @@ Now you can develop really cool Java code in a GUI that checks every action you 
 
 **Edit:** Probably you will notice very soon that it's very slow (at least the startup time - when it's running it's okay) - but you can use it on your Windows PC or Linux PC without these very long start times.
 
-## C# #
+### C# #
 
 First let's create a C# file:
 
@@ -1377,6 +1395,10 @@ pi@raspberrypi:~ $ ▮
 ```
 
 Tada, you just compiled and executed your probably first C# code!
+
+### C++
+
+Soon
 
 # 9. Set up a local webserver
 

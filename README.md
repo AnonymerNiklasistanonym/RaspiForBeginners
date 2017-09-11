@@ -1130,10 +1130,11 @@ pi@raspberrypi:~ $ nano
 
 Then we just write a simple bash script in `nano`:
 
-```
+```bash
 #!/bin/bash
-# A example Bash script file comment
-echo WOW You just executed a Bash script :o
+
+# A Comment
+echo "WOW You just executed a Bash script :o"
 ```
 
 Then we save this by clicking `Ctrl` + `x` and `y` and entering the name `bash_test_script.sh` .
@@ -1157,6 +1158,9 @@ pi@raspberrypi:~ $ nano
 Then we just write a simple python script in `nano`:
 
 ```python
+"""Hello world script."""
+
+# A comment
 print("WOW You just executed a Python script :o")
 ```
 
@@ -1218,7 +1222,47 @@ pi@raspberrypi:~ $ idle3 python_test_script.py
 
 ### PHP
 
-Soon
+PHP is mostly used in combination with websites/webservers. The cool thing is that PHP is a server-side scripting language - this means the `.php` script will be executed on the webserver and the result of the script will be send to a user after he wanted to see the PHP file.
+
+You can use this and make dynamic websites like this:
+
+Let's create a PHP script file:
+
+```
+pi@raspberrypi:~ $ nano
+```
+
+Then we just write a simple PHP script in `nano`:
+
+```php
+<html>
+	<head>
+		<title>PHP Test</title>
+	</head>
+	<body>
+		<?php echo '<p>Hello World</p>'; ?> 
+	</body>
+</html>
+```
+
+Looks just like a normal website beside the tag `<?php ... ?>` (the tag can appear  everywhere in the document and also more than once). Everything that is between this tag will PHP convert to HTML content - the user isn't even able to see this code he just sees the following:
+
+(Obviously first save this by clicking `Ctrl` + `x` and `y` and entering the name `php_test_script.php`)
+
+```
+pi@raspberrypi:~ $ php php_test_script.php
+<html>
+	<head>
+		<title>PHP Test</title>
+	</head>
+	<body>
+		<p>Hello World</p> 
+	</body>
+</html>
+pi@raspberrypi:~ $ ▮
+```
+
+Therefore when you run a PHP server the server automatically does this conversion every time a user wants to see a `.php` document and get's back only a normal `.html` website.
 
 ### Ruby
 
@@ -1239,7 +1283,7 @@ pi@raspberrypi:~ $ nano
 Then we just write a simple C script in `nano`:
 
 ```c
-#include<stdio.h>
+#include <stdio.h>
 
 main()
 {
@@ -1579,8 +1623,12 @@ You can at this point create whatever you want. Because this is a demo tutorial 
 We will just make a simple python script that creates a log entry every time the script runs - a simple demo of the mighty cron scheduler:
 
 ```python
-import os
+# -*- coding: utf-8 -*-
+
+"""Python script for a cron job function demo."""
+
 import datetime
+import os
 
 # this get's us the path of the PI's home directory
 # this is important, because every cron job script will be
@@ -1588,7 +1636,8 @@ import datetime
 PATH_HOME_DIR = os.path.expanduser('~')
 
 # Directory where we want to create the log
-PATH_FILE_DIR = os.path.join(PATH_HOME_DIR, 'Documents/CronDemoLog')
+PATH_FILE_DIR = os.path.join(
+    PATH_HOME_DIR, 'Documents/GitHubBeta/RaspiForBeginners/scripts')
 
 # Path of the log file
 PATH_FILE = os.path.join(PATH_FILE_DIR, 'log.txt')
@@ -1598,26 +1647,26 @@ if not os.path.exists(PATH_FILE_DIR):
     os.makedirs(PATH_FILE_DIR)
 
 # get the current time
-date_time = datetime.datetime.now()
-
-date = date_time.date()  # gives date
-time = date_time.time()  # gives time
-
-date_string = str(date.year) + "-" + str(date.month) + "-" + str(date.day)
-time_string = str(time.hour) + ":" + str(time.minute) + ":" + str(time.second)
+DATE_TIME = datetime.datetime.now()
+DATE = DATE_TIME.date()  # gives date
+TIME = DATE_TIME.time()  # gives time
+DATE_STRING = str(DATE.year) + "-" + \
+    str(DATE.month).zfill(2) + "-" + str(DATE.day).zfill(2)
+TIME_STRING = str(TIME.hour).zfill(2) + ":" + \
+    str(TIME.minute).zfill(2) + ":" + str(TIME.second).zfill(2)
 
 # create a file and add the current time or if it exists just add the current time
-file = open(PATH_FILE, "a+")
-file.write("The script was executed at " + time_string + " on " + date_string)
-file.write("\n") # write newline
-file.close()
+with open(PATH_FILE, "a+") as text_file:
+    text_file.write("The script was executed at " +
+                    TIME_STRING + " on " + DATE_STRING + "\n")
 
-# read file to the console (https://stackoverflow.com/a/43625375/7827128)
+# read file to the console (https://stackoverflow.com/a/5214587/7827128)
 with open(PATH_FILE) as file:
-     my_list = file.readlines()
-my_list = [x.strip() for x in my_list]
-for rows in my_list:
-    print(rows)
+    COMPLETE_FILE = file.readlines()
+
+# strip every entry and print it to the console (remove '\n')
+for rows in COMPLETE_FILE:
+    print(rows.strip())
 ```
 
 Every time this python script runs it will add an entry of the current time to the text file `home/USERNAME/Documents/Documents/CronDemoLog/log.txt`.

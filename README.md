@@ -1220,7 +1220,22 @@ Of course you can also open with this command directly any preexisting file like
 pi@raspberrypi:~ $ idle3 python_test_script.py
 ```
 
-### PHP
+---
+
+#### Python 2 and 3
+
+There are currently (2017) two versions of Python installed out of the box (on Raspbian). The language split itself a long time ago because of big differences (2008) and is right now only supported in version 2 for some years:
+
+**That means Python 2 which is default on Raspbian is not the future and 'the best' Python.**
+
+That means if you want to do more with Python (especially in the future) and don't want encoding problems and other things use Python 3!
+
+You can very simple do this by using the following commands:
+
+* instead of  `python script.py` use `python3 script.py`
+* instead of `pip install module` use `pip3 install module`
+
+###  PHP
 
 PHP is mostly used in combination with websites/webservers. The cool thing is that PHP is a server-side scripting language - this means the `.php` script will be executed on the webserver and the result of the script will be send to a user after he wanted to see the PHP file.
 
@@ -1266,7 +1281,57 @@ Therefore when you run a PHP server the server automatically does this conversio
 
 ### Ruby
 
-Soon
+Let's create a Ruby script file:
+
+```
+pi@raspberrypi:~ $ nano
+```
+
+Then we just write a simple Ruby script in `nano`:
+
+```ruby
+# A Ruby script
+
+puts 'WOW You just executed a Ruby script :o'
+```
+
+now let's save this by clicking `Ctrl` + `x` and `y` and entering the name `ruby_test_script.rb` .
+
+Now we can execute it:
+
+```
+pi@raspberrypi:~ $ ruby ruby_test_script.rb
+WOW You just executed a Ruby script :o
+pi@raspberrypi:~ $ ▮
+```
+
+### Lua
+
+Let's create a Lua script file:
+
+```
+pi@raspberrypi:~ $ nano
+```
+
+Then we just write a simple Lua script in `nano`:
+
+```lua
+-- A Lua script
+
+print ("WOW You just executed a Lua script :o")
+```
+
+now let's save this by clicking `Ctrl` + `x` and `y` and entering the name `lua_test_script.lua` .
+
+Now we can execute it:
+
+```
+pi@raspberrypi:~ $ lua lua_test_script.lua
+WOW You just executed a Lua script :o
+pi@raspberrypi:~ $ ▮
+```
+
+
 
 ## Compiled Languages:
 

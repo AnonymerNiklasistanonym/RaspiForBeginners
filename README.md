@@ -797,6 +797,8 @@ this is a text test file
 pi@raspberrypi:~/test $ ▮
 ```
 
+[source](https://en.wikipedia.org/wiki/Cat_(Unix))
+
 But how can you delete all these very unimportant files you created in the last 15 minutes?
 
 ---
@@ -862,7 +864,7 @@ Another essential command is
 
 like *manual*
 
-Type this command and after it the command you want to know more about (be it what does it, what are the command options, etcetera...).
+Type this command and after it the command you want to know more about (what does it, what are the command options, etcetera...).
 
 For example I want to know more about the command `ls`:
 
@@ -870,7 +872,7 @@ For example I want to know more about the command `ls`:
 pi@raspberrypi:~ $ man ls
 ```
 
-Then in the console/terminal a manual which you can scroll through opens that contains all the information about the command `ls`. With pressing `q` you can leave the manual and are right back in the console/terminal. This works with every command.
+Then in the console/terminal a manual which you can scroll through opens, that contains all the information about the command `ls`. With pressing `q` you can leave the manual and are right back in the console/terminal. This works with every command.
 
 ### Command history tricks
 

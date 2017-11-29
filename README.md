@@ -393,7 +393,7 @@ And you are ready to go. Just click `Connect` at the bottom left and you can see
 
 If you want something more "native" under Windows you can use Swish, an native Windows SFTP client.
 
-* Just download the client [here](http://www.swish-sftp.org/) <a href="http://example.com/" target="_blank">here</a> and install it on your Windows computer. Nothing changed?
+* Just download the client [here](http://www.swish-sftp.org/) and install it on your Windows computer. Nothing changed?
 * Go to "my Device" in the Windows Explorer (there where you can see all your hard drives) and a new drive is there with the name "Swish"
 * Now double click it and click at the top in the banner "Add SFTP Connection"
 * Now input your desired name for the connection under `Lable:`

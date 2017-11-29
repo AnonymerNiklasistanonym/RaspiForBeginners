@@ -646,7 +646,7 @@ With `cd ..` you go one folder upwards
 
 ```
 pi@raspberrypi:~ $ cd Desktop
-pi@raspberrypi:~/Desktop $ cs ..
+pi@raspberrypi:~/Desktop $ cd ..
 pi@raspberrypi:~ $ ▮
 ```
 

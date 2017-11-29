@@ -759,7 +759,7 @@ This will open the existing file named existing_file and you can edit the conten
 
 enables you to quickly view the content of a text file directly in the editor.
 
-For example did I just edit the existing_file in my home directory like in the command before and wrote `Hello world!` . When you now input `cat existing_file` you will see the content directly in the console:
+For example i just edit the existing_file in my home directory like in the command before and wrote `Hello world!` . When you now input `cat existing_file` you will see the content directly in the console:
 
 ```
 pi@raspberrypi:~ $ cat exisiting_file
@@ -767,7 +767,37 @@ Hello world!
 pi@raspberrypi:~ $ ▮
 ```
 
-But how can you delete all these very unimportant files you created in the last 10 minutes?
+------
+
+#### create short files with `cat` in the Terminal
+
+`cat` originally was written to con- **cat** -enate 2 files, by writing the content from one File into another.
+
+The command also can be used to write User input to a new File.
+
+You only must use the `>` symbol, that instructs `cat `  to write into the following file.
+
+If the file not exist, it will be created. **!Warning!: If the file already exist, it will be overwritten**
+
+```
+pi@raspberrypi:~/test $ cat > hello.txt
+Hello World!
+this is a text test file
+pi@raspberrypi:~/test $ ▮
+```
+
+Now we created a new File `hello.txt`  and wrote some text in it.
+
+We already know, how to display the content of a file with `cat`
+
+```
+pi@raspberrypi:~/test $ cat hello.txt
+Hello World!
+this is a text test file
+pi@raspberrypi:~/test $ ▮
+```
+
+But how can you delete all these very unimportant files you created in the last 15 minutes?
 
 ---
 

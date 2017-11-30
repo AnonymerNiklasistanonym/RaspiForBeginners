@@ -786,6 +786,8 @@ this is a text test file
 pi@raspberrypi:~/test $ ▮
 ```
 
+After writing all the text, we can exit the editor with typing `Ctrl + D`.
+
 Now we created a new File `hello.txt`  and wrote some text in it.
 
 We already know, how to display the content of a file with `cat`

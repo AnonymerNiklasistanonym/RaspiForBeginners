@@ -1672,7 +1672,7 @@ When we want to use PHP there isn't much more we need to do.
 
 Let's start by installing PHP5 and the Apache PHP5 module via the package manager:
 
-```basic
+```
 pi@raspberrypi:~ $ sudo apt-get install php5 libapache2-mod-php5 -y
 ```
 
@@ -1684,6 +1684,8 @@ But you can now use the PHP server based preprocessor. What that means?
 It means that you can compute things on the server - change text, load files, handle some things and etcetera - and then send a `.html` file back to the user that opened the website over the IP address.
 
 This is really cool because the user not only doesn't know that the web page was preprocessed (has no access to important files or other) and you can develop simple dynamic pages with logins that are different for every user and so on. Just search the web if you are interested in PHP.
+
+[cool website for learning php](https://nudelprogrammer.12hp.de/)
 
 #### Small example
 
@@ -1703,6 +1705,14 @@ But here one small example.
    pi@raspberrypi:/var/www/html $ rm index.html
    pi@raspberrypi:/var/www/html $ ▮
    ```
+   You also can change the Name of the File from index.html to index.php and then edit it:
+
+   ```
+   pi@raspberrypi:/var/www/html $ mv index.html index.php
+   pi@raspberrypi:/var/www/html $ ▮
+   ```
+
+   (`mv` is the move command and in this case we "move" the old file into the new one)
 
 3. And create a new php file with the following content with `nano` (or another text editor):
 
@@ -1739,7 +1749,7 @@ But here one small example.
 
 ## SQL server
 
-Couldn't setup MySQL. If somebody out there was more successful than me please make a pull request or say me in another way how you could do it.
+Couldn't setup MySQL. If somebody out there was more successful than me please make a pull request or say me in another way how you could do it. (or commit it directly?) :see_no_evil:
 
 ## SFTP server
 

@@ -1657,8 +1657,8 @@ If you use SFTP you probably noticed that FileZilla blocks uploads. With the fol
 
 ```
 pi@raspberrypi:~ $ cd /var/www/
-pi@raspberrypi:~/var/www $ chmod a+w html
-pi@raspberrypi:~/var/www $ chmod a+w html/index.html
+pi@raspberrypi:~/var/www $ sudo chmod a+w html
+pi@raspberrypi:~/var/www $ sudo chmod a+w html/index.html
 pi@raspberrypi:~/var/www $ ▮
 ```
 

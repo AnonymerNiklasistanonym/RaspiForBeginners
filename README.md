@@ -786,7 +786,7 @@ this is a text test file
 pi@raspberrypi:~/test $ ▮
 ```
 
-After writing all the text, we can exit the editor with typing `Ctrl + D`.
+After writing all the text, we can exit the editor with typing `Ctrl + d`.
 
 Now we created a new File `hello.txt`  and wrote some text in it.
 
@@ -1274,7 +1274,11 @@ With typing `Ctrl` + `d` you can exit the python console in the terminal again.
 
 ---
 
-You even have one more option - to program on the preinstalled python 3 console IDE.
+You even have one more option - to program on the python 3 console IDE. 
+
+If the console isn't preinstalled: install it :D. You should already know that. [if not read this section ;)](#How to install these... packages?!) 
+
+And if it doesn't work, because you are using a ssh connection, then follow the instructions on [this raspberrypi forum page](https://www.raspberrypi.org/forums/viewtopic.php?f=32&t=54312) (unfortunately i couldn't solve this Problem and i don't think that it's that important ) :see_no_evil:
 
 To start it you can search and click the IDE icon **or**...
 

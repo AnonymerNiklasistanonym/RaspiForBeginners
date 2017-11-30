@@ -769,7 +769,7 @@ pi@raspberrypi:~ $ ▮
 
 ------
 
-#### create short files with `cat` in the Terminal
+#### Create short files with `cat` in the Terminal
 
 `cat` originally was written to con**cat**enate 2 files, by writing the content from one File into another.
 
@@ -1239,7 +1239,7 @@ Then we save this by clicking `Ctrl` + `x` and `y` and entering the name `python
 Now we can execute it:
 
 ```
-pi@raspberrypi:~ $ python_test_script.py
+pi@raspberrypi:~ $ python python_test_script.py
 WOW You just executed a Python script :o
 pi@raspberrypi:~ $ ▮
 ```

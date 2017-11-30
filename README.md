@@ -771,7 +771,7 @@ pi@raspberrypi:~ $ ▮
 
 #### create short files with `cat` in the Terminal
 
-`cat` originally was written to con- **cat** -enate 2 files, by writing the content from one File into another.
+`cat` originally was written to con**cat**enate 2 files, by writing the content from one File into another.
 
 The command also can be used to write User input to a new File.
 
@@ -1122,7 +1122,37 @@ After the installation you can now use this command:
 pi@raspberrypi:~ $ cowsay Hi, I\'m a cow.
 ```
 
-​And enjoy the result. :smiley: :cow:
+And enjoy the result. :smiley: :cow:
+
+### Example: Lets watch a movie
+
+Before we can start and enjoy it, we must install `telnet` :
+
+```
+pi@raspberry:~ $ sudo apt-get install telnet
+```
+
+After the installation you can use this command and get surprised :3
+
+```
+pi@raspberry:~ $ telnet towel.blinkenlights.nl
+```
+
+*watching movie\*
+
+If you now (after watching the complete movie) want back to the console, without restarting it, you must type in the exit signs.
+
+In this case we must type in `Ctrl + ] ` and then `quit` . 
+
+My Problem was, that (idk why) the Tastatur layout was different during this command.
+
+So i must guess were the bracket was and on my (German) Tastatur it was on the `+` Plus sign.
+
+Sooo just try some Symbols, while holding `Ctrl` and you will find a way out of telnet ^^ (:thinking: "No! Try not! *Do or do not*, there is not try.") (<- that wasn't a hint which movie you gonna watch xP)
+
+[Thanks Simon Jansen. This is a Link to his created Java Applet of the Film](http://www.asciimation.co.nz/)
+
+[Website of the human, who host it](http://blinkenlights.nl/services.html)
 
 ## What can I do when a new version of my installed software gets released?
 

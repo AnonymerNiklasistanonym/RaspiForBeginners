@@ -1158,7 +1158,7 @@ Sooo just try some Symbols, while holding `Ctrl` and you will find a way out of 
 
 That is also quite cool. Remember when I wrote that every distribution has it's own repository with all the  latest packages of every program you install over the package manager `apt`?
 
-That's very handy because there is an command that compares all the versions and the kernel on your Raspberry Pi with the ones in the repository and updates the things that aren't latest on your Pi.
+That's very handy, because there is an command that compares all the versions and the kernel on your Raspberry Pi with the ones in the repository and updates the things that aren't latest on your Pi.
 
 You therefore need to know two commands:
 
@@ -1175,6 +1175,12 @@ You therefore need to know two commands:
    ```
 
 When the command terminates all of your system software (kernel and over packages) should be the latest of your current distribution.
+
+Remember, that `apt` is the paket-manager of Debian Derivates. If you're using arch/fedora/etc. you must search your own manager. Here a uncomplete List of some managers:
+
+- `pacman`for Arch Linux and (i think so) all Derivates
+- `dnf` on Fedora (since version 22) (older versions: `yum`, less powerfull)
+- I never used others but oN [this Wikipedia Site](https://en.wikipedia.org/wiki/Package_manager#Comparison_of_commands) are written some more :) 
 
 # 8. Program on it
 

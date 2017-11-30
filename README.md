@@ -1182,7 +1182,7 @@ Remember, that `apt` is the paket-manager of Debian Derivates. If you're using a
 
 - `pacman`for Arch Linux and (i think so) all Derivates
 - `dnf` on Fedora (since version 22) (older versions: `yum`, less powerfull)
-- I never used others but oN [this Wikipedia Site](https://en.wikipedia.org/wiki/Package_manager#Comparison_of_commands) are written some more :) 
+- I never used others but on [this Wikipedia Site](https://en.wikipedia.org/wiki/Package_manager#Comparison_of_commands) are written some more :) 
 
 # 8. Program on it
 
@@ -1276,7 +1276,7 @@ With typing `Ctrl` + `d` you can exit the python console in the terminal again.
 
 You even have one more option - to program on the python 3 console IDE. 
 
-If the console isn't preinstalled: install it :D. You should already know that. [if not read this section ;)](#How to install these... packages?!) 
+If the console isn't preinstalled: install it :D. You should already know that. (hint: `sudo apt-get install idle3`) 
 
 And if it doesn't work, because you are using a ssh connection, then follow the instructions on [this raspberrypi forum page](https://www.raspberrypi.org/forums/viewtopic.php?f=32&t=54312) (unfortunately i couldn't solve this Problem and i don't think that it's that important ) :see_no_evil:
 
@@ -1583,7 +1583,43 @@ Tada, you just compiled and executed your probably first C# code!
 
 ### C++
 
-Soon
+First let's create a C++ script file:
+
+```
+pi@raspberrypi:~ $ nano
+```
+
+Then we just write a "simple" C++ script in `nano`:
+
+```c++
+#include <iostream>
+
+//very wild comment
+int main() {
+  std::cout << "Hello World!" << std::endl; 
+  //don't ask me (undefinedCoding) what 'std::cout <<'... etc. mean :see_no_evil: 
+  return 0;
+}
+```
+
+Then we save this by clicking `Ctrl` + `x` and `y` and entering the name `cpp_test_script.cpp` .
+
+So let's compile it to a executable file (we already installed the gcc Compiler while programming C): 
+
+```
+pi@raspberrypi:~ $ g++ cpp_test_script.cpp -o executable_cpp_file
+pi@raspberrypi:~ $ ▮
+```
+
+Now we can execute it:
+
+```
+pi@raspberrypi:~ $ ./executable_cpp_file
+Hello World!
+pi@raspberrypi:~ $ ▮
+```
+
+:baby_chick:
 
 # 9. Set up a local webserver
 

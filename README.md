@@ -1351,7 +1351,9 @@ pi@raspberrypi:~ $ php php_test_script.php
 pi@raspberrypi:~ $ ▮
 ```
 
-Therefore when you run a PHP server the server automatically does this conversion every time a user wants to see a `.php` document and get's back only a normal `.html` website.
+Therefore, when you run a PHP server the server automatically does this conversion every time a user wants to see a `.php` document and get's back only a normal `.html` website.
+
+You can easily install it with the command: `sudo apt-get install php` (on debian/-derivates)
 
 ### Ruby
 
@@ -1371,7 +1373,7 @@ puts 'WOW You just executed a Ruby script :o'
 
 now let's save this by clicking `Ctrl` + `x` and `y` and entering the name `ruby_test_script.rb` .
 
-Now we can execute it:
+Now we can execute it (if its not installed: `sudo apt-get install ruby` (on debian/-derivates)):
 
 ```
 pi@raspberrypi:~ $ ruby ruby_test_script.rb

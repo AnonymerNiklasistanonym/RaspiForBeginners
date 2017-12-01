@@ -2267,7 +2267,7 @@ pi@raspberrypi:~ $ du -sh Path/to/another/directory
 
 # Bonus: Use Lazarus with IDE
 
-Lazarus is a great programming language that I used some time back in school. It's somewhat like Delphi but just search the internet if you are interested.
+Lazarus is a great programming language that I used some time back in school. It's somewhat like Delphi but just search the internet, if you are interested.
 
 ## Install IDE
 
@@ -2330,7 +2330,7 @@ pi@raspberrypi:~ $ dmesg | tail -n 20
 [984211.506485] sd 0:0:0:0: Attached scsi generic sg0 type 0
 ```
 
-So we see it's there but wen want to know the name of it.
+So we see it's there, but we want to know the name of it.
 Let's try this command:
 
 ```
@@ -2361,7 +2361,7 @@ To do this we first decide where we wanna mount it.
 I thought I take the empty `media` directory:
 
 ```
-pi@raspberrypi:~ $ cd ../../../meda
+pi@raspberrypi:~ $ cd ../../../media
 pi@raspberrypi:/media $ ▮
 ```
 

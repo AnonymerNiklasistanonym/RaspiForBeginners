@@ -2216,9 +2216,7 @@ So now we have an empty example group.
 Let's remove it too:
 
 ```
-pi@raspberrypi:~ $ sudo groupdel -r newgroup
-Removing group `newgroup' ...
-Done.
+pi@raspberrypi:~ $ sudo groupdel newgroup
 pi@raspberrypi:~ $ grep newgroup /etc/group
 pi@raspberrypi:~ $ ▮
 ```

@@ -1888,7 +1888,11 @@ pi@raspberrypi:~ $ ▮
 
 ## Create a `cron` job
 
-Now we are ready to create our first `cron` job. Therefore we start the GUI with the command:
+Now we are ready to create our first `cron` job. 
+
+### GUI
+
+Therefore we start the GUI with the command:
 
 ```
 pi@raspberrypi:~ $ gnome-schedule 
@@ -1906,6 +1910,95 @@ pi@raspberrypi:~ $ sudo apt-get update && sudo apt-get install gnome-schedule
 * If you do not want to check if it works every hour go to `Advanced` and
 * click `Edit` at the same height as `Minute`
 * then click `Every minute` and confirm everything
+
+[to continue skip the Terminal paragraph and continue with "Output"] 
+
+### Terminal
+
+Let's create our first `cron` job with the mighty console. Therefore we enter the following command:
+
+```
+pi@raspberrypi:~ $ crontab -e
+```
+
+*Eventually you now also enter your favorite text editor - just enter the number of it (for beginners I recommend nano).*
+
+The document you see right now is a list of all cron jobs (should be empty if you never before created a cron job).
+
+#### Example
+
+This is how each line will look like - for example two lines from my current cron file:
+
+```
+*/12 * * * * python3 Documents/SubstitutePlanNotifierAEG/script.py
+01 04 1 1 1 python3 Documents/NewYearSurpriseBot/script.py
+```
+
+Each line/`cron` job consists of
+
+* five time/date entries which are separated by a blank from another, then another blank
+* followed by a command that should be executed
+* followed by a newline character `\n`
+
+| Minute + ` `     | Hour + ` `   | Day + ` ` | Month + ` ` | Weekday + ` ` | Command                                  | Newline (`\n`) |
+| ---------------- | ------------ | --------- | ----------- | ------------- | ---------------------------------------- | -------------- |
+| */12             | *            | *         | *           | *             | `python3[...]`                           | `\n`           |
+| Every 12 minutes | At all hours | Every day | Every month | Every weekday | Execute this command in the home directory | Entry is over  |
+| ...              | ...          | ...       | ...         | ...           | ...                                      |                |
+
+#### Explanation of each entry:
+
+| Entry              | Content                                  |
+| ------------------ | ---------------------------------------- |
+| **Minute + ` `**   | a number between 0 and 59 + a space      |
+| **Hour + ` `**     | a number between 0 and 23 (0 = midnight) + a space |
+| **Day + ` `**      | a number between 1 and 31 + a space      |
+| **Month + ` `**    | a number between 1 and 12 + a space      |
+| **Weekday + ` `**  | a number between 0 and 6 (0 = Sunday) + a space |
+| **Command**        | the command that should be executed in the home directory |
+| **Newline (`\n`)** | cron job is no over - now you can declare in a new line a new cron job |
+
+#### Explanation of Operators
+
+| Operator | Use                                      |
+| -------- | ---------------------------------------- |
+| **`*`**  | If you enter an asterisk this means you want to execute the command every possible time. (if you enter an asterisk for the minute, hour, day, month, weekday the command will be executed every minute all day ... all year: `* * * * * command`) |
+| **`,`**  | If you for example want to run a command on Sunday and Saturday you can enter both numbers for the days and separating them with a comma: `* * * * 0,6 command` |
+| **`-`**  | If you want to execute the command all week but not on the weekend you can use the period operator: `* * * * 1-5 command` |
+| **`*/`** | But what if you want to run a command multiple times per time unit like for example every 10 minutes? You could enter `0,10,20,30,40,50 * * * * * command` but there is a better way if you use the asterisk slash operator: `*/10 * * * * * command` . `*/10` means that for all possible numbers modulo 10 == 0 (you divide every possible time/date unit number as long by 10 with rest till you only have a  rest that is smaller than 10 and then look if the rest is zero) this script will be executed. In this case this would mean 0%10=0, 10%10=0, 20%10=0, 30%10=0, 40%10=0, 50%10=0 so it is the same as writing down `0,10,20,30,40,50`. |
+
+#### There is even more:
+
+`Cron` even supports special strings that can be used instead of the time/date units:
+
+| String                | Meaning                                  |
+| --------------------- | ---------------------------------------- |
+| `@reboot`             | Execute command at startup               |
+| `@yearly`/`@annually` | Execute command when a new year begins (the same as `0 0 1 1 *`) |
+| `@monthly`            | Execute command when a new month begins (the same as `0 0 1 * *`) |
+| `@weekly`             | Execute command when a new week begins (the same as `0 0 * * 0` = week starts at Sunday!) |
+| `@daily`/` @midnight` | Execute command when a new day begins (the same as `0 0 * * *` ) |
+| `@hourly`             | Execute command when a new hour begins (the same as `0 * * * *`) |
+
+#### Add new cron job
+
+Simply add a new line to the file you just have opened via `crontab -e`, enter either the five date/time entries separated by one space or a special string, then another space and the command you want to run at the just entered times. Now save the document and everything should work :smile:.
+
+---
+
+If you want to run a script that needs root privileges (`sudo`) you need to access the cron document with:
+
+```
+pi@raspberrypi:~ $ sudo crontab -e
+```
+
+---
+
+If you want to know more about `cron` jobs or `crontab` visit the `man` page or look here: [https://help.ubuntu.com/community/CronHowto](https://help.ubuntu.com/community/CronHowto) which was also the source of the Terminal paragraph.
+
+###Output
+
+(*But how can I be sure that this thing really works?*)
 
 Now wait some minutes and drink some water or tea or eat some fruits and vegetables . It's healthy :)
 

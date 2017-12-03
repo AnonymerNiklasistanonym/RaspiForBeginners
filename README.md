@@ -1984,6 +1984,12 @@ Each line/`cron` job consists of
 
 Simply add a new line to the file you just have opened via `crontab -e`, enter either the five date/time entries separated by one space or a special string, then another space and the command you want to run at the just entered times. Now save the document and everything should work :smile:.
 
+For demo purposes we want to run the script every minute - this means we need to execute *every minute* (`*`), *every hour* (`*`), *every day* (`*`), *every month* (`*`), *every weekday* (`*`) and our *command* is `python path/to/script.py` (or other if you named the script different - always consider that this command will be run from the home directory [`/home/username`]). That means all in all one line should look like this:
+
+```
+* * * * * python path/to/script.py
+```
+
 ---
 
 If you want to run a script that needs root privileges (`sudo`) you need to access the cron document with:
@@ -1996,7 +2002,7 @@ pi@raspberrypi:~ $ sudo crontab -e
 
 If you want to know more about `cron` jobs or `crontab` visit the `man` page or look here: [https://help.ubuntu.com/community/CronHowto](https://help.ubuntu.com/community/CronHowto) which was also the source of the Terminal paragraph.
 
-###Output
+### Output
 
 (*But how can I be sure that this thing really works?*)
 

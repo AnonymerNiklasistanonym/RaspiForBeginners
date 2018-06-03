@@ -13,6 +13,7 @@ Outside of the tutorial you can find in this repository also:
 - A funny and short introduction into Linux and Bash (only in German for now) from [denniskeller](https://github.com/denniskeller)
   → find it in the [directory `linuxdemo`](linuxdemo) (download the repository and open`index.html`)
 - [Tutorial of how to connect and use a camera with Python](CAMERA.md)
+- [Tutorial of how to connect and use GPIO pins](GPIO.md)
 - Some simple scripts in different languages if you want to get in touch with some programming languages
 - Other things if you have something cool and contribute it :D
   (links to cool websites and repositories are also allowed)

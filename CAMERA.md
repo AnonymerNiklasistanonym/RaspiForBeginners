@@ -9,11 +9,17 @@ Disclaimer: Not everything tested right now, because I do not want to disassembl
 ## 1. Get a camera
 
 - Get a compatible camera with the special connection for the Raspberry Pi
-- I got the following one (couldn't test the infrared camera, beause my power supply is too weak): [Kuman IR camera modle (30 Euro)](https://www.amazon.de/gp/product/B01ICNT3HC/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1)
+- I got the following one (contains also an infrared camera): [Kuman IR camera model (30 Euro)](https://www.amazon.de/gp/product/B01ICNT3HC/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1)
+
+### Infrared camera / Power supply
+
+**If you want to use the IR camera feed you need to assemble the lights and probably get a new or a better power supply!**
+
+For the normal camera a normal USB power supply (for me the power supply of a Kindle Fire HD 8  with **5V 1A**) was enough, but to use the infrared camera not - so I bought a [5V 3A power supply from Aukru (9 Euro)](https://www.amazon.de/gp/product/B01566WOAG/ref=oh_aui_detailpage_o00_s01?ie=UTF8&psc=1) with which I could easily power the IR camera.
 
 ## 2. Connect the camera
 
-**Attention: Do not assemble the camera, use only the camera, no additional lights that suck too much voltage.**
+**Attention: Do not assemble the (infrared) camera, use only the camera, no additional lights that suck too much voltage if you only have a phone "1A" power supply.**
 
 - Simply connect the one end of the wide cable to the camera module so that the cable pins touch the connector pins
 - and do the same with the cable and the camera connector on the Raspberry Pi 3

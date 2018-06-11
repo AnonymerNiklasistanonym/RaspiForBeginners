@@ -16,7 +16,7 @@ Control with python3 GPIO pins.
 
 A breadboard is simply a thing that helps you to easy make up circuits and change them without having to solder anything.
 
-![breadboard](pictures\gpio\breadboard.svg)
+![breadboard](pictures/gpio/breadboard.svg)
 
 Your breadboard looks probably very similar. The openings that are connected via orange lines are really connected.
 
@@ -28,13 +28,13 @@ A LED (light-emitting-diode) lights up when current runs through it at a specifi
 
 #### Light up a LED
 
-![simple_led](pictures\gpio\simple_led.JPG)
+![simple_led](pictures/gpio/simple_led.JPG)
 
 To find out the Ohm value of the resistor use the formula in the picture to not kill your LED, if you have a different battery/LED just paste your own values and recalculate the resistor value.
 
 #### Light up a LED when a button is clicked
 
-![simple_led](pictures\gpio\simple_led_button.JPG)
+![simple_led](pictures/gpio/simple_led_button.JPG)
 
 It's almost the same circuit than the one before but with an additional button. If you press the button down the LED will light up.
 
@@ -42,13 +42,13 @@ It's almost the same circuit than the one before but with an additional button. 
 
 ### Let current flow through a GPIO pin
 
-![raspberry_pi_simple_led](pictures\gpio\raspberry_pi_simple_led.JPG)
+![raspberry_pi_simple_led](pictures/gpio/raspberry_pi_simple_led.JPG)
 
 If you build a circuit like this you have essentially connected your GPIO pin #4 to the LED circuit and grounded it at the end again at a pin.
 
 To light up the LED execute the following code after installing the `gpiozero` package via python3 pip (`pip3 install gpiozero`).
 
-[gpioDemoLed.py](scripts\gpio\gpioDemoLed.py)
+[gpioDemoLed.py](scripts/gpio/gpioDemoLed.py)
 
 ```python
 # import packages/modules
@@ -82,7 +82,7 @@ If you build a circuit like this you have essentially connected your GPIO pin #4
 
 This means as soon as you press the button 3,3V from GPIO pin #4 will flow which can be recognized by the raspberry pi.
 
-[gpioDemoButton.py](scripts\gpio\gpioDemoButton.py)
+[gpioDemoButton.py](scripts/gpio/gpioDemoButton.py)
 
 ```python
 # import packages/modules
@@ -111,11 +111,11 @@ Execute the code with: `python3 gpioDemoButton.py` and in the console you should
 - I found the original code of how to use it [here](https://www.waveshare.com/wiki/1.54inch_e-Paper_Module)
 - I found the python 'driver' [here](https://www.waveshare.com/wiki/File:1.54inch_e-Paper_Module_code.7z)
 
-The edited version of the driver which was modified so that it ran for me is [here](scripts\gpio\e-Ink)
+The edited version of the driver which was modified so that it ran for me is [here](scripts/gpio/e-Ink)
 
-![raspberry_pi_eink_display_waveshare](pictures\gpio\raspberry_pi_eink_display_waveshare.JPG)
+![raspberry_pi_eink_display_waveshare](pictures/gpio/raspberry_pi_eink_display_waveshare.JPG)
 
-If you connect all pins like the [readme.txt](scripts\gpio\e-Ink\readme.txt) says or the picture displays you can either execute the [original demo](scripts\gpio\e-Ink\main.py) or one of the simplified scripts to display [text](scripts\gpio\e-Ink\custom_main_text.py) or a [picture](scripts\gpio\e-Ink\custom_main_picture.py) via python3 (you need to copy the whole directory to your pi to execute any of the main files).
+If you connect all pins like the [readme.txt](scripts/gpio/e-Ink/readme.txt) says or the picture displays you can either execute the [original demo](scripts/gpio/e-Ink/main.py) or one of the simplified scripts to display [text](scripts/gpio/e-Ink/custom_main_text.py) or a [picture](scripts/gpio/e-Ink/custom_main_picture.py) via python3 (you need to copy the whole directory to your pi to execute any of the main files).
 
 ---
 

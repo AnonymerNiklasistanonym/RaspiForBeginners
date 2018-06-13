@@ -1,4 +1,4 @@
-# RaspiForBeginners > GPIO
+# ![raspberry_pi_oled_az-delivery_i2c](C:\Users\nikla\Documents\GitHubBeta\RaspiForBeginners\pictures\gpio\raspberry_pi_oled_az-delivery_i2c.JPG)RaspiForBeginners > GPIO
 
 Control with python3 GPIO pins.
 
@@ -107,7 +107,7 @@ Execute the code with: `python3 gpioDemoButton.py` and in the console you should
 
 ### E-Ink display
 
-- I bought this display: [Waveshare 1.54 Inch E-Paper Display](https://www.amazon.de/gp/product/B0728BJTZC/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)
+- I bought this display: [Waveshare 1.54 Inch E-Paper Display (21 Euro)](https://www.amazon.de/gp/product/B0728BJTZC/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)
 - I found the original code of how to use it [here](https://www.waveshare.com/wiki/1.54inch_e-Paper_Module)
 - I found the python 'driver' [here](https://www.waveshare.com/wiki/File:1.54inch_e-Paper_Module_code.7z)
 
@@ -127,10 +127,10 @@ If you connect all pins like the [readme.txt](scripts/gpio/e-Ink/readme.txt) say
 
 ### LCD (Display)
 
-- I bought this display: [SunFounder IIC/I2C/TWI Serial 2004/20x4 LCD Display](https://www.amazon.de/gp/product/B01GPUMP9C/ref=oh_aui_detailpage_o01_s01?ie=UTF8&psc=1)
+- I bought this display: [SunFounder IIC/I2C/TWI Serial 2004/20x4 LCD Display (14 Euro)](https://www.amazon.de/gp/product/B01GPUMP9C/ref=oh_aui_detailpage_o01_s01?ie=UTF8&psc=1)
 - Then I followed the great instructions of [this website](https://tutorials-raspberrypi.de/hd44780-lcd-display-per-i2c-mit-dem-raspberry-pi-ansteuern/), Go over there if you can speak German - it's a really great tutorial
 - From the same page I also got a [python driver](http://tutorials-raspberrypi.de/wp-content/uploads/scripts/hd44780_i2c.zip) for the display
-- To get everything to work because of the I2C adapter I followed the tutorial and additonally bought [2 Channel Logic Level Converter 3.3V to 5V ](https://www.amazon.de/gp/product/B06Y3FNGJF/ref=od_aui_detailpages00?ie=UTF8&psc=1) 
+- To get everything to work because of the I2C adapter I followed the tutorial and additonally bought [2 Channel Logic Level Converter 3.3V to 5V (6 Euro)](https://www.amazon.de/gp/product/B06Y3FNGJF/ref=od_aui_detailpages00?ie=UTF8&psc=1) 
 
 I copied the driver into this repository if in the future the other site disappears or changes it's link system, but please give the article a try, I really liked it and could instantly start.
 
@@ -149,3 +149,34 @@ If you connect all pins like their [article](https://tutorials-raspberrypi.de/hd
 Now you need to copy the entire directory [lcd](scripts/gpio/lcd) onto your pi, open in the cloned/copied directory your terminal and execute [`main.py`](scripts/gpio/lcd/main.py). If everything worked you can now implement your methods and do what you want with it.
 
 If you can't read anything at first - do not go crazy - turn the display and turn/rotate the blue thing at the back on the red thing in both directions and check the front if the contrast changes for the better in any of them.
+
+## OLED (Display)
+
+- I bought this display: [SSD1306 AZDelivery 128 x 64 Pixel (@4-5fps, white/black) 0,96 Zoll OLED I2C Display (8 Euro)](https://www.amazon.de/gp/product/B01L9GC470/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1)
+- Then I followed the great instructions of [this website](https://luma-oled.readthedocs.io/en/latest/hardware.html) which I got to through the repository [luma.oled](https://github.com/rm-hull/luma.oled) 
+
+![raspberry_pi_oled_az-delivery_i2c](pictures/gpio/raspberry_pi_oled_az-delivery_i2c.JPG)
+
+First step is to connect the device like  you can see in the picture above or from [the website where I got it from](https://luma-oled.readthedocs.io/en/latest/hardware.html).
+
+To run any demo you need to install the following `luma.oled` library/dependency with the following command:
+
+```
+sudo -H pip install --upgrade luma.oled
+```
+
+Then just run any of the python scripts in the directory [oled](scripts/gpio/oled).
+
+Originally are most of these examples from or inspired by the cool repository named [luma.examples](https://github.com/rm-hull/luma.examples/tree/master/examples) if you want to check out even more.
+
+My favourite one is probably the [font_awesome.py](scripts/gpio/oled/font_awesome.py) one.
+
+---
+
+- To use the display you need to enable I2C in `raspi-config` (or the GUI system settings)!
+  - Do it via `sudo raspi-config` > `5. Interface Options` > `P5 I2C` > `True`
+  - To check if everything worked just enter `sudo i2cdetect -y 1` and you should see a table where a 3c is listed
+- You also should check if you have the following dependencies installed:
+   `sudo apt-get install python-dev python-pip libfreetype6-dev libjpeg-dev build-essential`
+
+---

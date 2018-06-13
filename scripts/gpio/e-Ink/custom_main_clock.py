@@ -26,6 +26,9 @@ def drawImage():
     # display frame
     epd.display_frame()
 
+    # save current display image
+    image.save("current_image.png", "PNG")
+
 
 def main():
     while True:

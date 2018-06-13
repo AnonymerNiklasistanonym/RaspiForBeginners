@@ -119,7 +119,31 @@ If you connect all pins like the [readme.txt](scripts/gpio/e-Ink/readme.txt) say
 
 ---
 
-- To use the display you need to enable SPI in raspi-config (or the GUI system settings)!
-- If you do no already have pillow installed install it via `pip3 install Pillow`.
+- To use the display you need to enable SPI in `raspi-config` (or the GUI system settings)!
+  - Do it via `sudo raspi-config` > `5. Interface Options` > `P4 SPI` > `True`
+- If you do not already have pillow installed install it via `pip3 install Pillow`.
 
 ---
+
+### LCD (Display)
+
+- I bought this display: [SunFounder IIC/I2C/TWI Serial 2004/20x4 LCD Display](https://www.amazon.de/gp/product/B01GPUMP9C/ref=oh_aui_detailpage_o01_s01?ie=UTF8&psc=1)
+- Then I followed the great instructions of [this website](https://tutorials-raspberrypi.de/hd44780-lcd-display-per-i2c-mit-dem-raspberry-pi-ansteuern/), Go over there if you can speak German - it's a really great tutorial
+- From the same page I also got a [python driver](http://tutorials-raspberrypi.de/wp-content/uploads/scripts/hd44780_i2c.zip) for the display
+- To get everything to work because of the I2C adapter I followed the tutorial and additonally bought [2 Channel Logic Level Converter 3.3V to 5V ](https://www.amazon.de/gp/product/B06Y3FNGJF/ref=od_aui_detailpages00?ie=UTF8&psc=1) 
+
+I copied the driver into this repository if in the future the other site dissapears or changes it's link system, but please give the article a try, I really liked it and could instantly start.
+
+![raspberry_pi_lcd_sunfounder_i2c](pictures/gpio/raspberry_pi_lcd_sunfounder_i2c.JPG)
+
+If you connect all pins like their [article](https://tutorials-raspberrypi.de/hd44780-lcd-display-per-i2c-mit-dem-raspberry-pi-ansteuern/) says ([they even have a great picture](https://tutorials-raspberrypi.de/wp-content/uploads/hd44780-i2c-display_Steckplatine-600x365.png)) or like the picture above displays you need to do two more things:
+
+---
+
+- To use the display you need to enable I2C in `raspi-config` (or the GUI system settings)!
+  - Do it via `sudo raspi-config` > `5. Interface Options` > `P5 I2C` > `True`
+  - To check if everything worked just enter `sudo i2cdetect -y 1` and you should see a table where a 27 is listed (if there is another number listed change the address in the [`lcddriver.py`](scripts/gpio/lcd/lcddriver.py) file to the new address from `ADDRESS = 0x27 `)
+
+---
+
+Now you need to copy the entire directory [lcd](scripts/gpio/lcd) onto your pi, open in the cloned/copied directory your terminal and execute [`main.py`](scripts/gpio/lcd/main.py). If everything worked you can now implement your methods and do what you want with it.

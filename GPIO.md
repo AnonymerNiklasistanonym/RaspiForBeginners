@@ -1,4 +1,4 @@
-# ![raspberry_pi_oled_az-delivery_i2c](C:\Users\nikla\Documents\GitHubBeta\RaspiForBeginners\pictures\gpio\raspberry_pi_oled_az-delivery_i2c.JPG)RaspiForBeginners > GPIO
+# RaspiForBeginners > GPIO
 
 Control with python3 GPIO pins.
 

@@ -132,7 +132,7 @@ If you connect all pins like the [readme.txt](scripts/gpio/e-Ink/readme.txt) say
 - From the same page I also got a [python driver](http://tutorials-raspberrypi.de/wp-content/uploads/scripts/hd44780_i2c.zip) for the display
 - To get everything to work because of the I2C adapter I followed the tutorial and additonally bought [2 Channel Logic Level Converter 3.3V to 5V ](https://www.amazon.de/gp/product/B06Y3FNGJF/ref=od_aui_detailpages00?ie=UTF8&psc=1) 
 
-I copied the driver into this repository if in the future the other site dissapears or changes it's link system, but please give the article a try, I really liked it and could instantly start.
+I copied the driver into this repository if in the future the other site disappears or changes it's link system, but please give the article a try, I really liked it and could instantly start.
 
 ![raspberry_pi_lcd_sunfounder_i2c](pictures/gpio/raspberry_pi_lcd_sunfounder_i2c.JPG)
 
@@ -147,3 +147,5 @@ If you connect all pins like their [article](https://tutorials-raspberrypi.de/hd
 ---
 
 Now you need to copy the entire directory [lcd](scripts/gpio/lcd) onto your pi, open in the cloned/copied directory your terminal and execute [`main.py`](scripts/gpio/lcd/main.py). If everything worked you can now implement your methods and do what you want with it.
+
+If you can't read anything at first - do not go crazy - turn the display and turn/rotate the blue thing at the back on the red thing in both directions and check the front if the contrast changes for the better in any of them.

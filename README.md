@@ -8,15 +8,21 @@ Have fun with your Raspberry Pi 3! :smiley:
 
 # 0. Other cool things
 
-Outside of the tutorial you can find in this repository also:
+Outside of this tutorial you can find in this repository also:
 
 - A funny and short introduction into Linux and Bash (only in German for now) from [denniskeller](https://github.com/denniskeller)
   → find it in the [directory `linuxdemo`](linuxdemo) (download the repository and open`index.html`)
-- [Tutorial of how to connect and use a camera with Python](CAMERA.md)
-- [Tutorial of how to connect and use GPIO pins](GPIO.md)
 - Some simple scripts in different languages if you want to get in touch with some programming languages
 - Other things if you have something cool and contribute it :D
   (links to cool websites and repositories are also allowed)
+
+### 0.1 [How to connect and use a camera with Python](CAMERA.md)
+
+(Advanced) Tutorial of how to make/use pictures/videos with your raspberry pi and python3.
+
+### 0.2 [How to connect and use GPIO pins](GPIO.md)
+
+(Advanced) Tutorial of how to use the GPIO pins to turn LED's on, use external displays and such things with your raspberry pi and python3.
 
 # 1. Get the hardware
 

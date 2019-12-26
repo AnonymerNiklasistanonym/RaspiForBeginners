@@ -182,13 +182,13 @@ My favourite one is probably the [font_awesome.py](scripts/gpio/oled/font_awesom
 
 ## LCD Touch Display
 
-- I bought this display: [STARTO Raspberry Pi Touchscreen 3,5 Inch Zoll Display TFT Monitor LCD 320x480](https://www.amazon.de/gp/product/B07S8CKW58/ref=ox_sc_act_title_1?smid=A1QYNW8GSP8HVC&psc=1)
+- I bought this display: [STARTO Raspberry Pi Touchscreen 3,5 Inch Zoll Display TFT Monitor LCD 320x480 (28 Euro)](https://www.amazon.de/gp/product/B07S8CKW58/ref=ox_sc_act_title_1?smid=A1QYNW8GSP8HVC&psc=1)
 - Then I followed the instructions that are provided in the box which set everything up using [Lcdwiki LCD-show GitHub repository](https://github.com/Lcdwiki/LCD-show)
 - This will move the desktop display to the 3.5 touchscreen which is great if you develop a small screen application with a touch based interface (to use the touch screen you can use your finger but only with a provided touch pen there are possibilities to use more specific gesture based controls)
 
 ![raspberry_pi_lcd_touch_starto](pictures/gpio/raspberry_pi_lcd_touch_starto.JPG)
 
-After the display is connected and display blinking white pixels follow the instructions:
+After the display is connected and displaying blinking white pixels follow the provided instructions:
 
 ```sh
 git clone https://github.com/Lcdwiki/LCD-show.git
@@ -206,4 +206,4 @@ This worked but had the following side effects:
      - `fsck -y /dev/mmcblk0p`
      - Then exit by pressing `Ctrl` + `D`
 2. The external HDMI output was not working any more
-   - THere is currently no solution for this
+   - There is currently no solution

@@ -2,11 +2,10 @@
 
 Control with python3 GPIO pins.
 
-
 ## 0. Sources with better explanation
 
-- https://www.raspberrypi.org/documentation/usage/gpio/
-- https://gpiozero.readthedocs.io/en/stable/recipes.html
+- [Official Raspberry Pi documentation about GPIO usage](https://www.raspberrypi.org/documentation/usage/gpio/)
+- [`gpiozero` Python library documentation](https://gpiozero.readthedocs.io/en/stable/recipes.html)
 
 ## 1. Recap circuits
 
@@ -130,7 +129,7 @@ If you connect all pins like the [readme.txt](scripts/gpio/e-Ink/readme.txt) say
 - I bought this display: [SunFounder IIC/I2C/TWI Serial 2004/20x4 LCD Display (14 Euro)](https://www.amazon.de/gp/product/B01GPUMP9C/ref=oh_aui_detailpage_o01_s01?ie=UTF8&psc=1)
 - Then I followed the great instructions of [this website](https://tutorials-raspberrypi.de/hd44780-lcd-display-per-i2c-mit-dem-raspberry-pi-ansteuern/), Go over there if you can speak German - it's a really great tutorial
 - From the same page I also got a [python driver](http://tutorials-raspberrypi.de/wp-content/uploads/scripts/hd44780_i2c.zip) for the display
-- To get everything to work because of the I2C adapter I followed the tutorial and additonally bought [2 Channel Logic Level Converter 3.3V to 5V (6 Euro)](https://www.amazon.de/gp/product/B06Y3FNGJF/ref=od_aui_detailpages00?ie=UTF8&psc=1) 
+- To get everything to work because of the I2C adapter I followed the tutorial and additonally bought [2 Channel Logic Level Converter 3.3V to 5V (6 Euro)](https://www.amazon.de/gp/product/B06Y3FNGJF/ref=od_aui_detailpages00?ie=UTF8&psc=1)
 
 I copied the driver into this repository if in the future the other site disappears or changes it's link system, but please give the article a try, I really liked it and could instantly start.
 
@@ -142,7 +141,7 @@ If you connect all pins like their [article](https://tutorials-raspberrypi.de/hd
 
 - To use the display you need to enable I2C in `raspi-config` (or the GUI system settings)!
   - Do it via `sudo raspi-config` > `5. Interface Options` > `P5 I2C` > `True`
-  - To check if everything worked just enter `sudo i2cdetect -y 1` and you should see a table where a 27 is listed (if there is another number listed change the address in the [`lcddriver.py`](scripts/gpio/lcd/lcddriver.py) file to the new address from `ADDRESS = 0x27 `)
+  - To check if everything worked just enter `sudo i2cdetect -y 1` and you should see a table where a 27 is listed (if there is another number listed change the address in the [`lcddriver.py`](scripts/gpio/lcd/lcddriver.py) file to the new address from `ADDRESS = 0x27`)
 
 ---
 
@@ -153,7 +152,7 @@ If you can't read anything at first - do not go crazy - turn the display and tur
 ## OLED (Display)
 
 - I bought this display: [SSD1306 AZDelivery 128 x 64 Pixel (@4-5fps, white/black) 0,96 Zoll OLED I2C Display (8 Euro)](https://www.amazon.de/gp/product/B01L9GC470/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1)
-- Then I followed the great instructions of [this website](https://luma-oled.readthedocs.io/en/latest/hardware.html) which I got to through the repository [luma.oled](https://github.com/rm-hull/luma.oled) 
+- Then I followed the great instructions of [this website](https://luma-oled.readthedocs.io/en/latest/hardware.html) which I got to through the repository [luma.oled](https://github.com/rm-hull/luma.oled)
 
 ![raspberry_pi_oled_az-delivery_i2c](pictures/gpio/raspberry_pi_oled_az-delivery_i2c.JPG)
 
@@ -161,7 +160,7 @@ First step is to connect the device like  you can see in the picture above or fr
 
 To run any demo you need to install the following `luma.oled` library/dependency with the following command:
 
-```
+```sh
 sudo -H pip install --upgrade luma.oled
 ```
 
@@ -180,3 +179,31 @@ My favourite one is probably the [font_awesome.py](scripts/gpio/oled/font_awesom
    `sudo apt-get install python-dev python-pip libfreetype6-dev libjpeg-dev build-essential`
 
 ---
+
+## LCD Touch Display
+
+- I bought this display: [STARTO Raspberry Pi Touchscreen 3,5 Inch Zoll Display TFT Monitor LCD 320x480](https://www.amazon.de/gp/product/B07S8CKW58/ref=ox_sc_act_title_1?smid=A1QYNW8GSP8HVC&psc=1)
+- Then I followed the instructions that are provided in the box which set everything up using [Lcdwiki LCD-show GitHub repository](https://github.com/Lcdwiki/LCD-show)
+- This will move the desktop display to the 3.5 touchscreen which is great if you develop a small screen application with a touch based interface (to use the touch screen you can use your finger but only with a provided touch pen there are possibilities to use more specific gesture based controls)
+
+![raspberry_pi_lcd_touch_starto](pictures/gpio/raspberry_pi_lcd_touch_starto.JPG)
+
+After the display is connected and display blinking white pixels follow the instructions:
+
+```sh
+git clone https://github.com/Lcdwiki/LCD-show.git
+chmod -R 755 LCD-show
+cd LCD-show/
+sudo ./MHS35-show
+```
+
+This worked but had the following side effects:
+
+1. When and every time the Raspberry Pi was started the boot was interrupted by the log message
+   - The solution was to enter the password to get into boot mode as root user (then pressing enter)
+   - Then it was necessary to fix the boot partition which is dangerous but worked completely fine for me
+     - `umount /dev/mmcblk0p2` (you also get the name of the boot partition by executing `fdisk -l`)
+     - `fsck -y /dev/mmcblk0p`
+     - Then exit by pressing `Ctrl` + `D`
+2. The external HDMI output was not working any more
+   - THere is currently no solution for this
